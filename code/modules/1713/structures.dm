@@ -234,7 +234,7 @@
 	anchored = TRUE
 	flammable = TRUE
 	not_movable = FALSE
-	not_disassemblable = TRUE
+	not_disassemblable = FALSE
 
 /obj/structure/flag/ex_act(severity)
 	switch(severity)
@@ -342,7 +342,15 @@
 	opacity = FALSE
 
 /obj/structure/wallframe/attackby(obj/item/W as obj, var/mob/living/carbon/human/H)
-	if(istype(W, /obj/item/stack/material/wood))
+	if (W.sharp)
+		user << "You start ripping off the [src]..."
+		if (do_after(user, 70, src))
+			visible_message("[user] rips the [src]!")
+			overlays.Cut()
+			icon_state = "[icon_state]_ripped"
+			color = color2
+			update_icon()
+	else if(istype(W, /obj/item/stack/material/wood))
 		var/input
 		var/display = list("Medieval Window - 4", "Medieval Wall - 6", "Medieval Crossbraced Wall (X) - 6", "Medieval Braced Wall (\\) - 6", "Medieval Braced Wall (/) - 6", "Cancel")
 		input =  WWinput(H, "What wall would you like to make?", "Building", "Cancel", display)
