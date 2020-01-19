@@ -341,14 +341,13 @@
 	density = FALSE
 	opacity = FALSE
 
-/obj/structure/wallframe/attackby(obj/item/W as obj, var/mob/living/carbon/human/H)
+/obj/structure/wallframe/attackby(obj/item/W as obj, var/mob/living/carbon/human/H, mob/user as mob)
 	if (W.sharp)
 		user << "You start ripping off the [src]..."
 		if (do_after(user, 70, src))
 			visible_message("[user] rips the [src]!")
 			overlays.Cut()
 			icon_state = "[icon_state]_ripped"
-			color = color2
 			update_icon()
 	else if(istype(W, /obj/item/stack/material/wood))
 		var/input
