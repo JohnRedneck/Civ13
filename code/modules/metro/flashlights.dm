@@ -1,6 +1,6 @@
 /obj/item/flashlight/lantern2
 	name = "gas lantern"
-	icon_state = "gas lantern"
+	icon_state = "lantern2"
 	desc = "An old fashioned gas powered lantern."
 	brightness_on = 6			// luminosity when on
 	light_color = rgb(255, 255, 200) // yellow tint
