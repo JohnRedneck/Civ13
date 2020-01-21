@@ -68,7 +68,7 @@
 "bp" = (/obj/item/ammo_casing/a545x39,/obj/item/ammo_casing/a545x39,/turf/floor/plating/road,/area/complex)
 "bq" = (/obj/item/ammo_casing/a545x39,/obj/item/ammo_casing/a545x39,/obj/effect/decal/cleanable/blood,/turf/floor/plating/road,/area/complex)
 "br" = (/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/obj/structure/window/sandbag/sandbag,/turf/floor/plating/road,/area/complex)
-"bs" = (/turf/floor/plating/concrete,/area/complex)
+"bs" = (/obj/structure/table/wood,/obj/item/weapon/gun/projectile/submachinegun/makeshiftak47,/obj/item/weapon/gun/projectile/submachinegun/makeshiftak47,/obj/item/weapon/gun/projectile/submachinegun/makeshiftak47,/obj/item/weapon/gun/projectile/submachinegun/makeshiftak47,/obj/item/weapon/gun/projectile/submachinegun/makeshiftak47,/turf/floor,/area/complex)
 "bt" = (/obj/item/ammo_casing/a545x39{step_y = 3},/obj/item/ammo_casing/a545x39{step_y = 3},/turf/floor/plating/road,/area/complex)
 "bu" = (/obj/item/ammo_casing/a545x39{step_x = 1},/turf/floor/plating/road,/area/complex)
 "bv" = (/obj/item/ammo_casing/a545x39,/obj/effect/decal/cleanable/blood,/turf/floor/plating/road,/area/complex)
@@ -77,7 +77,7 @@
 "by" = (/obj/structure/rails,/obj/structure/barricade/steel,/obj/structure/sign/flag/rippable/reichflag,/turf/floor/plating/road,/area/complex)
 "bz" = (/obj/structure/table/wood,/obj/item/weapon/attachment/scope/adjustable/binoculars/binoculars,/turf/floor/plating/road,/area/complex)
 "bA" = (/obj/structure/table/wood,/obj/item/weapon/storage/firstaid/adv,/turf/floor,/area/complex)
-"bB" = (/obj/structure/rails,/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor/wood,/area/complex)
+"bB" = (/turf/floor/broken_floor,/area/complex)
 "bC" = (/obj/structure/window/sandbag/sandbag,/obj/item/ammo_casing/a545x39,/turf/floor/plating/road,/area/complex)
 "bD" = (/obj/structure/window/sandbag/sandbag,/turf/floor/plating/road,/area/complex)
 "bE" = (/obj/structure/window/sandbag/sandbag,/obj/structure/barricade/steel,/turf/floor/plating/road,/area/complex)
@@ -87,46 +87,46 @@
 "bI" = (/obj/structure/window/sandbag/sandbag,/obj/item/ammo_casing/a545x39,/obj/item/ammo_casing/a545x39,/turf/floor/plating/road,/area/complex)
 "bJ" = (/obj/structure/table/wood,/obj/item/flashlight/lantern2,/turf/floor,/area/complex)
 "bK" = (/obj/structure/barricade/horizontal,/turf/floor,/area/complex)
-"bL" = (/turf/open,/area/complex)
+"bL" = (/obj/structure/rails,/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor/plating/road,/area/complex)
 "bM" = (/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor/plating/road,/area/complex)
-"bN" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor/wood,/area/complex)
-"bO" = (/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor/wood,/area/complex)
-"bP" = (/obj/structure/rails,/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor/wood,/area/complex)
-"bQ" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/item/ammo_casing/a545x39,/obj/item/ammo_casing/a545x39,/turf/floor/wood,/area/complex)
-"bR" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/structure/table/wood,/obj/item/flashlight/lantern2,/turf/floor/wood,/area/complex)
+"bN" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/item/ammo_casing/a545x39,/obj/item/ammo_casing/a545x39,/turf/floor/plating/road,/area/complex)
+"bO" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/structure/table/wood,/obj/item/flashlight/lantern2,/turf/floor/plating/road,/area/complex)
+"bP" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/turf/floor/plating/road,/area/complex)
+"bQ" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/plating/road,/area/complex)
+"bR" = (/obj/structure/rails,/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/plating/road,/area/complex)
 "bS" = (/obj/structure/shellrack/full76,/turf/floor,/area/complex)
-"bT" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/turf/floor/wood,/area/complex)
-"bU" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/wood,/area/complex)
-"bV" = (/obj/structure/rails,/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/wood,/area/complex)
-"bW" = (/obj/structure/rails,/turf/floor/wood,/area/complex)
-"bX" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/structure/table/wood,/obj/item/ammo_magazine/pkm,/obj/item/ammo_magazine/pkm,/turf/floor/wood,/area/complex)
-"bY" = (/obj/structure/rails,/obj/item/weapon/gun/projectile/automatic/stationary/modern/pkm,/turf/floor/wood,/area/complex)
+"bT" = (/obj/covers/cement_wall,/turf/floor/broken_floor,/area/complex)
+"bU" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/structure/table/wood,/obj/item/ammo_magazine/pkm,/obj/item/ammo_magazine/pkm,/turf/floor/plating/road,/area/complex)
+"bV" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/item/mine/ap/armed,/turf/floor/plating/road,/area/complex)
+"bW" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/effect/decal/cleanable/blood/gibs/limb,/turf/floor/plating/road,/area/complex)
+"bX" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/structure/barricade/steel,/obj/structure/sign/flag/rippable/reichflag,/turf/floor/plating/road,/area/complex)
+"bY" = (/obj/structure/barricade/steel,/obj/structure/sign/flag/rippable/reichflag,/turf/floor/plating/road,/area/complex)
 "bZ" = (/obj/structure/window/sandbag/sandbag,/turf/floor,/area/complex)
-"ca" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/item/mine/ap/armed,/turf/floor/wood,/area/complex)
-"cb" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/effect/decal/cleanable/blood/gibs/limb,/turf/floor/wood,/area/complex)
-"cc" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/structure/barricade/steel,/obj/structure/sign/flag/rippable/reichflag,/turf/floor/wood,/area/complex)
-"cd" = (/obj/structure/rails,/obj/structure/window/sandbag/sandbag,/turf/floor/wood,/area/complex)
-"ce" = (/obj/structure/barricade/steel,/obj/structure/sign/flag/rippable/reichflag,/turf/floor/wood,/area/complex)
+"ca" = (/obj/structure/rails,/obj/structure/barbwire,/turf/floor/plating/road,/area/complex)
+"cb" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/item/mine/ap/armed,/turf/floor/plating/road,/area/complex)
+"cc" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/item/ammo_casing/a545x39,/turf/floor/plating/road,/area/complex)
+"cd" = (/obj/structure/rails,/obj/item/ammo_casing/a545x39,/obj/item/ammo_casing/a545x39,/obj/item/ammo_casing/a545x39,/turf/floor/plating/road,/area/complex)
+"ce" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/item/ammo_casing/a545x39,/turf/floor/plating/road,/area/complex)
 "cf" = (/obj/structure/table_frame,/turf/floor,/area/complex)
 "cg" = (/obj/structure/closet,/obj/item/mine/ap/armed,/turf/floor,/area/complex)
-"ch" = (/turf/floor/wood,/area/complex)
+"ch" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor/plating/road,/area/complex)
 "ci" = (/obj/item/mine/ap/armed,/turf/floor,/area/complex)
-"cj" = (/obj/structure/rails,/obj/structure/barbwire,/turf/floor/wood,/area/complex)
-"ck" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/item/mine/ap/armed,/turf/floor/wood,/area/complex)
-"cl" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/item/ammo_casing/a545x39,/turf/floor/wood,/area/complex)
+"cj" = (/obj/effect/decal/cleanable/blood/gibs/limb,/turf/floor/plating/road,/area/complex)
+"ck" = (/obj/structure/rails,/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/obj/structure/window/sandbag/sandbag,/turf/floor/plating/road,/area/complex)
+"cl" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/turf/floor/plating/road,/area/complex)
 "cm" = (/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor,/area/complex)
-"cn" = (/obj/structure/rails,/obj/item/ammo_casing/a545x39,/obj/item/ammo_casing/a545x39,/obj/item/ammo_casing/a545x39,/turf/floor/wood,/area/complex)
-"co" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/item/ammo_casing/a545x39,/turf/floor/wood,/area/complex)
-"cp" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor/wood,/area/complex)
+"cn" = (/obj/structure/rails,/obj/effect/decal/cleanable/blood/gibs/limb,/obj/item/ammo_casing/a545x39,/turf/floor/plating/road,/area/complex)
+"co" = (/obj/effect/decal/cleanable/blood/gibs/core,/turf/floor/plating/road,/area/complex)
+"cp" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/effect/decal/cleanable/blood/gibs/limb,/obj/effect/decal/cleanable/blood,/turf/floor/plating/road,/area/complex)
 "cq" = (/obj/item/flashlight/lantern2,/turf/floor/plating/road,/area/complex)
 "cr" = (/turf/floor/dirt,/area/complex)
-"cs" = (/obj/effect/decal/cleanable/blood/gibs/limb,/turf/floor/wood,/area/complex)
+"cs" = (/obj/structure/table/wood,/obj/item/weapon/pickaxe/jackhammer,/turf/floor,/area/complex)
 "ct" = (/obj/structure/table/wood,/obj/item/weapon/wrench,/turf/floor,/area/complex)
-"cu" = (/obj/structure/rails,/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/obj/structure/window/sandbag/sandbag,/turf/floor/wood,/area/complex)
-"cv" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/turf/floor/wood,/area/complex)
+"cu" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor/plating/road,/area/complex)
+"cv" = (/obj/effect/decal/cleanable/urine,/turf/floor/plating/road,/area/complex)
 "cw" = (/obj/covers/cement_wall,/turf/floor,/area/complex)
-"cx" = (/obj/structure/rails,/obj/effect/decal/cleanable/blood/gibs/limb,/obj/item/ammo_casing/a545x39,/turf/floor/wood,/area/complex)
-"cy" = (/obj/structure/rails,/obj/item/ammo_casing/a545x39,/turf/floor/wood,/area/complex)
+"cx" = (/obj/structure/rails,/obj/item/ammo_casing/a545x39,/obj/item/ammo_casing/a545x39,/turf/floor/plating/road,/area/complex)
+"cy" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/effect/decal/cleanable/blood/gibs/down,/turf/floor/plating/road,/area/complex)
 "cz" = (/obj/effect/decal/cleanable/blood,/turf/floor,/area/complex)
 "cA" = (/obj/effect/decal/cleanable/cobweb2,/turf/floor,/area/complex)
 "cB" = (/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/obj/effect/decal/cleanable/blood,/turf/floor/plating/road,/area/complex)
@@ -144,15 +144,15 @@
 "cN" = (/obj/item/weapon/broken_bottle,/turf/floor/plating/road,/area/complex)
 "cO" = (/obj/covers/cement_wall,/obj/structure/sign/flag/rippable/redlineflag,/turf/floor/plating/road,/area/complex)
 "cP" = (/obj/item/weapon/cigbutt/cigarbutt,/turf/floor/plating/road,/area/complex)
-"cQ" = (/obj/effect/decal/cleanable/blood/gibs/core,/turf/floor/wood,/area/complex)
+"cQ" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/structure/window/sandbag/sandbag,/turf/floor/plating/road,/area/complex)
 "cR" = (/obj/structure/flag/small/redlinefloorbanner,/turf/floor,/area/complex)
 "cS" = (/obj/structure/table/wood,/obj/item/stack/material/barbwire,/obj/item/stack/material/barbwire,/obj/item/stack/material/barbwire,/obj/item/stack/material/barbwire,/turf/floor/plating/road,/area/complex)
 "cT" = (/obj/effect/decal/cleanable/vomit,/turf/floor/plating/road,/area/complex)
-"cU" = (/obj/structure/barricade/steel,/obj/item/weapon/beartrap/armed,/turf/floor,/area/complex)
+"cU" = (/obj/structure/table/wood,/obj/item/ammo_magazine/ak47/makeshift,/obj/item/ammo_magazine/ak47/makeshift,/obj/item/ammo_magazine/ak47/makeshift,/obj/item/ammo_magazine/ak47/makeshift,/obj/item/ammo_magazine/ak47/makeshift,/obj/item/ammo_magazine/ak47/makeshift,/obj/item/ammo_magazine/ak47/makeshift,/obj/item/ammo_magazine/ak47/makeshift,/obj/item/ammo_magazine/ak47/makeshift,/obj/item/ammo_magazine/ak47/makeshift,/turf/floor,/area/complex)
 "cV" = (/obj/structure/closet/crate/rations/ale,/turf/floor/plating/road,/area/complex)
 "cW" = (/obj/structure/bed/chair{icon_state = "chair"; dir = 4},/turf/floor/plating/road,/area/complex)
 "cX" = (/obj/structure/table/wood,/obj/item/weapon/paper_bin,/obj/item/weapon/pen/pencil,/obj/effect/decal/cleanable/cobweb2{icon_state = "cobweb2"; dir = 8},/turf/floor/plating/road,/area/complex)
-"cY" = (/obj/structure/table/wood,/obj/item/weapon/storage/toolbox/mechanical,/turf/floor,/area/complex)
+"cY" = (/obj/structure/table/wood,/obj/item/weapon/storage/toolbox/mechanical,/obj/item/weapon/pickaxe/jackhammer,/turf/floor,/area/complex)
 "cZ" = (/obj/structure/simple_door/iron,/turf/floor/plating/road,/area/complex)
 "da" = (/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 8},/turf/floor/plating/road,/area/complex)
 "db" = (/obj/covers/cement_wall,/obj/structure/sign/flag/rippable/redlineflag,/turf/floor/dirt,/area/complex)
@@ -160,7 +160,7 @@
 "dd" = (/obj/structure/shellrack,/turf/floor,/area/complex)
 "de" = (/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 4},/obj/structure/barbwire{icon_state = "barbwire"; dir = 4},/obj/structure/window/sandbag/sandbag,/turf/floor,/area/complex)
 "df" = (/obj/structure/window/sandbag/sandbag,/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 8},/turf/floor,/area/complex)
-"dg" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/effect/decal/cleanable/blood/gibs/limb,/obj/effect/decal/cleanable/blood,/turf/floor/wood,/area/complex)
+"dg" = (/obj/structure/rails,/obj/effect/decal/cleanable/blood/gibs/up,/turf/floor/plating/road,/area/complex)
 "dh" = (/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 4},/obj/structure/window/sandbag/sandbag,/turf/floor/plating/road,/area/complex)
 "di" = (/obj/covers/cement_wall,/obj/structure/sign/flag/rippable/redlinebanner,/turf/floor,/area/complex)
 "dj" = (/obj/covers/cement_wall,/obj/structure/sign/flag/rippable/redlineflag,/turf/floor,/area/complex)
@@ -169,51 +169,41 @@
 "dm" = (/obj/structure/table/wood,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/MRE/meat,/obj/item/weapon/reagent_containers/food/snacks/MRE/meat,/turf/floor/plating/road,/area/complex)
 "dn" = (/obj/structure/bed/chair,/turf/floor/plating/road,/area/complex)
 "do" = (/obj/item/ammo_casing/a545x39,/obj/structure/vent/ventrusty,/turf/floor/plating/road,/area/complex)
-"dp" = (/obj/effect/decal/cleanable/urine,/turf/floor/wood,/area/complex)
+"dp" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/effect/decal/cleanable/blood/gibs/core,/obj/item/mine/ap/armed,/turf/floor/plating/road,/area/complex)
 "dq" = (/obj/structure/table/wood,/obj/item/weapon/reagent_containers/food/drinks/bottle/huge/shroomvodka,/obj/item/weapon/reagent_containers/food/drinks/bottle/huge/shroomvodka,/obj/item/weapon/reagent_containers/food/drinks/bottle/huge/shroomvodka,/obj/item/weapon/reagent_containers/food/drinks/bottle/huge/shroomvodka,/obj/item/weapon/reagent_containers/food/drinks/bottle/huge/shroomvodka,/obj/item/weapon/reagent_containers/food/drinks/bottle/huge/shroomvodka,/obj/item/weapon/reagent_containers/food/drinks/bottle/huge/shroomvodka,/turf/floor/plating/road,/area/complex)
 "dr" = (/obj/structure/table/wood,/obj/item/weapon/reagent_containers/glass/bucket,/obj/item/kitchen/wood_bowl,/obj/item/kitchen/wood_bowl,/turf/floor/plating/road,/area/complex)
 "ds" = (/obj/structure/table/wood,/obj/item/weapon/reagent_containers/food/drinks/bottle/can/shroomvodka,/obj/item/weapon/reagent_containers/food/drinks/bottle/can/shroomvodka,/obj/item/weapon/reagent_containers/food/drinks/bottle/can/shroomvodka,/obj/item/weapon/reagent_containers/food/drinks/bottle/can/shroomvodka,/obj/item/weapon/reagent_containers/food/drinks/bottle/can/shroomvodka,/obj/item/weapon/reagent_containers/food/drinks/bottle/can/shroomvodka,/obj/item/weapon/reagent_containers/food/drinks/bottle/can/shroomvodka,/turf/floor/plating/road,/area/complex)
 "dt" = (/obj/structure/bed/chair{icon_state = "chair"; dir = 4},/turf/floor,/area/complex)
 "du" = (/obj/structure/closet/anchored,/turf/floor,/area/complex)
 "dv" = (/obj/structure/bed/mattress,/turf/floor,/area/complex)
-"dw" = (/obj/structure/rails,/obj/item/ammo_casing/a545x39,/obj/item/ammo_casing/a545x39,/turf/floor/wood,/area/complex)
-"dx" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/effect/decal/cleanable/blood/gibs/down,/turf/floor/wood,/area/complex)
+"dw" = (/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/plating/road,/area/complex)
+"dx" = (/obj/structure/rails,/obj/structure/trains/transport/cabin,/turf/floor/plating/road,/area/complex)
 "dy" = (/obj/structure/closet/anchored,/obj/item/mine/ap/armed,/turf/floor,/area/complex)
-"dz" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/structure/window/sandbag/sandbag,/turf/floor/wood,/area/complex)
+"dz" = (/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/plating/road,/area/complex)
 "dA" = (/obj/structure/table/wood,/obj/item/flashlight/lantern2,/turf/floor/plating/road,/area/complex)
-"dB" = (/obj/structure/rails,/obj/effect/decal/cleanable/blood/gibs/up,/turf/floor/wood,/area/complex)
-"dC" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/effect/decal/cleanable/blood/gibs/core,/obj/item/mine/ap/armed,/turf/floor/wood,/area/complex)
+"dB" = (/obj/structure/rails,/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/plating/road,/area/complex)
+"dC" = (/obj/structure/window/sandbag/sandbag,/obj/structure/barbwire,/turf/floor/plating/road,/area/complex)
 "dD" = (/obj/structure/table/wood,/obj/structure/radio/transmitter_receiver/nopower/faction1,/turf/floor/plating/road,/area/complex)
-"dE" = (/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/wood,/area/complex)
-"dF" = (/obj/item/ammo_casing/a545x39,/turf/floor/wood,/area/complex)
-"dG" = (/obj/structure/rails,/obj/structure/trains/transport/cabin,/turf/floor/wood,/area/complex)
-"dH" = (/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/wood,/area/complex)
-"dI" = (/obj/structure/rails,/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/turf/floor/wood,/area/complex)
-"dJ" = (/obj/structure/window/sandbag/sandbag,/obj/structure/barbwire,/turf/floor/wood,/area/complex)
-"dK" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/effect/decal/cleanable/blood/splatter,/turf/floor/wood,/area/complex)
-"dL" = (/obj/structure/rails,/obj/structure/trains/transport/flatbed,/turf/floor/wood,/area/complex)
-"dM" = (/obj/structure/rails,/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 4},/turf/floor/wood,/area/complex)
-"dN" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/effect/decal/cleanable/blood/gibs/core,/turf/floor/wood,/area/complex)
-"dO" = (/obj/structure/rails,/obj/item/mine/ap/armed,/obj/item/ammo_casing/a545x39,/obj/item/ammo_casing/a545x39,/turf/floor/wood,/area/complex)
-"dP" = (/obj/item/mine/ap/armed,/turf/floor/wood,/area/complex)
-"dQ" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/effect/decal/cleanable/blood,/turf/floor/wood,/area/complex)
-"dR" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/effect/decal/cleanable/blood/gibs/up,/turf/floor/wood,/area/complex)
-"dS" = (/obj/structure/window/sandbag/sandbag,/turf/floor/wood,/area/complex)
-"dT" = (/obj/structure/rails,/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 8},/obj/structure/barbwire{icon_state = "barbwire"; dir = 4},/turf/floor/wood,/area/complex)
-"dU" = (/obj/effect/decal/cleanable/blood/gibs/up,/turf/floor/wood,/area/complex)
-"dV" = (/obj/structure/rails,/obj/structure/barbwire{icon_state = "barbwire"; dir = 4},/turf/floor/wood,/area/complex)
-"dW" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/effect/decal/cleanable/blood/gibs/limb,/obj/effect/decal/cleanable/blood,/turf/floor/wood,/area/complex)
-"dX" = (/obj/structure/rails,/obj/effect/decal/cleanable/blood/gibs/body,/turf/floor/wood,/area/complex)
-"dY" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/structure/window/sandbag/sandbag,/turf/floor/wood,/area/complex)
-"dZ" = (/obj/structure/rails,/obj/effect/oil,/turf/floor/wood,/area/complex)
-"ea" = (/obj/item/ammo_casing/a545x39,/obj/item/ammo_casing/a545x39,/turf/floor/wood,/area/complex)
-"eb" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/effect/decal/cleanable/blood/splatter,/turf/floor/wood,/area/complex)
-"ec" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/effect/decal/cleanable/blood/gibs/body,/turf/floor/wood,/area/complex)
-"ed" = (/obj/structure/rails,/obj/structure/window/sandbag/sandbag,/obj/structure/barbwire,/turf/floor/wood,/area/complex)
-"ee" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/effect/decal/cleanable/blood/gibs/body,/obj/item/ammo_casing/a545x39,/turf/floor/wood,/area/complex)
-"ef" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/effect/decal/cleanable/blood/tracks/wheels,/obj/effect/decal/cleanable/blood/gibs/limb,/obj/item/ammo_casing/a545x39,/turf/floor/wood,/area/complex)
-"eg" = (/obj/effect/decal/cleanable/blood,/turf/floor/wood,/area/complex)
-"eh" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/effect/decal/cleanable/generic,/turf/floor/wood,/area/complex)
+"dE" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/effect/decal/cleanable/blood/splatter,/turf/floor/plating/road,/area/complex)
+"dF" = (/obj/structure/rails,/obj/structure/trains/transport/flatbed,/turf/floor/plating/road,/area/complex)
+"dG" = (/obj/structure/rails,/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 4},/turf/floor/plating/road,/area/complex)
+"dH" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/effect/decal/cleanable/blood/gibs/core,/turf/floor/plating/road,/area/complex)
+"dI" = (/obj/structure/rails,/obj/item/mine/ap/armed,/obj/item/ammo_casing/a545x39,/obj/item/ammo_casing/a545x39,/turf/floor/plating/road,/area/complex)
+"dJ" = (/obj/item/mine/ap/armed,/turf/floor/plating/road,/area/complex)
+"dK" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/effect/decal/cleanable/blood,/turf/floor/plating/road,/area/complex)
+"dL" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/effect/decal/cleanable/blood/gibs/up,/turf/floor/plating/road,/area/complex)
+"dM" = (/obj/structure/rails,/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 8},/obj/structure/barbwire{icon_state = "barbwire"; dir = 4},/turf/floor/plating/road,/area/complex)
+"dN" = (/obj/effect/decal/cleanable/blood/gibs/up,/turf/floor/plating/road,/area/complex)
+"dO" = (/obj/structure/rails,/obj/structure/barbwire{icon_state = "barbwire"; dir = 4},/turf/floor/plating/road,/area/complex)
+"dP" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/effect/decal/cleanable/blood/gibs/limb,/obj/effect/decal/cleanable/blood,/turf/floor/plating/road,/area/complex)
+"dQ" = (/obj/structure/rails,/obj/effect/decal/cleanable/blood/gibs/body,/turf/floor/plating/road,/area/complex)
+"dR" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/structure/window/sandbag/sandbag,/turf/floor/plating/road,/area/complex)
+"dS" = (/obj/structure/rails,/obj/effect/oil,/turf/floor/plating/road,/area/complex)
+"dT" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/effect/decal/cleanable/blood/splatter,/turf/floor/plating/road,/area/complex)
+"dU" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/effect/decal/cleanable/blood/gibs/body,/turf/floor/plating/road,/area/complex)
+"dW" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/effect/decal/cleanable/blood/gibs/body,/obj/item/ammo_casing/a545x39,/turf/floor/plating/road,/area/complex)
+"dX" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/effect/decal/cleanable/blood/tracks/wheels,/obj/effect/decal/cleanable/blood/gibs/limb,/obj/item/ammo_casing/a545x39,/turf/floor/plating/road,/area/complex)
+"dY" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/effect/decal/cleanable/generic,/turf/floor/plating/road,/area/complex)
 "ei" = (/obj/structure/barricade/horizontal,/turf/floor/plating/road,/area/complex)
 "ej" = (/obj/structure/rails,/obj/structure/rails,/obj/structure/barricade/horizontal,/turf/floor/plating/road,/area/complex)
 "ek" = (/obj/effect/decal/cleanable/blood,/obj/structure/barricade/horizontal,/turf/floor/plating/road,/area/complex)
@@ -229,6 +219,8 @@
 "eu" = (/obj/structure/table/wood,/obj/item/weapon/reagent_containers/food/snacks/MRE/meat,/obj/item/weapon/reagent_containers/food/snacks/MRE/meat,/obj/item/weapon/reagent_containers/food/snacks/MRE/meat,/obj/item/weapon/reagent_containers/food/snacks/MRE/meat,/obj/item/weapon/reagent_containers/food/snacks/MRE/meat,/obj/item/weapon/reagent_containers/food/snacks/MRE/meat,/obj/item/weapon/reagent_containers/food/snacks/MRE/meat,/obj/item/weapon/reagent_containers/food/snacks/MRE/meat,/turf/floor/plating/road,/area/complex)
 "ev" = (/obj/effect/landmark{icon_state = "x3"; name = "JoinLateCiv"},/turf/floor/plating/road,/area/complex)
 "ew" = (/obj/structure/bed/chair{icon_state = "chair"; dir = 1},/turf/floor/plating/road,/area/complex)
+"ex" = (/obj/structure/barricade/horizontal,/turf/floor/dirt,/area/complex)
+"ez" = (/obj/item/weapon/beartrap/armed,/turf/floor,/area/complex)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -362,8 +354,8 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiaiaiaiaiacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiayajazazacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiazaBaBaBaCagahahagacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiayajbscUacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaicsaBaBaBaCagahahagacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiaBaBaBaBaDagahahbfacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiaEaEaFaFacdaahahbfacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacaiaiakaiaiacdaahahbfacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -374,41 +366,41 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaRacac
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBacaaacaTapaVaWaXaYaYahaqaWbabbagaXcWbcaWarbgdAasatagaWdaahahagbfaWalagauagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBacaaaccqagagagagagagahahavagagagagcWelaWawagagagagagcKagahahagbfaWanbmagagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBacaaacbhdmdqaWagaWaWbkahagblbmaYagcWelaWarawaxaxaAaGaLdaahahagbfaWaoasaWagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBacaaacaWaWaWaWagagcqbobkagagbpbqbnaWaWaWaWaWaWaWaWaWaWdaahahagagaMaWaWaOagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacaJacaaacaYbtbubvagaWbwbxbyaYaYbpaYbMbMbMbMbMavaQaUbjagagagahahagagagbMbMagagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBaBaBacaaacbCbDbDbDbDbEaWbFbkagbGbHbIbCbCbDbDbDbCbDbDbDbDbDbDbFbFagbDbDbDbDbDbDacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacbKbKaBacaaacbLbLbLbLbLbLbObPbPbQbLbLbLbLbLbLbLbLbLbLbLbLbLbLbRbPbPbTbLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacaBaBaBacaaacbLbLbLbLbLbLbUbVbWbTbsbsbLbLbLbLbLbLbLbLbLbLbsbsbXbWbYbTbLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaJaBbSbSacaaacbLbLbLbLbLbLcabWbWcbbsbsbLbLbLbLbLbLbLbLbLbLbsbscccdcdcebLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaRacacacacaaacbLbLbLbLbLbLchbWcjckbLbLbLbLbLbLbLbLbLbLbLbLbLbLclbPbPbTbLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBacaaaaaaaaacbLbLbLbLbLbLclcnbWcobLbLbLbLbLbLbLbLbLbLbLbLbLbLbUbVbWcpbLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacbZacaaaaaaaaacbLbLbLbLbLbLcsbWcucpbLbLbLbLbLbLbLbLbLbLbLbLbLbLcvbWcxcobLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacaJacacaaaaaaacbLbLbLbLbLbLcvcybWcQbsbsbLbLbLbLbLbLbLbLbLbLbsbsdgbPbBbNbLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccfaHaBaNacaaaaaaacbLbLbLbLbLbLcvcjcjchbsbsbLbLbLbLbLbLbLbLbLbLbsbscacybWcobLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBaBaBcgacaaaaaaacbLbLbLbLbLbLdpbWcychbLbLbLbLbLbLbLbLbLbLbLbLbLbLchcydwdxbLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacciciaBdkacaaaaaaacbLbLbLbLbLbLdzcddBdCbLbLbLbLbLbLbLbLbLbLbLbLbLbLdFbWbWckbLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBcmcmcmacacacacacbLbLbLbLbLbLdEbVbWdFbLbLbLbLbLbLbLbLbLbLbLbLbLbLcvbWbWbTbLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBaBaBaBaRaBaBacacbLbLbLbLbLbLcvbWdGbTbLbLbLbLbLbLbLbLbLbLbLbLbLbLdHdIbWdJbLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacbZacacacaJaJcwacbLbLbLbLbLbLdKbWdLcpbsbsbLbLbLbLbLbLbLbLbLbLbsbsclcydMchbLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwcUcwcwaBaBaBcwacbLbLbLbLbLbLchbWdLbTbsbsbLbLbLbLbLbLbLbLbLbLbsbsdNdObWdPbLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwcwcwcmcwaBaKdtaHcwacbLbLbLbLbLbLcabWbWbTbLbLbLbLbLbLbLbLbLbLbLbLbLbLdQbWbWdRbLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwaBaBaBaBaBcwcwcwcwacbLbLbLbLbLbLdzcdbWbTbLbLbLbLbLbLbLbLbLbLbLbLbLbLdScddTbTbLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwdycmcmcwcwcwcrcrcracbLbLbLbLbLbLcvbWbWckbLbLbLbLbLbLbLbLbLbLbLbLbLbLdUcydVdWbLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwduaBaBaKducwcwcwcwacbLbLbLbLbLbLcabWbWbTbsbsbLbLbLbLbLbLbLbLbLbLbsbscadXcycobLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwaHciaBaKaBaJaBaBaBacbLbLbLbLbLbLcvbWcddYbsbsbLbLbLbLbLbLbLbLbLbLbsbscvdwcddSbLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwcwcwcwaJcwacaBctacacbLbLbLbLbLbLchcybWbTbLbLbLbLbLbLbLbLbLbLbLbLbLbLdQdwcjbTbLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwaJacacciazacacbLbLbLbLbLbLcvbWdZbTbLbLbLbLbLbLbLbLbLbLbLbLbLbLeabWbWbTbLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwaBacaJaBaNacacbLbLbLbLbLbLdzcddZebbLbLbLbLbLbLbLbLbLbLbLbLbLbLcsbWbWecbLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwaJacaBaJaJacacbLbLbLbLbLbLclbWbWchbLbLbLbLbLbLbLbLbLbLbLbLbLbLdJedcychbLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwaBaRaBaBaBacacbLbLbLbLbLbLeebWbWcpbsbsbLbLbLbLbLbLbLbLbLbLbsbsefcybWegbLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwaBacaccwacacacbLbLbLbLbLbLehcycybTbsbsbLbLbLbLbLbLbLbLbLbLbsbscvcybWbTbLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwaBacaccwacacacbLbLbLbLbLbLcvbWcybTbLbLbLbLbLbLbLbLbLbLbLbLbLbLcvbWbWbTbLbLbLbLbLbLacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacracaaacaWaWaWaWagagcqbobkagagbpbqbnaWaWaWaWaWaWaWaWaWaWdaahahagagaMaWaWaOagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaaaaaaacaaacaYbtbubvagaWbwbxbyaYaYbpaYbMbMbMbMbMavaQaUbjagagagahahagagagbMbMagagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBaaaaacaaacbCbDbDbDbDbEaWbFbkagbGbHbIbCbCbDbDbDbCbDbDbDbDbDbDbFbFagbDbDbDbDbDbDacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacbKexcracaaacbBbBbBbBbBbBbMbLbLbNbBbBbBbBbBbBbBbBbBbBbBbBbBbBbObLbLbPbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacaBaBaBacaaacbBbBbBbBbBbBbQbRahbPbTbTbBbBbBbBbBbBbBbBbBbBbTbTbUahbxbPbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBaBbSbSacaaacbBbBbBbBbBbBbVahahbWbTbTbBbBbBbBbBbBbBbBbBbBbTbTbXbFbFbYbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaRacacacacaaacbBbBbBbBbBbBagahcacbbBbBbBbBbBbBbBbBbBbBbBbBbBbBccbLbLbPbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBacaaaaaaaaacbBbBbBbBbBbBcccdahcebBbBbBbBbBbBbBbBbBbBbBbBbBbBbQbRahchbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacbZacaaaaaaaaacbBbBbBbBbBbBcjahckchbBbBbBbBbBbBbBbBbBbBbBbBbBbBclahcncebBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacaBacacaaaaaaacbBbBbBbBbBbBclaZahcobTbTbBbBbBbBbBbBbBbBbBbBbTbTcpahbRcubBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccfaHaBaNacaaaaaaacbBbBbBbBbBbBclcacaagbTbTbBbBbBbBbBbBbBbBbBbBbTbTbVaZahcebBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBaBaBcgacaaaaaaacbBbBbBbBbBbBcvahaZagbBbBbBbBbBbBbBbBbBbBbBbBbBbBbMaZcxcybBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacciciaBdkacaaaaaaacbBbBbBbBbBbBcQbFdgdpbBbBbBbBbBbBbBbBbBbBbBbBbBbBaYahahcbbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBcmcmcmacacacacacbBbBbBbBbBbBdwbRahaYbBbBbBbBbBbBbBbBbBbBbBbBbBbBclahahbPbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBaBaBaBaRaBaBacacbBbBbBbBbBbBclahdxbPbBbBbBbBbBbBbBbBbBbBbBbBbBbBdzdBahdCbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacbZacacacaBaJcwacbBbBbBbBbBbBdEahdFchbTbTbBbBbBbBbBbBbBbBbBbBbTbTccaZdGagbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwezcwcwaBaBaBcwacbBbBbBbBbBbBagahdFbPbTbTbBbBbBbBbBbBbBbBbBbBbTbTdHdIahdJbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwcwcwcmcwaBaKdtaHcwacbBbBbBbBbBbBbVahahbPbBbBbBbBbBbBbBbBbBbBbBbBbBbBdKahahdLbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwaBaBaBaBaBcwcwcwcwacbBbBbBbBbBbBcQbFahbPbBbBbBbBbBbBbBbBbBbBbBbBbBbBbDbFdMbPbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwdycmcmcwcwcwcrcrcracbBbBbBbBbBbBclahahcbbBbBbBbBbBbBbBbBbBbBbBbBbBbBdNaZdOdPbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwduaBaBaKducwcwcwcwacbBbBbBbBbBbBbVahahbPbTbTbBbBbBbBbBbBbBbBbBbBbTbTbVdQaZcebBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwaHciaBaKaBaBaBaBaBacbBbBbBbBbBbBclahbFdRbTbTbBbBbBbBbBbBbBbBbBbBbTbTclcxbFbDbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwcwcwcwaBcwacaBctacacbBbBbBbBbBbBagaZahbPbBbBbBbBbBbBbBbBbBbBbBbBbBbBdKcxcabPbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwaBacacciazacacbBbBbBbBbBbBclahdSbPbBbBbBbBbBbBbBbBbBbBbBbBbBbBbpahahbPbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwaBacaBaBaNacacbBbBbBbBbBbBcQbFdSdTbBbBbBbBbBbBbBbBbBbBbBbBbBbBcjahahdUbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwcracaBaBaBacacbBbBbBbBbBbBccahahagbBbBbBbBbBbBbBbBbBbBbBbBbBbBagahdCdCbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaRaBaBaBacacbBbBbBbBbBbBdWahahchbTbTbBbBbBbBbBbBbBbBbBbBbTbTdXaZahaXbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaccwacacacbBbBbBbBbBbBdYaZaZbPbTbTbBbBbBbBbBbBbBbBbBbBbTbTclaZahbPbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwcracaccwacacacbBbBbBbBbBbBclahaZbPbBbBbBbBbBbBbBbBbBbBbBbBbBbBclahahbPbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwaBacbdczdvcAacbrbrbrbrbrbrbDbFahaXcBbMcCcCbMcCbMbMbMbMbMbreieieiejahekcBbMcCcCbMcCafaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwaBacdvaBbdaBcDcEaYcFagaWaWcGbkahaYcHbDbCbCcIbDbDbDbDbDagaWbzemeneoahagagagagbDbDbDafaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwaJacdvaBcJaBcKagcLagaWbwagaYcMahcNbfaWaWaWaWaWaWaWaWaWagepcqagageqahagagagdhaWaWaWafaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwaBacdvaBcJaBcKagcLagaWbwagaYcMahcNbfaWaWaWaWaWaWaWaWaWagepcqagageqahagagagdhaWaWaWafaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwaBacaBaBaBaBcOagcPaYaWbzagcqbkahagdoblbherdqdAagdndndnagbMbMagbMesahagagbfaWalagetafaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwaBacbAazbJcRacagaYbpcSaWagaWbkahcTagagagagagagagelalelagagagagagahahagagbfaWagagdDafaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwaJacacacacacacbabbagagagcLagahahagdraVcVdseuagagewewewagagagagagahahagagagagagcWcXafaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwaBacacacacacacbabbagagagcLagahahagdraVcVdseuagagewewewagagagagagahahagagagagagcWcXafaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwaBaBaBaBbJcYacacacacaccZacdaahahbfacababdbabababacacacacacacacdaahahbfacababdbabababaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwcwdiaBaBaBaBaBaBaBdcaKaBacdaaZahbfacaaaaaaaaaaaaaaaaaaaaaaaaacdaaZahbfacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwaNddaBaBaBaIbZdedfaBacdaahahbfacaaaaaaaaaaaaaaaaaaaaaaaaacdaahahbfacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

@@ -120,7 +120,7 @@
 "cp" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/effect/decal/cleanable/blood/gibs/limb,/obj/effect/decal/cleanable/blood,/turf/floor/plating/road,/area/complex)
 "cq" = (/obj/item/flashlight/lantern2,/turf/floor/plating/road,/area/complex)
 "cr" = (/turf/floor/dirt,/area/complex)
-"cs" = (/obj/structure/rails,/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor/plating/road,/area/complex)
+"cs" = (/obj/structure/table/wood,/obj/item/weapon/pickaxe/jackhammer,/turf/floor,/area/complex)
 "ct" = (/obj/structure/table/wood,/obj/item/weapon/wrench,/turf/floor,/area/complex)
 "cu" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/structure/barbwire{icon_state = "barbwire"; dir = 1},/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor/plating/road,/area/complex)
 "cv" = (/obj/effect/decal/cleanable/urine,/turf/floor/plating/road,/area/complex)
@@ -152,7 +152,7 @@
 "cV" = (/obj/structure/closet/crate/rations/ale,/turf/floor/plating/road,/area/complex)
 "cW" = (/obj/structure/bed/chair{icon_state = "chair"; dir = 4},/turf/floor/plating/road,/area/complex)
 "cX" = (/obj/structure/table/wood,/obj/item/weapon/paper_bin,/obj/item/weapon/pen/pencil,/obj/effect/decal/cleanable/cobweb2{icon_state = "cobweb2"; dir = 8},/turf/floor/plating/road,/area/complex)
-"cY" = (/obj/structure/table/wood,/obj/item/weapon/storage/toolbox/mechanical,/turf/floor,/area/complex)
+"cY" = (/obj/structure/table/wood,/obj/item/weapon/storage/toolbox/mechanical,/obj/item/weapon/pickaxe/jackhammer,/turf/floor,/area/complex)
 "cZ" = (/obj/structure/simple_door/iron,/turf/floor/plating/road,/area/complex)
 "da" = (/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 8},/turf/floor/plating/road,/area/complex)
 "db" = (/obj/covers/cement_wall,/obj/structure/sign/flag/rippable/redlineflag,/turf/floor/dirt,/area/complex)
@@ -201,7 +201,6 @@
 "dS" = (/obj/structure/rails,/obj/effect/oil,/turf/floor/plating/road,/area/complex)
 "dT" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/effect/decal/cleanable/blood/splatter,/turf/floor/plating/road,/area/complex)
 "dU" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/effect/decal/cleanable/blood/gibs/body,/turf/floor/plating/road,/area/complex)
-"dV" = (/obj/structure/rails,/obj/structure/window/sandbag/sandbag,/obj/structure/barbwire,/turf/floor/plating/road,/area/complex)
 "dW" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/effect/decal/cleanable/blood/gibs/body,/obj/item/ammo_casing/a545x39,/turf/floor/plating/road,/area/complex)
 "dX" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/effect/decal/cleanable/blood/tracks/wheels,/obj/effect/decal/cleanable/blood/gibs/limb,/obj/item/ammo_casing/a545x39,/turf/floor/plating/road,/area/complex)
 "dY" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/effect/decal/cleanable/generic,/turf/floor/plating/road,/area/complex)
@@ -356,7 +355,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiaiaiaiaiacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiayajbscUacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiazaBaBaBaCagahahagacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaicsaBaBaBaCagahahagacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiaBaBaBaBaDagahahbfacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaiaEaEaFaFacdaahahbfacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacaiaiakaiaiacdaahahbfacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -376,9 +375,9 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBaBbSbSacaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaRacacacacaaacbBbBbBbBbBbBagahcacbbBbBbBbBbBbBbBbBbBbBbBbBbBbBccbLbLbPbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBacaaaaaaaaacbBbBbBbBbBbBcccdahcebBbBbBbBbBbBbBbBbBbBbBbBbBbBbQbRahchbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacbZacaaaaaaaaacbBbBbBbBbBbBcjahckchbBbBbBbBbBbBbBbBbBbBbBbBbBbBclahcncebBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacaBacacaaaaaaacbBbBbBbBbBbBclaZahcobTbTbBbBbBbBbBbBbBbBbBbBbTbTcpbLcscubBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacaBacacaaaaaaacbBbBbBbBbBbBclaZahcobTbTbBbBbBbBbBbBbBbBbBbBbTbTcpahbRcubBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccfaHaBaNacaaaaaaacbBbBbBbBbBbBclcacaagbTbTbBbBbBbBbBbBbBbBbBbBbTbTbVaZahcebBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBaBaBcgacaaaaaaacbBbBbBbBbBbBcvahaZagbBbBbBbBbBbBbBbBbBbBbBbBbBbBagaZcxcybBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBaBaBcgacaaaaaaacbBbBbBbBbBbBcvahaZagbBbBbBbBbBbBbBbBbBbBbBbBbBbBbMaZcxcybBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacciciaBdkacaaaaaaacbBbBbBbBbBbBcQbFdgdpbBbBbBbBbBbBbBbBbBbBbBbBbBbBaYahahcbbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBcmcmcmacacacacacbBbBbBbBbBbBdwbRahaYbBbBbBbBbBbBbBbBbBbBbBbBbBbBclahahbPbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaBaBaBaBaRaBaBacacbBbBbBbBbBbBclahdxbPbBbBbBbBbBbBbBbBbBbBbBbBbBbBdzdBahdCbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -392,7 +391,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwaHciaBaKaBaBaBaBaB
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwcwcwcwaBcwacaBctacacbBbBbBbBbBbBagaZahbPbBbBbBbBbBbBbBbBbBbBbBbBbBbBdKcxcabPbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwaBacacciazacacbBbBbBbBbBbBclahdSbPbBbBbBbBbBbBbBbBbBbBbBbBbBbBbpahahbPbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwaBacaBaBaNacacbBbBbBbBbBbBcQbFdSdTbBbBbBbBbBbBbBbBbBbBbBbBbBbBcjahahdUbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwcracaBaBaBacacbBbBbBbBbBbBccahahagbBbBbBbBbBbBbBbBbBbBbBbBbBbBdCdVaZagbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwcracaBaBaBacacbBbBbBbBbBbBccahahagbBbBbBbBbBbBbBbBbBbBbBbBbBbBagahdCdCbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaRaBaBaBacacbBbBbBbBbBbBdWahahchbTbTbBbBbBbBbBbBbBbBbBbBbTbTdXaZahaXbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaccwacacacbBbBbBbBbBbBdYaZaZbPbTbTbBbBbBbBbBbBbBbBbBbBbTbTclaZahbPbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwcracaccwacacacbBbBbBbBbBbBclahaZbPbBbBbBbBbBbBbBbBbBbBbBbBbBbBclahahbPbBbBbBbBbBbBacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
