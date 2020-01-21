@@ -2,7 +2,7 @@
 
 ## Description
 
-Branched from Civilization13, Metro13 aims to replicate the atmosphere and setting of the Metro 2033 series in Space Station 13 with faction based survival gameplay.
+Branched from Civilization13, Metro13 takes the postapocalyptic russian metro experience to Space Station 13 with faction based survival gameplay.
 
 <kbd>
  <img src="https://i.imgur.com/LMYske3.png">
