@@ -172,6 +172,20 @@
 			qdel(W)
 			return
 
+		else if (istype(W, /obj/item/weapon/reagent_containers/food/snacks/grown/mushroom))
+
+			if (!is_open_container())
+				user << "<span class='notice'>\The [src] is closed.</span>"
+				return
+			if (!reagents.get_free_space())
+				user << "<span class='notice'>[src] is full.</span>"
+				return
+
+			user << "You smash the mushrooms, producing mushroom juice."
+			reagents.add_reagent("mushroom", 5)
+			qdel(W)
+			return
+
 		else if (istype(W, /obj/item/weapon/reagent_containers/food/snacks/grown/rice))
 
 			if (!is_open_container())
