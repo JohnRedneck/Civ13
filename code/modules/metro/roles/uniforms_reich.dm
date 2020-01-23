@@ -6,7 +6,7 @@
 	worn_state = "reich_fatigues"
 
 /obj/item/clothing/under/reich/sturmbanfuhrer
-	name = "Sturmbanfuhrer uniform"
+	name = "Sturmbannfuhrer uniform"
 	desc = "The uniform worn by Sutrmbanfuhrer's."
 	icon_state = "reich_sturmbanfuhrer"
 	item_state = "reich_sturmbanfuhrer"
