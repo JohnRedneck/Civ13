@@ -619,6 +619,7 @@
 #include "code\modules\metro\reagents.dm"
 #include "code\modules\metro\signs.dm"
 #include "code\modules\metro\vents.dm"
+#include "code\modules\metro\roles\uniforms_reich.dm"
 #include "code\modules\mob\animations.dm"
 #include "code\modules\mob\bloody_hands.dm"
 #include "code\modules\mob\death.dm"
