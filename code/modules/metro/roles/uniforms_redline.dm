@@ -12,9 +12,9 @@
 	item_state = "redline_officer"
 	worn_state = "redline_officer"
 
-/obj/item/clothing/under/redline/generalsec
+/obj/item/clothing/under/redline/secretary
 	name = "General Secretary's Uniform"
 	desc = "An old Soviet officer's uniform repurposed for the use of the General Secretary; leader of the Red Line."
-	icon_state = "generalsecretary"
-	item_state = "generalsecretary"
-	worn_state = "generalsecretary"
+	icon_state = "redline_secretary"
+	item_state = "redline_secretary"
+	worn_state = "redline_secretary"

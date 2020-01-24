@@ -5,12 +5,12 @@
 	item_state = "reich_fatigues"
 	worn_state = "reich_fatigues"
 
-/obj/item/clothing/under/reich/sturmbanfuhrer
+/obj/item/clothing/under/reich/sturmbannfuhrer
 	name = "Sturmbannfuhrer uniform"
-	desc = "The uniform worn by Sutrmbanfuhrer's."
-	icon_state = "reich_sturmbanfuhrer"
-	item_state = "reich_sturmbanfuhrer"
-	worn_state = "reich_sturmbanfuhrer"
+	desc = "The uniform worn by Sutrmbannfuhrers."
+	icon_state = "reich_sturmbannfuhrer"
+	item_state = "reich_sturmbannfuhrer"
+	worn_state = "reich_sturmbannfuhrer"
 
 /obj/item/clothing/under/reich/fuhrer
 	name = "Fuhrer uniform"
