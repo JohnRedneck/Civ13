@@ -324,11 +324,11 @@
 "gl" = (/obj/structure/table/wood,/obj/item/clothing/shoes/jackboots,/obj/item/clothing/shoes/jackboots,/obj/item/clothing/shoes/jackboots,/obj/item/clothing/shoes/jackboots,/obj/item/clothing/shoes/jackboots,/obj/item/clothing/shoes/laceup,/turf/floor,/area/complex)
 "gm" = (/obj/structure/table/wood,/obj/item/clothing/under/reich/fatigues,/obj/item/clothing/under/reich/fatigues,/obj/item/clothing/under/reich/fatigues,/obj/item/clothing/under/reich/fatigues,/obj/item/clothing/under/reich/fatigues,/turf/floor,/area/complex)
 "gn" = (/obj/structure/table/wood,/obj/item/clothing/under/reich/fuhrer,/turf/floor,/area/complex)
-"go" = (/obj/structure/table/wood,/obj/item/clothing/under/reich/sturmbanfuhrer,/obj/item/clothing/under/reich/sturmbanfuhrer,/turf/floor,/area/complex)
+"go" = (/obj/structure/table/wood,/obj/item/clothing/under/reich/sturmbannfuhrer,/obj/item/clothing/under/reich/sturmbannfuhrer,/turf/floor,/area/complex)
 "gp" = (/obj/structure/table/wood,/obj/item/clothing/shoes/heavyboots/wrappedboots,/obj/item/clothing/shoes/heavyboots/wrappedboots,/obj/item/clothing/shoes/heavyboots/wrappedboots,/obj/item/clothing/shoes/heavyboots/wrappedboots,/obj/item/clothing/shoes/heavyboots/wrappedboots,/obj/item/clothing/shoes/heavyboots/wrappedboots,/obj/item/clothing/shoes/blackboots1,/turf/floor,/area/complex)
 "gq" = (/obj/structure/table/wood,/obj/item/clothing/under/redline/fatigues,/obj/item/clothing/under/redline/fatigues,/obj/item/clothing/under/redline/fatigues,/obj/item/clothing/under/redline/fatigues,/obj/item/clothing/under/redline/fatigues,/turf/floor,/area/complex)
 "gr" = (/obj/structure/table/wood,/obj/item/clothing/under/redline/officer,/obj/item/clothing/under/redline/officer,/obj/item/clothing/under/redline/officer,/turf/floor,/area/complex)
-"gs" = (/obj/structure/table/wood,/obj/item/clothing/under/redline/generalsec,/turf/floor,/area/complex)
+"gs" = (/obj/structure/table/wood,/obj/item/clothing/under/redline/secretary,/turf/floor,/area/complex)
 "gt" = (/obj/covers/cement_wall,/obj/structure/sign/flag/rippable/redlineflag,/turf/floor/dirt/underground,/area/complex)
 
 (1,1,1) = {"
