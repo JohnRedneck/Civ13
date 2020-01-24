@@ -2,10 +2,6 @@
 	name = "helmet"
 	desc = "What the fuck is this"
 	icon_state = "helmet"
-	item_state_slots = list(
-		slot_l_hand_str = "helmet",
-		slot_r_hand_str = "helmet",
-		)
 	item_flags = THICKMATERIAL
 	body_parts_covered = HEAD
 	armor = list(melee = 50)
