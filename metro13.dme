@@ -267,6 +267,7 @@
 #include "code\game\objects\map_metadata\kursk.dm"
 #include "code\game\objects\map_metadata\little_creek.dm"
 #include "code\game\objects\map_metadata\little_creek_tdm.dm"
+#include "code\game\objects\map_metadata\metro_bridge.dm"
 #include "code\game\objects\map_metadata\nanjing.dm"
 #include "code\game\objects\map_metadata\naval.dm"
 #include "code\game\objects\map_metadata\nomads.dm"
