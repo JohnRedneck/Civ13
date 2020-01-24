@@ -14,7 +14,7 @@ Under sprites are in
 
 /obj/item/clothing/under/reich/sturmbannfuhrer
 	name = "Sturmbannfuhrer uniform"
-	desc = "The uniform worn by Sutrmbannfuhrers."
+	desc = "The uniform worn by Sturmbannfuhrers."
 	icon_state = "reich_sturmbannfuhrer"
 	item_state = "reich_sturmbannfuhrer"
 	worn_state = "reich_sturmbannfuhrer"
