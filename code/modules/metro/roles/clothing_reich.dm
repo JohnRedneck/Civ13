@@ -37,7 +37,7 @@ Suit sprites are in
 	name = "Sturmbannfuhrer uniform"
 	desc = "A leather coat to keep the squad leaders of the Fourth Reich warm."
 	icon_state = "reich_sturmbannfuhrer"
-	item_state = "greatcoat" //temp until you add the left/right hand sprites for the sturmbannfuhrer coat KLAAAAAAAAAAAAAAAAAUS - Bennett
+	item_state = "reich_sturmbannfuhrer"
 	worn_state = "reich_sturmbannfuhrer"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEG_LEFT|LEG_RIGHT|ARM_LEFT|ARM_RIGHT
@@ -53,7 +53,7 @@ Hat sprites are in
 */
 
 /obj/item/clothing/head/helmet/reich/stahlhelm
-	name = "stahlhelm"
+	name = "Stahlhelm"
 	desc = "The signature helmets of the Fourth Reich."
 	icon_state = "reich_stahlhelm"
 	item_state = "reich_stahlhelm"
@@ -61,3 +61,13 @@ Hat sprites are in
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 55, arrow = 45, gun = 15, energy = 15, bomb = 55, bio = 20, rad = FALSE)
+
+/obj/item/clothing/head/helmet/reich/reich_officercap
+	name = "Fourth Reich visor"
+	desc = "A visor commonly seen worn by Fourth Reich officers."
+	icon_state = "reich_officercap"
+	item_state = "reich_officercap"
+	worn_state = "reich_officercap"
+	body_parts_covered = HEAD
+	flags_inv = BLOCKHEADHAIR
+	armor = list(melee = 5, arrow = 0, gun = 0, energy = 0, bomb = 0, bio = 10, rad = FALSE)
