@@ -2,6 +2,19 @@
 /proc/alive_n_of_side(x)
 	. = 0
 	switch (x)
+		if (REDLINE)
+			for (var/mob/living/carbon/human/H in player_list)
+				if (H.original_job && H.stat != DEAD)
+					if (H.original_job.base_type_flag() == REDLINE)
+						BATTLEREPORT_VARIABLE_CHECK(H)
+							++.
+		if (REICH)
+			for (var/mob/living/carbon/human/H in player_list)
+				if (H.original_job && H.stat != DEAD)
+					if (H.original_job.base_type_flag() == REICH)
+						BATTLEREPORT_VARIABLE_CHECK(H)
+							++.
+
 		if (CIVILIAN)
 			for (var/mob/living/carbon/human/H in player_list)
 				if (H.original_job && H.stat != DEAD)
@@ -111,6 +124,11 @@
 /proc/total_n_of_side(x)
 	. = 0
 	switch (x)
+		if (REDLINE)
+			return dead_redline.len + heavily_injured_redline.len + alive_redline.len
+		if (REICH)
+			return dead_reich.len + heavily_injured_reich.len + alive_reich.len
+
 		if (BRITISH)
 			return dead_british.len + heavily_injured_british.len + alive_british.len
 		if (PIRATES)

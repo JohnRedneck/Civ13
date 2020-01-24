@@ -1,5 +1,14 @@
 #define BATTLEREPORT_VARIABLE_CHECK(_mob) if (!istype(_mob, /mob/living/carbon/human/corpse) && (!get_area(_mob) || !istype(get_area(_mob), /area/complex/admin)))
 
+var/list/alive_redline = list()
+var/list/alive_reich = list()
+
+var/list/heavily_injured_redline = list()
+var/list/heavily_injured_reich = list()
+
+var/list/dead_redline = list()
+var/list/dead_reich = list()
+
 var/list/alive_british = list()
 var/list/alive_pirates = list()
 var/list/alive_civilians = list()
@@ -17,7 +26,6 @@ var/list/alive_german = list()
 var/list/alive_american = list()
 var/list/alive_vietnamese = list()
 var/list/alive_chinese = list()
-
 
 var/list/heavily_injured_british = list()
 var/list/heavily_injured_pirates = list()
@@ -64,6 +72,15 @@ var/list/recently_died = list()
 	var/list/dead = list()
 	if (original_job)
 		switch (original_job.base_type_flag())
+			if (REDLINE)
+				dead = dead_redline
+				injured = heavily_injured_redline
+				alive = alive_redline
+			if (REICH)
+				dead = dead_reich
+				injured = heavily_injured_reich
+				alive = alive_reich
+
 			if (BRITISH)
 				dead = dead_british
 				injured = heavily_injured_british

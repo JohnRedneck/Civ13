@@ -447,6 +447,40 @@ Proc for attack log creation, because really why not
 
 	return creatures
 
+/proc/getredlinemobs(var/alive = FALSE)
+	var/list/redline = list()
+	for (var/mob/living/carbon/human/H in mob_list)
+		if (!istype(H))
+			continue
+		if (alive && H.stat == DEAD)
+			continue
+		if (!H.loc)
+			continue
+		if (!istype(H.original_job, /datum/job/redline))
+			continue
+		if (istype(H, /mob/living/carbon/human/corpse))
+			continue
+		redline += H
+
+	return redline
+
+/proc/getreichmobs(var/alive = FALSE)
+	var/list/reich = list()
+	for (var/mob/living/carbon/human/H in mob_list)
+		if (!istype(H))
+			continue
+		if (alive && H.stat == DEAD)
+			continue
+		if (!H.loc)
+			continue
+		if (!istype(H.original_job, /datum/job/reich))
+			continue
+		if (istype(H, /mob/living/carbon/human/corpse))
+			continue
+		reich += H
+
+	return reich
+
 /proc/getbritishmobs(var/alive = FALSE)
 	var/list/british = list()
 	for (var/mob/living/carbon/human/H in mob_list)
@@ -654,6 +688,10 @@ Proc for attack log creation, because really why not
 	switch (faction)
 		if (null)
 			mobs = mob_list // we want actual mobs, not name = mob
+		if (REDLINE)
+			mobs = getredlinemobs(0)
+		if (REICH)
+			mobs = getreichmobs(0)
 		if (BRITISH)
 			mobs = getbritishmobs(0)
 		if (PIRATES)

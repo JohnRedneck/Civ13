@@ -506,9 +506,9 @@ var/civmax_research = list(230,230,230)
 			return FALSE
 		else
 			switch (H.original_job.base_type_flag())
-				if (BRITISH, PORTUGUESE, FRENCH, SPANISH, DUTCH, ROMAN, RUSSIAN, AMERICAN, CHINESE)
+				if (REDLINE, REICH, BRITISH, PORTUGUESE, FRENCH, SPANISH, DUTCH, ROMAN, RUSSIAN, AMERICAN, CHINESE)
 					return !faction1_can_cross_blocks()
-				if (PIRATES, INDIANS, CIVILIAN, GREEK, ARAB, GERMAN, JAPANESE, VIETNAMESE)
+				if (REICH, PIRATES, INDIANS, CIVILIAN, GREEK, ARAB, GERMAN, JAPANESE, VIETNAMESE)
 					return !faction2_can_cross_blocks()
 	return FALSE
 
@@ -644,6 +644,9 @@ var/civmax_research = list(230,230,230)
 		return FALSE
 
 	var/list/soldiers = list(
+		REDLINE = 0,
+		REICH = 0,
+
 		CIVILIAN = 0,
 		BRITISH = 0,
 		PORTUGUESE = 0,
@@ -736,6 +739,10 @@ var/civmax_research = list(230,230,230)
 
 /obj/map_metadata/proc/roundend_condition_def2name(define)
 	switch (define)
+		if (REDLINE)
+			return "Red Line"
+		if (REICH)
+			return "Fourth Reich"
 		if (BRITISH)
 			return "British"
 		if (PIRATES)
@@ -772,6 +779,10 @@ var/civmax_research = list(230,230,230)
 			return "Chinese"
 /obj/map_metadata/proc/roundend_condition_def2army(define)
 	switch (define)
+		if (REDLINE)
+			return "Red Line"
+		if (REICH)
+			return "Fourth Reich"
 		if (BRITISH)
 			return "British Empire"
 		if (PIRATES)
@@ -808,6 +819,10 @@ var/civmax_research = list(230,230,230)
 			return "Poeple's Liberation Army"
 /obj/map_metadata/proc/army2name(army)
 	switch (army)
+		if ("Red Line")
+			return "Red Line"
+		if ("Fourth Reich")
+			return "Fourth Reich"
 		if ("British Empire")
 			return "British"
 		if ("Pirate crew")

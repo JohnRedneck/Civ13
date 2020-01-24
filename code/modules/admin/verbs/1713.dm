@@ -163,6 +163,9 @@
 	log_admin("[key_name(src)] changed the [conf] to [choice].")
 	return
 
+var/redline_toggled = TRUE
+var/reich_toggled = TRUE
+
 var/civilians_toggled = TRUE
 var/british_toggled = TRUE
 var/pirates_toggled = TRUE
@@ -190,6 +193,9 @@ var/chinese_toggled = TRUE
 
 	var/list/choices = list()
 
+	choices += "REDLINE ([redline_toggled ? "ENABLED" : "DISABLED"])"
+	choices += "REICH ([reich_toggled ? "ENABLED" : "DISABLED"])"
+
 	choices += "CIVILIAN ([civilians_toggled ? "ENABLED" : "DISABLED"])"
 	choices += "BRITISH ([british_toggled ? "ENABLED" : "DISABLED"])"
 	choices += "PIRATES ([pirates_toggled ? "ENABLED" : "DISABLED"])"
@@ -213,6 +219,16 @@ var/chinese_toggled = TRUE
 
 	if (choice == "CANCEL")
 		return
+
+	else if (findtext(choice, "REDLINE"))
+		redline_toggled = !redline_toggled
+		world << "<span class = 'warning'>The Red Line faction has been [redline_toggled ? "<b><i>ENABLED</i></b>" : "<b><i>DISABLED</i></b>"].</span>"
+		message_admins("[key_name(src)] changed the Red Line faction 'enabled' setting to [redline_toggled].")
+
+	else if (findtext(choice, "REICH"))
+		reich_toggled = !reich_toggled
+		world << "<span class = 'warning'>The Fourth Reich faction has been [reich_toggled ? "<b><i>ENABLED</i></b>" : "<b><i>DISABLED</i></b>"].</span>"
+		message_admins("[key_name(src)] changed the Fourth Reich faction 'enabled' setting to [reich_toggled].")
 
 	else if (findtext(choice, "CIVILIAN"))
 		civilians_toggled = !civilians_toggled
@@ -282,6 +298,10 @@ var/chinese_toggled = TRUE
 		chinese_toggled = !chinese_toggled
 		world << "<span class = 'warning'>The Chinese faction has been [chinese_toggled ? "<b><i>ENABLED</i></b>" : "<b><i>DISABLED</i></b>"].</span>"
 		message_admins("[key_name(src)] changed the Chinese faction 'enabled' setting to [chinese_toggled].")
+
+var/redline_forceEnabled = FALSE
+var/reich_forceEnabled = FALSE
+
 var/civilians_forceEnabled = FALSE
 var/british_forceEnabled = FALSE
 var/pirates_forceEnabled = FALSE
@@ -309,6 +329,9 @@ var/chinese_forceEnabled = FALSE
 
 	var/list/choices = list()
 
+	choices += "REDLINE ([redline_forceEnabled ? "FORCIBLY ENABLED" : "NOT FORCIBLY ENABLED"])"
+	choices += "REICH ([reich_forceEnabled ? "FORCIBLY ENABLED" : "NOT FORCIBLY ENABLED"])"
+
 	choices += "CIVILIAN ([civilians_forceEnabled ? "FORCIBLY ENABLED" : "NOT FORCIBLY ENABLED"])"
 	choices += "BRITISH ([british_forceEnabled ? "FORCIBLY ENABLED" : "NOT FORCIBLY ENABLED"])"
 	choices += "PIRATES ([pirates_forceEnabled ? "FORCIBLY ENABLED" : "NOT FORCIBLY ENABLED"])"
@@ -332,6 +355,15 @@ var/chinese_forceEnabled = FALSE
 
 	if (choice == "CANCEL")
 		return
+
+	else if (findtext(choice, "REDLINE"))
+		redline_forceEnabled = !redline_forceEnabled
+		world << "<span class = 'notice'>The Red Line faction [redline_forceEnabled ? "has been forcibly <b>enabled</b>" : "<b>is no longer forcibly enabled</b>"].</span>"
+		message_admins("[key_name(src)] changed the Red Line faction 'forceEnabled' setting to [redline_forceEnabled].")
+	else if (findtext(choice, "REICH"))
+		reich_forceEnabled = !reich_forceEnabled
+		world << "<span class = 'notice'>The Fourth Reich faction [reich_forceEnabled ? "has been forcibly <b>enabled</b>" : "<b>is no longer forcibly enabled</b>"].</span>"
+		message_admins("[key_name(src)] changed the Fourth Reich faction 'forceEnabled' setting to [reich_forceEnabled].")
 
 	else if (findtext(choice, "CIVILIAN"))
 		civilians_forceEnabled = !civilians_forceEnabled
@@ -439,6 +471,9 @@ var/chinese_forceEnabled = FALSE
 
 /proc/show_global_battle_report(var/shower, var/private = FALSE)
 
+	var/total_redline = alive_redline.len + dead_redline.len + heavily_injured_redline.len
+	var/total_reich = alive_reich.len + dead_reich.len + heavily_injured_reich.len
+
 	var/total_pirates = alive_pirates.len + dead_pirates.len + heavily_injured_pirates.len
 	var/total_british = alive_british.len + dead_british.len + heavily_injured_british.len
 	var/total_civilians = alive_civilians.len + dead_civilians.len + heavily_injured_civilians.len
@@ -457,6 +492,9 @@ var/chinese_forceEnabled = FALSE
 	var/total_vietnamese = alive_vietnamese.len + dead_vietnamese.len + heavily_injured_vietnamese.len
 	var/total_chinese = alive_chinese.len + dead_chinese.len + heavily_injured_chinese.len
 
+	var/mortality_coefficient_redline = 0
+	var/mortality_coefficient_reich = 0
+
 	var/mortality_coefficient_pirates = 0
 	var/mortality_coefficient_british = 0
 	var/mortality_coefficient_spanish = 0
@@ -474,6 +512,12 @@ var/chinese_forceEnabled = FALSE
 	var/mortality_coefficient_american = 0
 	var/mortality_coefficient_vietnamese = 0
 	var/mortality_coefficient_chinese = 0
+
+	if (dead_redline.len > 0)
+		mortality_coefficient_redline = dead_redline.len/total_redline
+
+	if (dead_reich.len > 0)
+		mortality_coefficient_reich = dead_reich.len/total_reich
 
 	if (dead_british.len > 0)
 		mortality_coefficient_british = dead_british.len/total_british
@@ -526,6 +570,9 @@ var/chinese_forceEnabled = FALSE
 	if (dead_chinese.len > 0)
 		mortality_coefficient_chinese = dead_chinese.len/total_chinese
 
+	var/mortality_redline = round(mortality_coefficient_redline*100)
+	var/mortality_reich = round(mortality_coefficient_reich*100)
+
 	var/mortality_british = round(mortality_coefficient_british*100)
 	var/mortality_pirates = round(mortality_coefficient_pirates*100)
 	var/mortality_civilian = round(mortality_coefficient_civilian*100)
@@ -544,23 +591,26 @@ var/chinese_forceEnabled = FALSE
 	var/mortality_vietnamese = round(mortality_coefficient_vietnamese*100)
 	var/mortality_chinese = round(mortality_coefficient_chinese*100)
 
-	var/msg1 = "British: [alive_british.len] alive, [heavily_injured_british.len] heavily injured or unconscious, [dead_british.len] deceased. Mortality rate: [mortality_british]%"
-	var/msg2 = "Pirates: [alive_pirates.len] alive, [heavily_injured_pirates.len] heavily injured or unconscious, [dead_pirates.len] deceased. Mortality rate: [mortality_pirates]%"
-	var/msg3 = "Civilians: [alive_civilians.len] alive, [heavily_injured_civilians.len] heavily injured or unconscious, [dead_civilians.len] deceased. Mortality rate: [mortality_civilian]%"
-	var/msg4 = "Spanish: [alive_spanish.len] alive, [heavily_injured_spanish.len] heavily injured or unconscious, [dead_spanish.len] deceased. Mortality rate: [mortality_spanish]%"
-	var/msg5 = "Portuguese: [alive_portuguese.len] alive, [heavily_injured_portuguese.len] heavily injured or unconscious, [dead_portuguese.len] deceased. Mortality rate: [mortality_portuguese]%"
-	var/msg6 = "French: [alive_french.len] alive, [heavily_injured_french.len] heavily injured or unconscious, [dead_french.len] deceased. Mortality rate: [mortality_french]%"
-	var/msg8 = "Dutch: [alive_dutch.len] alive, [heavily_injured_dutch.len] heavily injured or unconscious, [dead_dutch.len] deceased. Mortality rate: [mortality_dutch]%"
-	var/msg7 = "Natives: [alive_indians.len] alive, [heavily_injured_indians.len] heavily injured or unconscious, [dead_indians.len] deceased. Mortality rate: [mortality_indians]%"
-	var/msg9 = "Romans: [alive_roman.len] alive, [heavily_injured_roman.len] heavily injured or unconscious, [dead_roman.len] deceased. Mortality rate: [mortality_roman]%"
-	var/msg10 = "Greeks: [alive_greek.len] alive, [heavily_injured_greek.len] heavily injured or unconscious, [dead_greek.len] deceased. Mortality rate: [mortality_greek]%"
-	var/msg11 = "Arabs: [alive_arab.len] alive, [heavily_injured_arab.len] heavily injured or unconscious, [dead_arab.len] deceased. Mortality rate: [mortality_arab]%"
-	var/msg12 = "Japanese: [alive_japanese.len] alive, [heavily_injured_japanese.len] heavily injured or unconscious, [dead_japanese.len] deceased. Mortality rate: [mortality_japanese]%"
-	var/msg13 = "Russian: [alive_russian.len] alive, [heavily_injured_russian.len] heavily injured or unconscious, [dead_russian.len] deceased. Mortality rate: [mortality_russian]%"
-	var/msg14 = "German: [alive_german.len] alive, [heavily_injured_german.len] heavily injured or unconscious, [dead_german.len] deceased. Mortality rate: [mortality_german]%"
-	var/msg15 = "American: [alive_american.len] alive, [heavily_injured_american.len] heavily injured or unconscious, [dead_american.len] deceased. Mortality rate: [mortality_american]%"
-	var/msg16 = "Vietnamese: [alive_vietnamese.len] alive, [heavily_injured_vietnamese.len] heavily injured or unconscious, [dead_vietnamese.len] deceased. Mortality rate: [mortality_vietnamese]%"
-	var/msg17 = "Chinese: [alive_chinese.len] alive, [heavily_injured_chinese.len] heavily injured or unconscious, [dead_chinese.len] deceased. Mortality rate: [mortality_chinese]%"
+	var/msg1 = "Red Line: [alive_redline.len] alive, [heavily_injured_redline.len] heavily injured or unconscious, [dead_redline.len] deceased. Mortality rate: [mortality_redline]%"
+	var/msg2 = "Fourth Reich: [alive_reich.len] alive, [heavily_injured_reich.len] heavily injured or unconscious, [dead_reich.len] deceased. Mortality rate: [mortality_reich]%"
+
+	var/msg3 = "British: [alive_british.len] alive, [heavily_injured_british.len] heavily injured or unconscious, [dead_british.len] deceased. Mortality rate: [mortality_british]%"
+	var/msg4 = "Pirates: [alive_pirates.len] alive, [heavily_injured_pirates.len] heavily injured or unconscious, [dead_pirates.len] deceased. Mortality rate: [mortality_pirates]%"
+	var/msg5 = "Civilians: [alive_civilians.len] alive, [heavily_injured_civilians.len] heavily injured or unconscious, [dead_civilians.len] deceased. Mortality rate: [mortality_civilian]%"
+	var/msg6 = "Spanish: [alive_spanish.len] alive, [heavily_injured_spanish.len] heavily injured or unconscious, [dead_spanish.len] deceased. Mortality rate: [mortality_spanish]%"
+	var/msg7 = "Portuguese: [alive_portuguese.len] alive, [heavily_injured_portuguese.len] heavily injured or unconscious, [dead_portuguese.len] deceased. Mortality rate: [mortality_portuguese]%"
+	var/msg8 = "French: [alive_french.len] alive, [heavily_injured_french.len] heavily injured or unconscious, [dead_french.len] deceased. Mortality rate: [mortality_french]%"
+	var/msg9 = "Dutch: [alive_dutch.len] alive, [heavily_injured_dutch.len] heavily injured or unconscious, [dead_dutch.len] deceased. Mortality rate: [mortality_dutch]%"
+	var/msg10 = "Natives: [alive_indians.len] alive, [heavily_injured_indians.len] heavily injured or unconscious, [dead_indians.len] deceased. Mortality rate: [mortality_indians]%"
+	var/msg11 = "Romans: [alive_roman.len] alive, [heavily_injured_roman.len] heavily injured or unconscious, [dead_roman.len] deceased. Mortality rate: [mortality_roman]%"
+	var/msg12 = "Greeks: [alive_greek.len] alive, [heavily_injured_greek.len] heavily injured or unconscious, [dead_greek.len] deceased. Mortality rate: [mortality_greek]%"
+	var/msg13 = "Arabs: [alive_arab.len] alive, [heavily_injured_arab.len] heavily injured or unconscious, [dead_arab.len] deceased. Mortality rate: [mortality_arab]%"
+	var/msg14 = "Japanese: [alive_japanese.len] alive, [heavily_injured_japanese.len] heavily injured or unconscious, [dead_japanese.len] deceased. Mortality rate: [mortality_japanese]%"
+	var/msg15 = "Russian: [alive_russian.len] alive, [heavily_injured_russian.len] heavily injured or unconscious, [dead_russian.len] deceased. Mortality rate: [mortality_russian]%"
+	var/msg16 = "German: [alive_german.len] alive, [heavily_injured_german.len] heavily injured or unconscious, [dead_german.len] deceased. Mortality rate: [mortality_german]%"
+	var/msg17 = "American: [alive_american.len] alive, [heavily_injured_american.len] heavily injured or unconscious, [dead_american.len] deceased. Mortality rate: [mortality_american]%"
+	var/msg18 = "Vietnamese: [alive_vietnamese.len] alive, [heavily_injured_vietnamese.len] heavily injured or unconscious, [dead_vietnamese.len] deceased. Mortality rate: [mortality_vietnamese]%"
+	var/msg19 = "Chinese: [alive_chinese.len] alive, [heavily_injured_chinese.len] heavily injured or unconscious, [dead_chinese.len] deceased. Mortality rate: [mortality_chinese]%"
 
 	var/msg_companies= ""
 	var/relpc = ""
@@ -608,40 +658,45 @@ var/chinese_forceEnabled = FALSE
 		if (relpf_max > 0 && relpf != "")
 			msg_factions = "<b>Largest Faction:</b> [relpf]"
 
-	if (map && !map.faction_organization.Find(BRITISH))
+	if (map && !map.faction_organization.Find(REDLINE))
 		msg1 = null
-	if (map && !map.faction_organization.Find(PIRATES))
+	if (map && !map.faction_organization.Find(REICH))
 		msg2 = null
-	if (map && !map.faction_organization.Find(CIVILIAN))
+
+	if (map && !map.faction_organization.Find(BRITISH))
 		msg3 = null
-	if (map && !map.faction_organization.Find(SPANISH))
+	if (map && !map.faction_organization.Find(PIRATES))
 		msg4 = null
-	if (map && !map.faction_organization.Find(PORTUGUESE))
+	if (map && !map.faction_organization.Find(CIVILIAN))
 		msg5 = null
-	if (map && !map.faction_organization.Find(FRENCH))
+	if (map && !map.faction_organization.Find(SPANISH))
 		msg6 = null
-	if (map && !map.faction_organization.Find(INDIANS))
+	if (map && !map.faction_organization.Find(PORTUGUESE))
 		msg7 = null
-	if (map && !map.faction_organization.Find(DUTCH))
+	if (map && !map.faction_organization.Find(FRENCH))
 		msg8 = null
-	if (map && !map.faction_organization.Find(ROMAN))
+	if (map && !map.faction_organization.Find(INDIANS))
 		msg9 = null
-	if (map && !map.faction_organization.Find(GREEK))
+	if (map && !map.faction_organization.Find(DUTCH))
 		msg10 = null
-	if (map && !map.faction_organization.Find(ARAB))
+	if (map && !map.faction_organization.Find(ROMAN))
 		msg11 = null
-	if (map && !map.faction_organization.Find(JAPANESE))
+	if (map && !map.faction_organization.Find(GREEK))
 		msg12 = null
-	if (map && !map.faction_organization.Find(RUSSIAN))
+	if (map && !map.faction_organization.Find(ARAB))
 		msg13 = null
-	if (map && !map.faction_organization.Find(GERMAN))
+	if (map && !map.faction_organization.Find(JAPANESE))
 		msg14 = null
-	if (map && !map.faction_organization.Find(AMERICAN))
+	if (map && !map.faction_organization.Find(RUSSIAN))
 		msg15 = null
-	if (map && !map.faction_organization.Find(VIETNAMESE))
+	if (map && !map.faction_organization.Find(GERMAN))
 		msg16 = null
-	if (map && !map.faction_organization.Find(CHINESE))
+	if (map && !map.faction_organization.Find(AMERICAN))
 		msg17 = null
+	if (map && !map.faction_organization.Find(VIETNAMESE))
+		msg18 = null
+	if (map && !map.faction_organization.Find(CHINESE))
+		msg19 = null
 	var/public = "Yes"
 
 	if (shower && !private)
@@ -687,6 +742,10 @@ var/chinese_forceEnabled = FALSE
 				world << "<font size=3>[msg16]</font>"
 			if (msg17)
 				world << "<font size=3>[msg17]</font>"
+			if (msg18)
+				world << "<font size=3>[msg18]</font>"
+			if (msg19)
+				world << "<font size=3>[msg19]</font>"
 			if (map.civilizations && msg_religions != "")
 				world << "<font size=3>[msg_religions]</font>"
 			if (map.civilizations && msg_factions != "")
@@ -732,3 +791,7 @@ var/chinese_forceEnabled = FALSE
 			shower << msg16
 		if (msg17)
 			shower << msg17
+		if (msg18)
+			shower << msg18
+		if (msg19)
+			shower << msg19

@@ -7,6 +7,14 @@
 	default_language = "English"
 	additional_languages = list()
 
+/datum/job/redline
+	default_language = "Russian"
+	additional_languages = list()
+
+/datum/job/reich
+	default_language = "Russian"
+	additional_languages = list("German" = 20)
+
 /datum/job/civilian/portuguese
 	default_language = "Portuguese"
 	additional_languages = list("French" = 25, "Spanish" = 35, "English" = 10)

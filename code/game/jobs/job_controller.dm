@@ -19,6 +19,9 @@ var/global/datum/controller/occupations/job_master
 				faction_organized_occupations_separate_lists[Jflag] = list()
 			faction_organized_occupations_separate_lists[Jflag] += J
 	if (!map)
+		job_master.faction_organized_occupations |= faction_organized_occupations_separate_lists[REDLINE]
+		job_master.faction_organized_occupations |= faction_organized_occupations_separate_lists[REICH]
+
 		job_master.faction_organized_occupations |= faction_organized_occupations_separate_lists[CIVILIAN]
 		job_master.faction_organized_occupations |= faction_organized_occupations_separate_lists[BRITISH]
 		job_master.faction_organized_occupations |= faction_organized_occupations_separate_lists[PIRATES]
@@ -374,6 +377,11 @@ var/global/datum/controller/occupations/job_master
 
 		if (!spawn_location)
 			switch (H.original_job.base_type_flag())
+				if (REDLINE)
+					spawn_location = "JoinLateRU"
+				if (REICH)
+					spawn_location = "JoinLateGE"
+
 				if (PIRATES)
 					spawn_location = "JoinLatePirate"
 				if (BRITISH)
@@ -400,8 +408,6 @@ var/global/datum/controller/occupations/job_master
 					spawn_location = "JoinLateGR"
 				if (ARAB)
 					spawn_location = "JoinLateAR"
-				if (GERMAN)
-					spawn_location = "JoinLateGE"
 				if (VIETNAMESE)
 					spawn_location = "JoinLateJP"
 				if (CHINESE)
@@ -520,6 +526,9 @@ var/global/datum/controller/occupations/job_master
 /datum/controller/occupations/proc/side_is_hardlocked(side)
 
 	// count number of each side
+	var/redline = alive_n_of_side(REDLINE)
+	var/reich = alive_n_of_side(REICH)
+
 	var/pirates = alive_n_of_side(PIRATES)
 	var/british = alive_n_of_side(BRITISH)
 	var/civilians = alive_n_of_side(CIVILIAN)
@@ -539,6 +548,9 @@ var/global/datum/controller/occupations/job_master
 	var/chinese = alive_n_of_side(CHINESE)
 
 	// by default no sides are hardlocked
+	var/max_redline = INFINITY
+	var/max_reich = INFINITY 
+
 	var/max_british = INFINITY
 	var/max_pirates = INFINITY
 	var/max_civilians = INFINITY
@@ -561,6 +573,13 @@ var/global/datum/controller/occupations/job_master
 	var/relevant_clients = clients.len
 
 	if (map && !map.faction_distribution_coeffs.Find(INFINITY))
+
+		if (map.faction_distribution_coeffs.Find(REDLINE))
+			max_civilians = ceil(relevant_clients * map.faction_distribution_coeffs[REDLINE])
+
+		if (map.faction_distribution_coeffs.Find(REICH))
+			max_civilians = ceil(relevant_clients * map.faction_distribution_coeffs[REICH])
+
 
 		if (map.faction_distribution_coeffs.Find(CIVILIAN))
 			max_civilians = ceil(relevant_clients * map.faction_distribution_coeffs[CIVILIAN])
@@ -613,6 +632,19 @@ var/global/datum/controller/occupations/job_master
 		if (map.faction_distribution_coeffs.Find(CHINESE))
 			max_chinese = ceil(relevant_clients * map.faction_distribution_coeffs[CHINESE])
 	switch (side)
+		if (REDLINE)
+			if (redline_forceEnabled)
+				return FALSE
+			if (redline >= max_redline)
+				return TRUE
+			return FALSE
+		if (REICH)
+			if (reich_forceEnabled)
+				return FALSE
+			if (reich >= max_reich)
+				return TRUE
+			return FALSE
+
 		if (CIVILIAN)
 			if (civilians_forceEnabled)
 				return FALSE

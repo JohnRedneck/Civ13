@@ -1,4 +1,7 @@
 //factions only
+#define REDLINE "REDLINE"
+#define REICH "REICH"
+
 #define PIRATES "PIRATES"
 #define CIVILIAN "CIVILIAN"
 #define INDIANS "INDIANS"
@@ -33,6 +36,13 @@
 #define GERMAN "GERMAN"
 #define VIETNAMESE "VIETNAMESE"
 /proc/faction_const2name(constant,age = 0)
+
+	if (constant == REDLINE)
+		return "Red Line"
+
+	if (constant == REICH)
+		return "Fourth Reich"
+
 
 	if (constant == PIRATES)
 		return "Pirates"

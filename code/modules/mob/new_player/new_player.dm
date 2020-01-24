@@ -602,6 +602,11 @@
 	dat += "Round Duration: [roundduration2text()]"
 	dat += "<br>"
 	dat += "<b>Current Autobalance Status</b>: "
+	if (REDLINE in map.faction_organization)
+		dat += "[alive_redline.len] Red Line "
+	if (REICH in map.faction_organization)
+		dat += "[alive_reich.len] Fourth Reich "
+
 	if (BRITISH in map.faction_organization)
 		dat += "[alive_british.len] British "
 	if (PORTUGUESE in map.faction_organization)
@@ -649,6 +654,9 @@
 //	var/list/restricted_choices = list()
 
 	var/list/available_jobs_per_side = list(
+		REDLINE = FALSE,
+		REICH = FALSE,
+
 		CIVILIAN = FALSE,
 		PIRATES = FALSE,
 		SPANISH = FALSE,
@@ -692,6 +700,12 @@
 			job_is_available = FALSE
 
 		if (map && !map.job_enabled_specialcheck(job))
+			job_is_available = FALSE
+
+		if (istype(job, /datum/job/redline) && !redline_toggled)
+			job_is_available = FALSE
+
+		if (istype(job, /datum/job/reich) && !reich_toggled)
 			job_is_available = FALSE
 
 		if (istype(job, /datum/job/british) && !british_toggled)

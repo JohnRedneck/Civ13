@@ -1430,6 +1430,11 @@
 			holder2.icon = 'icons/mob/hud_1713.dmi'
 			holder2.plane = HUD_PLANE
 			switch (original_job.base_type_flag())
+				if (REDLINE)
+					holder2.icon_state = "pirate_basic"
+				if (REICH)
+					holder2.icon_state = "pirate_basic"
+
 				if (PIRATES)
 					holder2.icon_state = "pirate_basic"
 				if (BRITISH)

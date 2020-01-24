@@ -62,6 +62,12 @@
 	if (_base_type_flag != -1)
 		return _base_type_flag
 
+	else if (istype(src, /datum/job/redline))
+		. = REDLINE
+
+	else if (istype(src, /datum/job/reich))
+		. = REICH
+
 	else if (istype(src, /datum/job/pirates))
 		. = PIRATES
 	else if (istype(src, /datum/job/civilian))
@@ -103,6 +109,13 @@
 	return capitalize(lowertext(base_type_flag()))
 
 /datum/job/proc/assign_faction(var/mob/living/carbon/human/user)
+
+	if (istype(src, /datum/job/redline))
+		user.faction_text = "REDLINE"
+		user.base_faction = new/datum/faction/redline(user, src)
+	if (istype(src, /datum/job/reich))
+		user.faction_text = "REICH"
+		user.base_faction = new/datum/faction/reich(user, src)
 
 	if (istype(src, /datum/job/pirates))
 		user.faction_text = "PIRATES"

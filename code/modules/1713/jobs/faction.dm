@@ -42,14 +42,30 @@ var/global/soldiers[17]
 /datum/faction/proc/base_type()
 	return "/datum/faction"
 
+/datum/faction/redline
+	icon_state = "civilian_basic"
+	title = "Red Line"
+	team = TEAM_RU
+
+/datum/faction/redline/base_type()
+	return "/datum/faction/redline"
+
+/datum/faction/reich
+	icon_state = "civilian_basic"
+	title = "Reich"
+	team = TEAM_GE
+
+/datum/faction/reich/base_type()
+	return "/datum/faction/reich"
+
 // you appear to be a civilian to other civilians
 /datum/faction/civilian
 	icon_state = "civilian_basic"
 	title = "Civilian"
 	team = TEAM_CV
 
-/datum/faction/pirates/base_type()
-	return "/datum/faction/pirates"
+/datum/faction/civilian/base_type()
+	return "/datum/faction/civilian"
 
 // you appear to be a pirate to other pirates
 /datum/faction/pirates
@@ -192,7 +208,14 @@ var/global/soldiers[17]
 		return
 
 	holder = H
-	if (istype(J, /datum/job/pirates))
+	if (istype(J, /datum/job/redline))
+		if ("[type]" == "/datum/faction/redline")
+			soldiers[REDLINE]++
+	if (istype(J, /datum/job/reich))
+		if ("[type]" == "/datum/faction/reich")
+			soldiers[REICH]++
+
+	else if (istype(J, /datum/job/pirates))
 		if ("[type]" == "/datum/faction/pirates")
 			soldiers[PIRATES]++
 	else if (istype(J, /datum/job/british))
