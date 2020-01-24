@@ -1,3 +1,10 @@
+/*
+Under sprites are in
+/icons/obj/clothing/uniforms.dmi for icon (onground),
+/icons/mob/items/lefthand_uniforms.dmi and righthand_uniforms.dmi for item (inhand),
+/icons/mob/uniform.dmi for worn
+*/
+
 /obj/item/clothing/under/redline/fatigues
 	name = "Red Line Fatigues"
 	desc = "Standard issue fatigues for the Red Army. It seems to be an old soviet uniform."
