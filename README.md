@@ -56,3 +56,7 @@ Tutorial stolen from https://github.com/Civ13-SS13/Civ13/blob/master/README.md
 2. Rebuild the Server in Dream Maker.
 3. When you enter the game, type ``debugtime`` into the verb bar at the bottom right of the screen.
 4. Receive your inspirational message and get debugging!
+
+## Resource Credits
+https://github.com/JohnRedneck/Metro-13/blob/master/CREDITS.txt
+Thank you all for your help!
