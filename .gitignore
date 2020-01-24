@@ -25,3 +25,4 @@ config/host.txt
 .vscode/launch.json
 cfg/admin.txt
 nullobj.txt
+sound/music/*
