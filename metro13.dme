@@ -621,6 +621,7 @@
 #include "code\modules\metro\vents.dm"
 #include "code\modules\metro\roles\uniforms_redline.dm"
 #include "code\modules\metro\roles\uniforms_reich.dm"
+#include "code\modules\metro\roles\uniforms_wormcult.dm"
 #include "code\modules\mob\animations.dm"
 #include "code\modules\mob\bloody_hands.dm"
 #include "code\modules\mob\death.dm"
@@ -919,5 +920,5 @@
 #include "code\processes\zoom\zoom_scopes.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
-#include "maps\special\nomads_wasteland.dmm"
+#include "maps\metro13\Bridge.dmm"
 // END_INCLUDE
