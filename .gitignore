@@ -26,3 +26,4 @@ config/host.txt
 cfg/admin.txt
 nullobj.txt
 sound/music/*
+code/global.dm
