@@ -142,9 +142,9 @@
 	return TRUE
 
 /datum/job/redline/soldier
-	title = "Heer Soldat"
+	title = "Ryadovoy"
 	en_meaning = "Soldier"
-	rank_abbreviation = ""
+	rank_abbreviation = "Ry."
 	selection_color = "#2d2d63"
 	spawn_location = "JoinLateRU" //for testing!
 	SL_check_independent = TRUE
