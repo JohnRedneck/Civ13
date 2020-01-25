@@ -59,7 +59,31 @@ Suit sprites are in
 	item_state = "reich_fuhrercoat"
 	worn_state = "reich_fuhrercoat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARM_LEFT|ARM_RIGHT
+	armor = list(melee = 10, arrow = 10, gun = 5, energy = 15, bomb = 5, bio = 30, rad = 30) //Default statblock for leather coats for now - Bennett
+	value = 65
+	var/colorn = 1
+
+/obj/item/clothing/suit/storage/coat/reich/gestapo_coat
+	name = "Gestapo coat"
+	desc = "A black coat worn by the Gestapo of the Fourth Reich."
+	icon_state = "reich_gestapocoat"
+	item_state = "reich_gestapocoat"
+	worn_state = "reich_gestapocoat"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEG_LEFT|LEG_RIGHT|ARM_LEFT|ARM_RIGHT
+	armor = list(melee = 10, arrow = 10, gun = 5, energy = 15, bomb = 5, bio = 30, rad = 30) //Default statblock for leather coats for now - Bennett
+	value = 65
+	var/colorn = 1
+
+/obj/item/clothing/suit/storage/coat/reich/white_gauleitercoat
+	name = "White Gauleiter coat"
+	desc = "A coat worn by gauleiter's of the Fourth Reich."
+	icon_state = "reich_whitegauleiter"
+	item_state = "reich_whitegauleiter"
+	worn_state = "reich_whitegauleiter"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|LEG_RIGHT|ARM_LEFT|ARM_RIGHT
 	armor = list(melee = 10, arrow = 10, gun = 5, energy = 15, bomb = 5, bio = 30, rad = 30) //Default statblock for leather coats for now - Bennett
 	value = 65
 	var/colorn = 1
