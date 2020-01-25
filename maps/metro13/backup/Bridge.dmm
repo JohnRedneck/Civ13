@@ -321,7 +321,7 @@
 "gi" = (/obj/structure/rails,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/floor/plating/road,/area/complex)
 "gj" = (/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 4},/obj/effect/decal/cleanable/dirt,/turf/floor/plating/road,/area/complex)
 "gk" = (/obj/structure/table/wood,/obj/item/weapon/storage/firstaid/surgery,/turf/floor,/area/complex)
-"gl" = (/obj/covers/metro/metrofull{icon_state = "metrofull"; dir = 10},/obj/structure/table/rack,/obj/item/clothing/head/helmet/reich/officercap,/obj/effect/decal/cleanable/dirt,/turf/floor/plating/concrete,/area/complex)
+"gl" = (/obj/covers/metro/metrofull{icon_state = "metrofull"; dir = 10},/obj/structure/table/rack,/obj/item/clothing/head/helmet/reich/reich_officercap,/obj/item/clothing/head/helmet/reich/reich_officercap,/obj/effect/decal/cleanable/dirt,/turf/floor/plating/concrete,/area/complex)
 "gm" = (/obj/covers/metro/metrofull{icon_state = "metrofull"; dir = 10},/obj/structure/table/rack,/obj/item/clothing/shoes/jackboots,/obj/item/clothing/shoes/jackboots,/obj/item/clothing/shoes/jackboots,/obj/item/clothing/shoes/jackboots,/obj/item/clothing/shoes/jackboots,/obj/effect/decal/cleanable/dirt,/turf/floor/plating/concrete,/area/complex)
 "gn" = (/obj/covers/metro/metrofull{icon_state = "metrofull"; dir = 10},/obj/structure/table/rack,/obj/item/clothing/under/reich/fatigues,/obj/item/clothing/under/reich/fatigues,/obj/item/clothing/under/reich/fatigues,/obj/item/clothing/under/reich/fatigues,/obj/item/clothing/under/reich/fatigues,/obj/item/clothing/accessory/armor/nomads/pcarrierblack,/obj/item/clothing/accessory/armor/nomads/pcarrierblack,/obj/item/clothing/accessory/armor/nomads/pcarrierblack,/obj/item/clothing/accessory/armor/nomads/pcarrierblack,/obj/item/clothing/accessory/armor/nomads/pcarrierblack,/obj/item/clothing/under/reich/sturmbannfuhrer,/obj/item/clothing/under/reich/sturmbannfuhrer,/obj/item/clothing/suit/storage/coat/reich/sturmbannfuhrer,/obj/item/clothing/suit/storage/coat/reich/sturmbannfuhrer,/obj/effect/decal/cleanable/dirt,/turf/floor/plating/concrete,/area/complex)
 "go" = (/obj/covers/metro/metrofull{icon_state = "metrofull"; dir = 10},/obj/structure/window/sandbag/sandbag,/obj/effect/decal/cleanable/dirt,/turf/floor/plating/concrete,/area/complex)
@@ -412,7 +412,7 @@
 "hV" = (/obj/covers/metro/metroedge{icon_state = "metroedge"; dir = 8},/obj/structure/barbwire{icon_state = "barbwire"; dir = 4},/turf/floor/plating/concrete,/area/complex)
 "hW" = (/obj/covers/metro/metrofull{icon_state = "metrofull"; dir = 10},/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 8},/turf/floor/plating/concrete,/area/complex)
 "hX" = (/obj/covers/metro/metrofull{icon_state = "metrofull"; dir = 10},/obj/structure/table/rack,/obj/item/clothing/under/redline/officer,/obj/item/clothing/under/redline/officer,/obj/item/clothing/under/redline/officer,/obj/item/clothing/under/redline/officer,/obj/covers/metro/metrofull{icon_state = "metrofull"; dir = 6},/turf/floor/plating/concrete,/area/complex)
-"hY" = (/obj/covers/metro/metrofull{icon_state = "metrofull"; dir = 10},/obj/structure/table/rack,/obj/item/clothing/suit/storage/coat/redline/officercoat,/obj/item/clothing/suit/storage/coat/redline/officercoat,/obj/item/clothing/suit/storage/coat/redline/officercoat,/obj/item/clothing/suit/storage/coat/redline/officercoat,/obj/item/clothing/suit/storage/coat/redline/officercoat,/obj/item/clothing/head/helmet/redline/officervisor,/obj/item/clothing/head/helmet/redline/officervisor,/obj/item/clothing/head/helmet/redline/officervisor,/obj/item/clothing/head/helmet/redline/officervisor,/turf/floor/plating/concrete,/area/complex)
+"hY" = (/obj/covers/metro/metrofull{icon_state = "metrofull"; dir = 10},/obj/structure/table/rack,/obj/item/clothing/suit/storage/coat/redline/officercoat,/obj/item/clothing/suit/storage/coat/redline/officercoat,/obj/item/clothing/suit/storage/coat/redline/officercoat,/obj/item/clothing/suit/storage/coat/redline/officercoat,/obj/item/clothing/suit/storage/coat/redline/officercoat,/turf/floor/plating/concrete,/area/complex)
 "hZ" = (/obj/covers/metro/metrofull{icon_state = "metrofull"; dir = 10},/obj/structure/table/rack,/obj/item/weapon/pickaxe/jackhammer,/obj/item/weapon/pickaxe/jackhammer,/turf/floor/plating/concrete,/area/complex)
 "ia" = (/obj/covers/metro/metrofull{icon_state = "metrofull"; dir = 10},/obj/structure/table/rack,/obj/item/ammo_magazine/pkm,/obj/item/ammo_magazine/pkm,/obj/item/ammo_magazine/pkm,/obj/item/ammo_magazine/pkm,/turf/floor/plating/concrete,/area/complex)
 "ib" = (/obj/covers/metro/metrofull{icon_state = "metrofull"; dir = 10},/obj/covers/brick_wall,/obj/structure/sign/armory,/turf/floor/plating/concrete,/area/complex)
@@ -429,7 +429,7 @@
 "im" = (/obj/covers/metro/metrofull{icon_state = "metrofull"; dir = 10},/obj/structure/railing{icon_state = "railing0"; dir = 1},/obj/covers/metro/metrofull{icon_state = "metrofull"; dir = 9},/turf/floor/plating/concrete,/area/complex)
 "in" = (/obj/covers/metro/metrofull{icon_state = "metrofull"; dir = 10},/obj/structure/table,/obj/item/weapon/flame/candle/on,/turf/floor/plating/concrete,/area/complex)
 "io" = (/obj/covers/metro/metrofull{icon_state = "metrofull"; dir = 10},/obj/structure/bed/bedroll,/obj/effect/landmark{icon_state = "x3"; name = "JoinLateRU"},/turf/floor,/area/complex)
-"ip" = (/obj/covers/carpet/redcarpet,/obj/structure/closet/cabinet,/obj/item/clothing/under/redline/officer,/obj/item/clothing/shoes/blackboots1,/obj/item/clothing/suit/storage/coat/redline/commissar,/obj/item/clothing/head/helmet/redline/partyvisor,/turf/floor/plating/concrete,/area/complex)
+"ip" = (/obj/covers/carpet/redcarpet,/obj/structure/closet/cabinet,/obj/item/clothing/under/redline/officer,/obj/item/clothing/shoes/blackboots1,/turf/floor/plating/concrete,/area/complex)
 "iq" = (/obj/covers/metro/metrofull{icon_state = "metrofull"; dir = 10},/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor/dirt,/area/complex)
 "ir" = (/obj/covers/metro/metrofull{icon_state = "metrofull"; dir = 10},/obj/covers/metro/metrofull{icon_state = "metrofull"; dir = 8},/turf/floor/dirt,/area/complex)
 "is" = (/obj/covers/metro/metrofull{icon_state = "metrofull"; dir = 10},/obj/effect/decal/warning_stripes,/obj/structure/closet/crate/wood,/obj/effect/decal/cleanable/dirt,/turf/floor/plating/concrete,/area/complex)
@@ -451,9 +451,6 @@
 "iI" = (/obj/covers/metro/metrofull{icon_state = "metrofull"; dir = 10},/obj/item/weapon/stool/wood,/obj/effect/decal/cleanable/dirt,/turf/floor/plating/concrete,/area/complex)
 "iJ" = (/obj/covers/metro/metrofull{icon_state = "metrofull"; dir = 10},/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 4},/obj/effect/decal/cleanable/dirt,/turf/floor/plating/concrete,/area/complex)
 "iK" = (/obj/covers/metro/metroedge{icon_state = "metroedge"; dir = 4},/obj/effect/decal/cleanable/dirt,/turf/floor/plating/concrete,/area/complex)
-"iL" = (/obj/covers/cement_wall,/obj/structure/sign/portrait/hitler,/turf/floor/plating/concrete,/area/complex)
-"iM" = (/obj/covers/metro/metrofull{icon_state = "metrofull"; dir = 10},/obj/structure/closet/anchored,/obj/item/clothing/under/reich/gauleiter,/obj/item/clothing/head/helmet/reich/gauleitercap,/obj/item/clothing/shoes/jackboots,/turf/floor/plating/concrete,/area/complex)
-"iN" = (/obj/covers/cement_wall,/obj/structure/sign/portrait/lenin,/turf/floor/plating/concrete,/area/complex)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -567,7 +564,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaccdckcfagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaacagcfahagcoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacagcfahagacaaaaaaaaaaaaaaaaaaaaaaaaaccdcfahcdcoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaciLacacacacacacacacacaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaccdcfahcdacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacacacacacacacacacaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaccdcfahcdacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacgpgqgrgsgqacgtgxgygGacacacacacacacacacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaccdahahcdacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacgTgqgqgqgqgUgqgqgXgqabhMhMhNhOhPhWigacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaccdahahcdacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacgqgqgqgqgqhbgqgshchdabaPaPaPaPaPhWaPacagcfcfagacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -578,11 +575,11 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaPaPaPaPaPhwaPaPaPaPacaP
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaPidhHaPaPhwaPiHaPaPaciGaPgLaPaPaPidhrcdahahagacaaaaaaaaaaaaaaaaaaaaaaaaaccdcfahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaPiIaPhxaPhwgQaPgQacacacacacaPaPaPiJhragahahcdacaaaaaaaaaaaaaaaaaaaaaaaaaccdcfahcdacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaachyhxaPhxhyhwhSaPaPhwijaPayaCaPhHaPiJiKagahahcdacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaPhxhThxaPacaPaPaPaciMaPaDacaPaPaPgLhragahahcdacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaPhxaPhxaPhwaPhTaPaciGaPhAacaPgJhGacacagahahcdacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaPhxhThxaPacaPaPaPacaPaPaDacaPaPaPgLhragahahcdacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacaPhxaPhxaPhwaPhTaPaciGaPhAacaPgJacacacagahahcdacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacaiaaacaPhxaPhxaPhwaPaPaPachzacacacaPaPaPhTacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccscscsacacachyhxaPhxhyhwaPaPaPaPaPaPaPaPaPaPaPaPacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaccdahahagacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccscscscUdEhWaPaPaPhSaPgKaPaPaPaPaPididacacacacacacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaccdahahcdacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccscscscUdEhWaPaPaPhSaPaPaPaPaPaPaPididacacacacacacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaaccdahahcdacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccscscsacacacacacacacacacacacacacacididacaEaEaEaEaccdahahagacaaaaaaaaaaaaaaaaaaaaaaaaaccdahahcdacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacacacacaiaaaaaaaaaahwdLglgmgnaPaPhAhHaPhvaPaPhTaPaccdahahcdacaaaaaaaaaaaaaaaaaaaaaaaaacagahahcdacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahwididididaPhBacaPaPacaEaEaEaEaccdahahcdacaaaaaaaaaaaaaaaaaaaaaaaaacagcfahcxacaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -658,5 +655,5 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccdcfcfagacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacgWipgYgZgZgZhaachLiqiDiDaPgQacioiEioacaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccdcfcfcdacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacgZgZgYhehfhggZhhiggSiFiFiraPhvgViEioacaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagachihahjhkhlhghmachLgSgSgSgSaPaciogVioacaaaaaaaaaaaaaaaaaaaaaa
-fMaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacacaccDiNacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaa
+fMaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacaaaaaaaaaaaaaaaaaaaaaaaaacagahahagacacaccDacacacacacacacacacacacacacacacacaaaaaaaaaaaaaaaaaaaaaa
 "}

@@ -19,6 +19,13 @@ Under sprites are in
 	item_state = "reich_sturmbannfuhrer"
 	worn_state = "reich_sturmbannfuhrer"
 
+/obj/item/clothing/under/reich/gauleiter
+	name = "Gauleiter uniform"
+	desc = "A beige uniform reminiscent of the old days of the Third Reich. The uniform in question tends to be worn by party members of the Fourth Reich."
+	icon_state = "reich_gauleiter"
+	item_state = "reich_gauleiter"
+	worn_state = "reich_gauleiter"
+
 /obj/item/clothing/under/reich/fuhrer
 	name = "Fuhrer uniform"
 	desc = "The uniform of the leader of the Fourth Reich."
@@ -74,12 +81,22 @@ Hat sprites are in
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 55, arrow = 45, gun = 15, energy = 15, bomb = 55, bio = 20, rad = FALSE)
 
-/obj/item/clothing/head/helmet/reich/reich_officercap
+/obj/item/clothing/head/helmet/reich/officercap
 	name = "Fourth Reich visor"
 	desc = "A visor commonly seen worn by Fourth Reich officers."
 	icon_state = "reich_officercap"
 	item_state = "reich_officercap"
 	worn_state = "reich_officercap"
+	body_parts_covered = HEAD
+	flags_inv = BLOCKHEADHAIR
+	armor = list(melee = 5, arrow = 0, gun = 0, energy = 0, bomb = 0, bio = 10, rad = FALSE)
+
+/obj/item/clothing/head/helmet/reich/gauleitercap
+	name = "Gauleiter cap"
+	desc = "A hat worn by Gauleiter's of the Fourth Reich."
+	icon_state = "reich_gauleitercap"
+	item_state = "reich_gauleitercap"
+	worn_state = "reich_gauleitercap"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 5, arrow = 0, gun = 0, energy = 0, bomb = 0, bio = 10, rad = FALSE)

@@ -45,6 +45,18 @@ Suit sprites are in
 	value = 65
 	var/colorn = 1
 
+/obj/item/clothing/suit/storage/coat/redline/commissar
+	name = "Commissar coat"
+	desc = "A coat worn by Commissars of the Red Line."
+	icon_state = "redline_commissar"
+	item_state = "redline_commissar"
+	worn_state = "redline_commissar"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|LEG_LEFT|LEG_RIGHT|ARM_LEFT|ARM_RIGHT
+	armor = list(melee = 10, arrow = 10, gun = 5, energy = 15, bomb = 5, bio = 30, rad = 30) //Default statblock for leather coats for now - Bennett
+	value = 65
+	var/colorn = 1
+
 	/*
 Hat sprites are in
 /icons/obj/clothing/hats.dmi for icon (onground),
@@ -58,6 +70,26 @@ Hat sprites are in
 	icon_state = "redline_helm"
 	item_state = "redline_helm"
 	worn_state = "redline_helm"
+	body_parts_covered = HEAD
+	flags_inv = BLOCKHEADHAIR
+	armor = list(melee = 55, arrow = 45, gun = 15, energy = 15, bomb = 55, bio = 20, rad = FALSE)
+
+/obj/item/clothing/head/helmet/redline/partyvisor
+	name = "Party Visor"
+	desc = "A visor worn by high ranking officals in the Red Line."
+	icon_state = "redline_partyvisor"
+	item_state = "redline_partyvisor"
+	worn_state = "redline_partyvisor"
+	body_parts_covered = HEAD
+	flags_inv = BLOCKHEADHAIR
+	armor = list(melee = 55, arrow = 45, gun = 15, energy = 15, bomb = 55, bio = 20, rad = FALSE)
+
+/obj/item/clothing/head/helmet/redline/officervisor
+	name = "Officer Visor"
+	desc = "A visor worn by the lower officer corps of the Red Line."
+	icon_state = "redline_officervisor"
+	item_state = "redline_officervisor"
+	worn_state = "redline_officervisor"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 55, arrow = 45, gun = 15, energy = 15, bomb = 55, bio = 20, rad = FALSE)
