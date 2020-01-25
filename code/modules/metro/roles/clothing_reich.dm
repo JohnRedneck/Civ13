@@ -45,6 +45,18 @@ Suit sprites are in
 	value = 65
 	var/colorn = 1
 
+/obj/item/clothing/suit/storage/coat/reich/fuhrercoat
+	name = "Fuhrer's coat"
+	desc = "The signature tan coat of the Fuhrer of the Fourth Reich."
+	icon_state = "reich_fuhrercoat"
+	item_state = "reich_fuhrercoat"
+	worn_state = "reich_fuhrercoat"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|LEG_LEFT|LEG_RIGHT|ARM_LEFT|ARM_RIGHT
+	armor = list(melee = 10, arrow = 10, gun = 5, energy = 15, bomb = 5, bio = 30, rad = 30) //Default statblock for leather coats for now - Bennett
+	value = 65
+	var/colorn = 1
+
 /*
 Hat sprites are in
 /icons/obj/clothing/hats.dmi for icon (onground),
@@ -71,3 +83,4 @@ Hat sprites are in
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 5, arrow = 0, gun = 0, energy = 0, bomb = 0, bio = 10, rad = FALSE)
+

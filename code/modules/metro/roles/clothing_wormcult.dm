@@ -18,3 +18,13 @@ Under sprites are in
 	icon_state = "wormcult_loincloth_skull"
 	item_state = "wormcult_loincloth_skull"
 	worn_state = "wormcult_loincloth_skull"
+
+/obj/item/clothing/head/helmet/wormcult/wormcult_wolfheaddress
+   name = "Wolf Headdress"
+   desc = "A sturdy headdress made out of a wolf's hide. It seems rather primative."
+   icon_state = "wormcult_wolfheaddress"
+   item_state = "wormcult_wolfheaddress"
+   worn_state = "wormcult_wolfheaddress"
+   body_parts_covered = HEAD
+   flags_inv = BLOCKHEADHAIR
+   armor = list(melee = 10, arrow = 10, gun = 5, energy = 5, bomb = 5, bio = 5, rad = FALSE)
