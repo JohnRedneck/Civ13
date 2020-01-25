@@ -91,6 +91,17 @@ Hat sprites are in
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 5, arrow = 0, gun = 0, energy = 0, bomb = 0, bio = 10, rad = FALSE)
 
+/obj/item/clothing/head/helmet/reich/fuhrervisor
+	name = "Fuhrer's visor"
+	desc = "The visor of the Fuhrer of the Fourth Reich."
+	icon_state = "reich_fuhrervisor"
+	item_state = "reich_fuhrervisor"
+	worn_state = "reich_fuhrervisor"
+	body_parts_covered = HEAD
+	flags_inv = BLOCKHEADHAIR
+	armor = list(melee = 5, arrow = 0, gun = 0, energy = 0, bomb = 0, bio = 10, rad = FALSE)
+
+
 /obj/item/clothing/head/helmet/reich/gauleitercap
 	name = "Gauleiter cap"
 	desc = "A hat worn by Gauleiter's of the Fourth Reich."
@@ -101,3 +112,24 @@ Hat sprites are in
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 5, arrow = 0, gun = 0, energy = 0, bomb = 0, bio = 10, rad = FALSE)
 
+
+/obj/item/clothing/head/helmet/reich/cap
+	name = "Reich cap"
+	desc = "A military hat worn by members of the Fourth Reich."
+	icon_state = "reich_cap"
+	item_state = "reich_cap"
+	worn_state = "reich_cap"
+	body_parts_covered = HEAD
+	flags_inv = BLOCKHEADHAIR
+	armor = list(melee = 5, arrow = 0, gun = 0, energy = 0, bomb = 0, bio = 10, rad = FALSE)
+
+
+/obj/item/clothing/head/helmet/reich/beret
+	name = "Gestapo beret"
+	desc = "A beret seen worn by the Gestapo of the Fourth Reich."
+	icon_state = "reich_beret"
+	item_state = "reich_beret"
+	worn_state = "reich_beret"
+	body_parts_covered = HEAD
+	flags_inv = BLOCKHEADHAIR
+	armor = list(melee = 5, arrow = 0, gun = 0, energy = 0, bomb = 0, bio = 10, rad = FALSE)
