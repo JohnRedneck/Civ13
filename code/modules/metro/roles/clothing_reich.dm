@@ -4,6 +4,12 @@ Under sprites are in
 /icons/mob/items/lefthand_uniforms.dmi and righthand_uniforms.dmi for item (inhand),
 /icons/mob/uniform.dmi for worn
 */
+/obj/item/clothing/under/reich/slavetunic
+	name = "Slave Tunic"
+	desc = "A hastily made tunic used to identify subhumans."
+	icon_state = "reich_slavetunic"
+	item_state = "reich_slavetunic"
+	worn_state = "reich_slavetunic"
 
 /obj/item/clothing/under/reich/fatigues
 	name = "Fourth Reich fatigues"
