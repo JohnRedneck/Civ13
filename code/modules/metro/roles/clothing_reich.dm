@@ -94,6 +94,17 @@ Suit sprites are in
 	value = 65
 	var/colorn = 1
 
+/obj/item/clothing/suit/armor/reich/stormtrooper_armor
+	name = "Stormtrooper armor"
+	desc = "Heavy metal plated armor worn by the elite stormtroopers of the Fourth Reich."
+	icon_state = "reich_stormtrooperarmor"
+	item_state = "reich_stormtrooperarmor"
+	worn_state = "reich_stormtrooperarmor"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|FEET
+	armor = list(melee = 60, arrow = 50, gun = 90, energy = 40, bomb = 40, bio = 50, rad = 35)
+	value = 25
+	slowdown = 1.0
+	health = 70 //This may need nerfed.....a lot.
 /*
 Hat sprites are in
 /icons/obj/clothing/hats.dmi for icon (onground),
