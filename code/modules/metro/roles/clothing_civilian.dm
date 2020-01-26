@@ -36,3 +36,4 @@ Hat sprites are in
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 5, arrow = 0, gun = 0, energy = 0, bomb = 0, bio = 10, rad = FALSE)
+	(Incomplete. Bennett can you finish adding this?)

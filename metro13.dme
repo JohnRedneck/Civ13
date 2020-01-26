@@ -613,6 +613,7 @@
 #include "code\modules\metro\flashlights.dm"
 #include "code\modules\metro\food.dm"
 #include "code\modules\metro\furniture.dm"
+#include "code\modules\metro\guns.dm"
 #include "code\modules\metro\propaganda.dm"
 #include "code\modules\metro\reagent_containers.dm"
 #include "code\modules\metro\reagents.dm"
