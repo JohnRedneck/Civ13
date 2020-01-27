@@ -151,7 +151,7 @@
 /turf/wall/rockwall/lavaspawner/proc/start_lava_flow()
 
 	for(var/turf/T in range(1,src))
-		if (istype(T.loc, /area/caribbean/nomads/forest/Jungle/lava_east) || istype(T.loc, /area/caribbean/nomads/forest/Jungle/lava_west) || istype(T.loc, /area/caribbean/nomads/forest/Jungle/lava_south))
+		if (istype(T.loc, /area/complex/nomads/forest/Jungle/lava_east) || istype(T.loc, /area/complex/nomads/forest/Jungle/lava_west) || istype(T.loc, /area/complex/nomads/forest/Jungle/lava_south))
 			T.ChangeTurf(/turf/floor/lava)
 	return
 
