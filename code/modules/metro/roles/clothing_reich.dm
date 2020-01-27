@@ -103,7 +103,7 @@ Suit sprites are in
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|FEET
 	armor = list(melee = 60, arrow = 50, gun = 90, energy = 40, bomb = 40, bio = 50, rad = 35)
 	value = 25
-	slowdown = 1.0
+	slowdown = 1.75
 	health = 70 //This may need nerfed.....a lot.
 /*
 Hat sprites are in
