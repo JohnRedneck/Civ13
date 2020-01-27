@@ -34,6 +34,7 @@
 	var/real_season = "wet"
 /obj/map_metadata/nomads_divide/New()
 	..()
+	/*
 	spawn(2600)
 		for (var/i = 1, i <= 30, i++)
 			var/turf/areaspawn = safepick(get_area_turfs(/area/complex/nomads/river))
@@ -50,7 +51,7 @@
 		for (var/i = 1, i <= 15, i++)
 			var/turf/areaspawn2 = safepick(get_area_turfs(/area/complex/nomads/forest))
 			new/obj/structure/anthill(areaspawn2)
-
+	*/
 	spawn(1200)
 		if (season == "SPRING") //fixes game setting the season as spring
 			season = "Wet Season"

@@ -33,6 +33,7 @@
 	var/list/arealist_g = list()
 /obj/map_metadata/nomads_new_world/New()
 	..()
+	/*
 	var/list/totalturfs = get_area_turfs(/area/complex/nomads/forest/Jungle)
 	totalturfs += get_area_turfs(/area/complex/nomads/forest/savanna)
 	spawn(1200)
@@ -47,6 +48,7 @@
 			if (istype(areaspawn2,/turf/floor/grass) || istype(areaspawn2,/turf/floor/dirt))
 				new/obj/structure/anthill(areaspawn2)
 				i++
+	*/
 	spawn(18000)
 		seasons()
 

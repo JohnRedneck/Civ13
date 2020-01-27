@@ -160,6 +160,25 @@
 	icon_state = "green1"
 	climate = "jungle"
 
+//lava paths
+/area/complex/nomads/forest/Jungle/lava_west
+	icon_state = "green3"
+/area/complex/nomads/forest/Jungle/lava_west/one
+
+/area/complex/nomads/forest/Jungle/lava_west/two
+
+/area/complex/nomads/forest/Jungle/lava_east
+	icon_state = "green3"
+/area/complex/nomads/forest/Jungle/lava_east/one
+
+/area/complex/nomads/forest/Jungle/lava_east/two
+
+/area/complex/nomads/forest/Jungle/lava_south
+	icon_state = "green3"
+/area/complex/nomads/forest/Jungle/lava_south/one
+
+/area/complex/nomads/forest/Jungle/lava_south/two
+
 /area/complex/nomads/forest/savanna
 	name = "Savanna"
 	base_turf = /turf/floor/grass/jungle/savanna
