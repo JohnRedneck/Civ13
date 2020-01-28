@@ -4,12 +4,13 @@ Under sprites are in
 /icons/mob/items/lefthand_uniforms.dmi and righthand_uniforms.dmi for item (inhand),
 /icons/mob/uniform.dmi for worn
 */
-/obj/item/clothing/under/reich/slavetunic
-	name = "Slave Tunic"
+
+/obj/item/clothing/under/reich/slave
+	name = "Slave tunic"
 	desc = "A hastily made tunic used to identify subhumans."
-	icon_state = "reich_slavetunic"
-	item_state = "reich_slavetunic"
-	worn_state = "reich_slavetunic"
+	icon_state = "reich_slave"
+	item_state = "reich_slave"
+	worn_state = "reich_slave"
 
 /obj/item/clothing/under/reich/fatigues
 	name = "Fourth Reich fatigues"
@@ -58,53 +59,57 @@ Suit sprites are in
 	value = 65
 	var/colorn = 1
 
-/obj/item/clothing/suit/storage/coat/reich/fuhrercoat
+/obj/item/clothing/suit/storage/coat/reich/fuhrer
 	name = "Fuhrer's coat"
 	desc = "The signature tan coat of the Fuhrer of the Fourth Reich."
-	icon_state = "reich_fuhrercoat"
-	item_state = "reich_fuhrercoat"
-	worn_state = "reich_fuhrercoat"
+	icon_state = "reich_fuhrer"
+	item_state = "reich_fuhrer"
+	worn_state = "reich_fuhrer"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARM_LEFT|ARM_RIGHT
 	armor = list(melee = 10, arrow = 10, gun = 5, energy = 15, bomb = 5, bio = 30, rad = 30) //Default statblock for leather coats for now - Bennett
 	value = 65
 	var/colorn = 1
 
-/obj/item/clothing/suit/storage/coat/reich/gestapo_coat
+/obj/item/clothing/suit/storage/coat/reich/gestapo
 	name = "Gestapo coat"
 	desc = "A black coat worn by the Gestapo of the Fourth Reich."
-	icon_state = "reich_gestapocoat"
-	item_state = "reich_gestapocoat"
-	worn_state = "reich_gestapocoat"
+	icon_state = "reich_gestapo"
+	item_state = "reich_gestapo"
+	worn_state = "reich_gestapo"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEG_LEFT|LEG_RIGHT|ARM_LEFT|ARM_RIGHT
 	armor = list(melee = 10, arrow = 10, gun = 5, energy = 15, bomb = 5, bio = 30, rad = 30) //Default statblock for leather coats for now - Bennett
 	value = 65
 	var/colorn = 1
 
-/obj/item/clothing/suit/storage/coat/reich/white_gauleitercoat
-	name = "White Gauleiter coat"
+//Klaus if you add a "regular" variant of this coat 
+//make this one's path .../reich/gauleiter/white 
+//make the other one's path .../reich/gauleiter
+/obj/item/clothing/suit/storage/coat/reich/gauleiter
+	name = "Gauleiter coat"
 	desc = "A coat worn by gauleiter's of the Fourth Reich."
-	icon_state = "reich_whitegauleiter"
-	item_state = "reich_whitegauleiter"
-	worn_state = "reich_whitegauleiter"
+	icon_state = "reich_gauleiter"
+	item_state = "reich_gauleiter"
+	worn_state = "reich_WWgauleiter"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEG_RIGHT|ARM_LEFT|ARM_RIGHT
 	armor = list(melee = 10, arrow = 10, gun = 5, energy = 15, bomb = 5, bio = 30, rad = 30) //Default statblock for leather coats for now - Bennett
 	value = 65
 	var/colorn = 1
 
-/obj/item/clothing/suit/armor/reich/stormtrooper_armor
+/obj/item/clothing/suit/armor/reich/stormtrooper
 	name = "Stormtrooper armor"
-	desc = "Heavy metal plated armor worn by the elite stormtroopers of the Fourth Reich."
-	icon_state = "reich_stormtrooperarmor"
-	item_state = "reich_stormtrooperarmor"
-	worn_state = "reich_stormtrooperarmor"
+	desc = "Heavy metal plated armor worn by elite stormtroopers of the Fourth Reich."
+	icon_state = "reich_stormtrooper"
+	item_state = "reich_stormtrooper"
+	worn_state = "reich_stormtrooper"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|FEET
-	armor = list(melee = 60, arrow = 50, gun = 90, energy = 40, bomb = 40, bio = 50, rad = 35)
+	armor = list(melee = 85, arrow = 90, gun = 80, energy = 15, bomb = 60, bio = 20, rad = 45)
 	value = 25
-	slowdown = 1.75
-	health = 70 //This may need nerfed.....a lot.
+	slowdown = 2
+	health = 60
+
 /*
 Hat sprites are in
 /icons/obj/clothing/hats.dmi for icon (onground),
@@ -112,32 +117,32 @@ Hat sprites are in
 /icons/mob/head.dmi for worn
 */
 
-/obj/item/clothing/head/helmet/reich/stahlhelm
-	name = "Stahlhelm"
-	desc = "The signature helmets of the Fourth Reich."
-	icon_state = "reich_stahlhelm"
-	item_state = "reich_stahlhelm"
-	worn_state = "reich_stahlhelm"
+/obj/item/clothing/head/helmet/reich/helmet
+	name = "Reich Stahlhelm"
+	desc = "The signature helmet of the Fourth Reich."
+	icon_state = "reich_helmet"
+	item_state = "reich_helmet"
+	worn_state = "reich_helmet"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 55, arrow = 45, gun = 15, energy = 15, bomb = 55, bio = 20, rad = FALSE)
 
-/obj/item/clothing/head/helmet/reich/officercap
-	name = "Fourth Reich visor"
+/obj/item/clothing/head/helmet/reich/officer
+	name = "Reich Officer's cap"
 	desc = "A visor commonly seen worn by Fourth Reich officers."
-	icon_state = "reich_officercap"
-	item_state = "reich_officercap"
-	worn_state = "reich_officercap"
+	icon_state = "reich_officer"
+	item_state = "reich_officer"
+	worn_state = "reich_officer"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 5, arrow = 0, gun = 0, energy = 0, bomb = 0, bio = 10, rad = FALSE)
 
-/obj/item/clothing/head/helmet/reich/fuhrervisor
-	name = "Fuhrer's visor"
+/obj/item/clothing/head/helmet/reich/fuhrer
+	name = "Fuhrer's cap"
 	desc = "The visor of the Fuhrer of the Fourth Reich."
-	icon_state = "reich_fuhrervisor"
-	item_state = "reich_fuhrervisor"
-	worn_state = "reich_fuhrervisor"
+	icon_state = "reich_fuhrer"
+	item_state = "reich_fuhrer"
+	worn_state = "reich_fuhrer"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 5, arrow = 0, gun = 0, energy = 0, bomb = 0, bio = 10, rad = FALSE)
