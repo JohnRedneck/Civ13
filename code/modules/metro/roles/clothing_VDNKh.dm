@@ -5,9 +5,9 @@ Under sprites are in
 /icons/mob/uniform.dmi for worn
 */
 
-/obj/item/clothing/under/vdnkh/vdnkh_militia
-    name = "Militia Uniform"
-    desc = "Camo fatigues commonly seen worn by VDNKh soldiers."
-    icon_state = "vdnkh_milita"
-    item_state = "vdnkh_milita"
-    worn_state = "vdnkh_milita"
+/obj/item/clothing/under/vdnkh/vdnkh_fatigues
+	name = "VDNKh Militia Uniform"
+	desc = "Camoflauged fatigues worn by VDNKh soldiers."
+	icon_state = "vdnkh_fatigues"
+	item_state = "vdnkh_fatigues"
+	worn_state = "vdnkh_fatigues"

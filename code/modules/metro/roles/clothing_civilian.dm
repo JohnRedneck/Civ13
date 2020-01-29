@@ -27,13 +27,13 @@ Hat sprites are in
 /icons/mob/head.dmi for worn
 */
 
-/obj/item/clothing/head/helmet/civilian/ushanka_1
-	name = "Grey Ushanka"
-	desc = "A plain Russian ushanka."
+/obj/item/clothing/head/helmet/civilian/ushanka
+	name = "Ushanka"
+	desc = "A regular Russian ushanka."
 	icon_state = "civilian_ushanka"
-	item_state = "civilian_ushanka"
+	item_state = "tophat" //Temporary until we get an inhand
 	worn_state = "civilian_ushanka"
 	body_parts_covered = HEAD
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 5, arrow = 0, gun = 0, energy = 0, bomb = 0, bio = 10, rad = FALSE)
-	(Incomplete. Bennett can you finish adding this?)
+	//(Incomplete. Bennett can you finish adding this?)
