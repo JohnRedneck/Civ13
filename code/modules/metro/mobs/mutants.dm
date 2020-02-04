@@ -60,5 +60,33 @@
 	faction = "neutral"
 	can_bite_limbs_off = TRUE
 
+/mob/living/simple_animal/hostile/mutants/large/spiderbugqueen
+	name = "Spiderbug Queen"
+	desc = "A towering spiderbug that looks of pure raw power."
+	icon = 'icons/mob/animal_64.dmi'
+	icon_state = "spiderbugqueen"
+	icon_living = "spiderbugqueen"
+	icon_dead = "spiderbugqueen_dead"
+	icon_gib = "spiderbugqueen_dead"
+	speak = list("HISSS!","KCKCK!","KICCHHH!")
+	speak_emote = list("Hisses", "Screeches")
+	emote_hear = list("Hisses")
+	emote_see = list("stares ferociously", "Hisses")
+	speak_chance = TRUE
+	turns_per_move = 4
+	move_to_delay = 4
+	see_in_dark = 8
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	response_help  = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm   = "pokes"
+	stop_automated_movement_when_pulled = FALSE
+	maxHealth = 1000
+	health = 1000
+	melee_damage_lower = 50
+	melee_damage_upper = 80
+	mob_size = MOB_LARGE
+	faction = "neutral"
+
 
 
