@@ -83,8 +83,8 @@ Suit sprites are in
 	value = 65
 	var/colorn = 1
 
-//Klaus if you add a "regular" variant of this coat 
-//make this one's path .../reich/gauleiter/white 
+//Klaus if you add a "regular" variant of this coat
+//make this one's path .../reich/gauleiter/white
 //make the other one's path .../reich/gauleiter
 /obj/item/clothing/suit/storage/coat/reich/gauleiter
 	name = "Gauleiter coat"
