@@ -619,6 +619,7 @@
 #include "code\modules\metro\signs.dm"
 #include "code\modules\metro\vents.dm"
 #include "code\modules\metro\mobs\mutants.dm"
+#include "code\modules\metro\roles\clothing_hanza.dm"
 #include "code\modules\metro\roles\clothing_redline.dm"
 #include "code\modules\metro\roles\clothing_reich.dm"
 #include "code\modules\metro\roles\clothing_VDNKh.dm"
