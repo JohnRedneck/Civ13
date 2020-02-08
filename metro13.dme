@@ -622,7 +622,7 @@
 #include "code\modules\metro\roles\clothing_hanza.dm"
 #include "code\modules\metro\roles\clothing_redline.dm"
 #include "code\modules\metro\roles\clothing_reich.dm"
-#include "code\modules\metro\roles\clothing_vdnkh.dm"
+#include "code\modules\metro\roles\clothing_VDNKh.dm"
 #include "code\modules\metro\roles\clothing_wormcult.dm"
 #include "code\modules\metro\roles\redline.dm"
 #include "code\modules\metro\roles\reich.dm"
