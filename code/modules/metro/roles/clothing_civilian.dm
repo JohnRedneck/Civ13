@@ -8,7 +8,12 @@ Under sprites are in
 /*
 placeholder
 */
-
+/obj/item/clothing/under/hanza/guard
+	name = "Rags"
+	desc = "A set of rags stiched together."
+	icon_state = "rags"
+	item_state = "rags"
+	worn_state = "rags"
 /*
 Suit sprites are in
 /icons/obj/clothing/suits.dmi for icon (onground),
