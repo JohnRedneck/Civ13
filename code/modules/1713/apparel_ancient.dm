@@ -8,13 +8,14 @@
 	force = WEAPON_FORCE_WEAK
 	armor = list(melee = 60, arrow = 5, gun = FALSE, energy = 25, bomb = 50, bio = 10, rad = FALSE)
 	siemens_coefficient = 0.6
-//roman memes
+
 /obj/item/clothing/under/roman
 	name = "Roman legionary uniform"
 	desc = "A red tunic covered with iron armor. Used by the Roman Army."
 	icon_state = "roman"
 	item_state = "roman"
 	worn_state = "roman"
+	heat_protection = LOWER_TORSO|LEGS|UPPER_TORSO
 
 /obj/item/clothing/under/toga
 	name = "white toga"
@@ -22,6 +23,7 @@
 	icon_state = "toga"
 	item_state = "toga"
 	worn_state = "toga"
+	heat_protection = LOWER_TORSO|LEGS|UPPER_TORSO
 
 /obj/item/clothing/under/toga2
 	name = "half-shoulder white toga"
@@ -29,6 +31,7 @@
 	icon_state = "toga2"
 	item_state = "toga2"
 	worn_state = "toga2"
+	heat_protection = LOWER_TORSO|LEGS|UPPER_TORSO
 
 /obj/item/clothing/under/roman_centurion
 	name = "Roman centurion uniform"
@@ -36,6 +39,7 @@
 	icon_state = "roman_centurion"
 	item_state = "roman_centurion"
 	worn_state = "roman_centurion"
+	heat_protection = LOWER_TORSO|LEGS|UPPER_TORSO
 
 /obj/item/clothing/under/greek1
 	name = "Greek uniform"
@@ -43,6 +47,7 @@
 	icon_state = "athens"
 	item_state = "athens"
 	worn_state = "athens"
+	heat_protection = LOWER_TORSO|LEGS|UPPER_TORSO
 
 /obj/item/clothing/under/greek2
 	name = "Greek uniform"
@@ -50,6 +55,7 @@
 	icon_state = "thebes"
 	item_state = "thebes"
 	worn_state = "thebes"
+	heat_protection = LOWER_TORSO|LEGS|UPPER_TORSO
 
 /obj/item/clothing/under/greek3
 	name = "Greek uniform"
@@ -57,6 +63,7 @@
 	icon_state = "corinthia"
 	item_state = "corinthia"
 	worn_state = "corinthia"
+	heat_protection = LOWER_TORSO|LEGS|UPPER_TORSO
 
 /obj/item/clothing/under/greek_commander
 	name = "Greek Commander uniform"
@@ -64,6 +71,7 @@
 	icon_state = "greek_commander"
 	item_state = "greek_commander"
 	worn_state = "greek_commander"
+	heat_protection = LOWER_TORSO|LEGS|UPPER_TORSO
 
 /obj/item/clothing/under/toxotai
 	name = "white tunic"
@@ -71,6 +79,7 @@
 	icon_state = "toxotai"
 	item_state = "toxotai"
 	worn_state = "toxotai"
+	heat_protection = LOWER_TORSO|LEGS|UPPER_TORSO
 
 //celtic
 
@@ -80,6 +89,7 @@
 	icon_state = "celtic_green"
 	item_state = "celtic_green"
 	worn_state = "celtic_green"
+	heat_protection = LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/celtic_blue
 	name = "blue celtic trousers"
@@ -87,6 +97,7 @@
 	icon_state = "celtic_blue"
 	item_state = "celtic_blue"
 	worn_state = "celtic_blue"
+	heat_protection = LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/celtic_red
 	name = "red celtic trousers"
@@ -94,6 +105,7 @@
 	icon_state = "celtic_red"
 	item_state = "celtic_red"
 	worn_state = "celtic_red"
+	heat_protection = LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/celtic_short_braccae
 	name = "short celtic braccae"
@@ -101,6 +113,7 @@
 	icon_state = "celtic_short_braccae"
 	item_state = "celtic_short_braccae"
 	worn_state = "celtic_short_braccae"
+	heat_protection = LOWER_TORSO
 
 /obj/item/clothing/under/celtic_long_braccae
 	name = "long celtic braccae"
@@ -108,6 +121,7 @@
 	icon_state = "celtic_long_braccae"
 	item_state = "celtic_long_braccae"
 	worn_state = "celtic_long_braccae"
+	heat_protection = LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/mayan_loincloth
 	name = "mayan loincloth"
@@ -115,6 +129,25 @@
 	icon_state = "mayan_loincloth"
 	item_state = "mayan_loincloth"
 	worn_state = "mayan_loincloth"
+	heat_protection = LOWER_TORSO
+
+/obj/item/clothing/under/aztec_loincloth
+	name = "aztec loincloth"
+	desc = "A loincloth fit for a ferocious Aztec warrior."
+	icon_state = "aztec_loincloth"
+	item_state = "aztec_loincloth"
+	worn_state = "aztec_loincloth"
+	heat_protection = LOWER_TORSO
+
+/obj/item/clothing/shoes/aztec_sandals
+	name = "aztec sandals"
+	desc = "Basic leather sandals, hailing from the jungles."
+	icon_state = "aztec_sandals"
+	item_state = "aztec_sandals"
+	worn_state = "aztec_sandals"
+	force = WEAPON_FORCE_WEAK
+	armor = list(melee = 10, arrow = 5, gun = FALSE, energy = FALSE, bomb = 1, bio = FALSE, rad = FALSE)
+	siemens_coefficient = 0.6
 
 /obj/item/clothing/under/pharaoh
 	name = "fancy shendyt"
@@ -129,6 +162,7 @@
 	icon_state = "greatshendyt"
 	item_state = "greatshendyt"
 	worn_state = "greatshendyt"
+	heat_protection = LOWER_TORSO
 /obj/item/clothing/suit/armor
 	health = 40
 	ripable = FALSE
@@ -155,6 +189,18 @@
 	value = 40
 	slowdown = 0.2
 	health = 28
+
+/obj/item/clothing/suit/armor/ancient/aztec_harness
+	name = "aztec harness"
+	desc = "A few metal plates on leather strips, covering the torso."
+	icon_state = "aztec_harness"
+	item_state = "aztec_harness"
+	worn_state = "aztec_harness"
+	body_parts_covered = UPPER_TORSO
+	armor = list(melee = 35, arrow = 15, gun = 2, energy = 2, bomb = 2, bio = FALSE, rad = FALSE)
+	value = 40
+	slowdown = 0.2
+	health = 18
 
 /obj/item/clothing/suit/cape
 	name = "red cape"
@@ -291,6 +337,7 @@
 	flags_inv = BLOCKHEADHAIR
 	cold_protection = HEAD
 	var/colortype = "black"
+
 /obj/item/clothing/head/wolfpelt
 	name = "wolfpelt headcover"
 	desc = "a wolf pelt turned into a headcover."
@@ -300,6 +347,16 @@
 	flags_inv = BLOCKHEADHAIR
 	cold_protection = HEAD
 	var/colortype = "grey"
+
+/obj/item/clothing/head/pantherpelt
+	name = "pantherpelt headcover"
+	desc = "A panther pelt turned into a headcover."
+	icon_state = "pantherpelt"
+	item_state = "pantherpelt"
+	worn_state = "pantherpelt"
+	flags_inv = BLOCKHEADHAIR
+	cold_protection = HEAD
+	var/colortype = "black"
 
 /obj/item/clothing/head/toxotai
 	name = "toxotai hat"
@@ -543,12 +600,14 @@
 		icon_state = unusedstate
 		item_state = unusedstate
 		worn_state = unusedstate
+		heat_protection = 0
 	else
 		body_parts_covered = partscovered
 		flags_inv = HIDEFACE
 		icon_state = usedstate
 		item_state = usedstate
 		worn_state = usedstate
+		heat_protection = HEAD|FACE|EYES
 	..()
 
 

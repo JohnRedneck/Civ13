@@ -19,7 +19,6 @@
 	var/list/emote_hear = list()	//Hearable emotes
 	var/list/emote_see = list()		//Unlike speak_emote, the list of things in this variable only show by themselves with no spoken text. IE: Ian barks, Ian yaps
 
-	var/turns_per_move = TRUE
 	var/turns_since_move = FALSE
 	universal_speak = FALSE		//No, just no.
 	var/meat_amount = FALSE
@@ -57,6 +56,8 @@
 	var/scavenger = 0 //if it will be attracted to trash, rotting meat, etc (mice, mosquitoes)
 	var/carnivore = 0 //if it will be attracted to meat and dead bodies. Wont attack living animals by default.
 	var/predatory_carnivore = 0 //same as carnivore but will actively hunt animals/humans if hungry.
+
+	var/starves = TRUE
 
 	var/behaviour = "wander" ///wander: go around randomly. scared: run from humans-predators, default to wander after. hunt: move towards prey areas. defends: will attack only if attacked
 
@@ -116,10 +117,11 @@
 	handle_paralysed()
 	handle_mutations_and_radiation()
 
-	if (herbivore || carnivore || predatory_carnivore || granivore || scavenger)
-		simplehunger-=1
-		if (simplehunger > 1000)
-			simplehunger = 1000
+	if (starves)
+		if (herbivore || carnivore || predatory_carnivore || granivore || scavenger)
+			simplehunger-=1
+			if (simplehunger > 1000)
+				simplehunger = 1000
 
 		if (simplehunger <= 0)
 			visible_message("\The [src] is starving!")
@@ -131,7 +133,7 @@
 		stop_automated_movement = TRUE
 		if (get_dist(src, following_mob) > 2)
 			turns_since_move++
-			if (turns_since_move >= turns_per_move)
+			if (turns_since_move >= move_to_delay)
 				walk_to(src, following_mob,1, 6)
 				turns_since_move = FALSE
 		if (get_dist(src, following_mob) > 6)
@@ -143,7 +145,7 @@
 	if (!client && !stop_automated_movement && wander && !anchored && clients.len > 0)
 		if (isturf(loc) && !resting && !buckled && canmove)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
 			turns_since_move++
-			if (turns_since_move >= turns_per_move)
+			if (turns_since_move >= move_to_delay)
 				if (!(stop_automated_movement_when_pulled && pulledby)) //Soma animals don't move when pulled
 
 					if (istype(src, /mob/living/simple_animal/hostile/skeleton/attacker))
@@ -210,36 +212,11 @@
 	if (!t_behaviour)
 		t_behaviour = behaviour
 	if (t_behaviour == "scared")
-		var/done = FALSE
 		for (var/mob/living/carbon/human/H in range(7, src))
-			if (done == FALSE)
-				var/dirh = get_dir(src,H)
-				if (dirh == WEST && isturf(locate(x+7,y,z)))
-					walk_to(src, locate(x+7,y,z), TRUE, 3)
-					done = TRUE
-				else if (dirh == EAST && isturf(locate(x-7,y,z)))
-					walk_to(src, locate(x-7,y,z), TRUE, 3)
-					done = TRUE
-				else if (dirh == NORTH && isturf(locate(x,y-7,z)))
-					walk_to(src, locate(x,y-7,z), TRUE, 3)
-					done = TRUE
-				else if (dirh == SOUTH && isturf(locate(x,y+7,z)))
-					walk_to(src, locate(x,y+7,z), TRUE, 3)
-					done = TRUE
-				if (!done)
-					if (dirh == EAST && isturf(locate(x+7,y,z)))
-						walk_to(src, locate(x+7,y,z), TRUE, 3)
-						done = TRUE
-					else if (dirh == WEST && isturf(locate(x-7,y,z)))
-						walk_to(src, locate(x-7,y,z), TRUE, 3)
-						done = TRUE
-					else if (dirh == SOUTH && isturf(locate(x,y-7,z)))
-						walk_to(src, locate(x,y-7,z), TRUE, 3)
-						done = TRUE
-					else if (dirh == NORTH && isturf(locate(x,y+7,z)))
-						walk_to(src, locate(x,y+7,z), TRUE, 3)
-						done = TRUE
-		return "scared"
+			walk_away(src, H, 7, 2)
+			spawn(50)
+				walk(src,0)
+			return "scared"
 
 	else if (t_behaviour == "wander")
 		var/moving_to = FALSE // otherwise it always picks 4, fuck if I know.   Did I mention fuck BYOND
@@ -253,7 +230,7 @@
 
 		if (isturf(loc) && !resting && !buckled && canmove)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
 			turns_since_move++
-			if (turns_since_move >= turns_per_move && stance==HOSTILE_STANCE_IDLE)
+			if (turns_since_move >= move_to_delay && stance==HOSTILE_STANCE_IDLE)
 				if (!(stop_automated_movement_when_pulled && pulledby)) //Soma animals don't move when pulled
 					if (istype(src, /mob/living/simple_animal/hostile/skeleton/attacker))
 						if (prob(20) && get_dist(src, locate(/obj/effect/landmark/npctarget)) > 11)
@@ -278,7 +255,7 @@
 			if (HOSTILE_STANCE_ALERT)
 				var/found_mob = FALSE
 				if (target_mob && target_mob in ListTargets(7))
-					if (!(SA_attackable(target_mob)))
+					if ((SA_attackable(target_mob)))
 						stance_step = max(0, stance_step) //If we have not seen a mob in a while, the stance_step will be negative, we need to reset it to FALSE as soon as we see a mob again.
 						stance_step++
 						found_mob = TRUE
@@ -311,6 +288,46 @@
 					stance = HOSTILE_STANCE_TIRED
 					stance_step = FALSE
 					walk(src, FALSE) //This stops the bear's walking
+	else if (t_behaviour == "hostile")
+		a_intent = I_HARM
+
+		if (isturf(loc) && !resting && !buckled && canmove)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
+			turns_since_move++
+			if (turns_since_move >= move_to_delay && stance==HOSTILE_STANCE_IDLE)
+				var/moving_to = FALSE // otherwise it always picks 4, fuck if I know.   Did I mention fuck BYOND
+				moving_to = pick(cardinal)
+				var/turf/move_to_turf = get_step(src,moving_to)
+				if (!(istype(loc, /turf/floor/trench) && !istype(move_to_turf, /turf/floor/trench)))
+					set_dir(moving_to)			//How about we turn them the direction they are moving, yay.
+					Move(move_to_turf)
+				turns_since_move = FALSE
+		switch(stance)
+			if (HOSTILE_STANCE_IDLE)
+				if (!target_mob || !(target_mob in ListTargets(7)) || target_mob.stat != CONSCIOUS)
+					target_mob = FindTarget()
+					if (target_mob)
+						stance = HOSTILE_STANCE_ATTACK
+
+			if (HOSTILE_STANCE_TIRED,HOSTILE_STANCE_ALERT)
+				if (target_mob && target_mob in ListTargets(7))
+					if ((SA_attackable(target_mob)))
+						set_dir(get_dir(src,target_mob))	//Keep staring at the mob
+						stance = HOSTILE_STANCE_ATTACK
+					else
+						target_mob = FindTarget()
+				else
+					target_mob = FindTarget()
+
+			if (HOSTILE_STANCE_ATTACK)
+				if (destroy_surroundings)
+					DestroySurroundings()
+				MoveToTarget()
+
+			if (HOSTILE_STANCE_ATTACKING)
+				if (destroy_surroundings)
+					DestroySurroundings()
+				spawn(3)
+					AttackTarget()
 		return t_behaviour
 /mob/living/simple_animal/gib()
 	..(icon_gib,1)
@@ -326,6 +343,10 @@
 	custom_emote(2, act_desc)
 
 /mob/living/simple_animal/bullet_act(var/obj/item/projectile/proj)
+	if (proj.firer && istype(proj.firer, /mob/living/simple_animal/hostile/human))
+		var/mob/living/simple_animal/hostile/human/HM = proj.firer
+		if(HM.faction == src.faction)
+			return
 	if (proj.firer && ishuman(proj.firer) && proj.firedfrom)
 		if (proj.firer == rider)
 			return //we can't hit the animals we are riding
@@ -440,7 +461,7 @@
 		else
 			user << "<span class='notice'>\The [src] is dead, medical items won't bring \him back to life.</span>"
 			return TRUE
-	else if (!O.sharp)
+	else if (!O.sharp || istype(O, /obj/item/weapon/macuahuitl))
 		if (!O.force && !istype(O, /obj/item/stack/medical/bruise_pack))
 			visible_message("<span class='notice'>[user] gently taps [src] with \the [O].</span>")
 		else
@@ -572,6 +593,9 @@
 				else if (istype(src, /mob/living/simple_animal/cat))
 					var/obj/item/stack/material/pelt/catpelt/NP = new/obj/item/stack/material/pelt/catpelt(get_turf(src))
 					NP.amount = 2
+				else if (istype(src, /mob/living/simple_animal/hostile/panther) && !istype(src, /mob/living/simple_animal/hostile/panther/jaguar))
+					var/obj/item/stack/material/pelt/pantherpelt/NP = new/obj/item/stack/material/pelt/pantherpelt(get_turf(src))
+					NP.amount = 3
 				if (istype(user, /mob/living/carbon/human))
 					var/mob/living/carbon/human/HM = user
 					HM.adaptStat("medical", amt/3)
@@ -651,7 +675,7 @@
 	icon_state = icon_dead
 	density = FALSE
 
-	walk_to(src,0) // stops movement
+	walk(src,0) // stops movement
 	unregisterSpawner()
 	delayed_decay(src,3000)
 	return ..(gibbed,deathmessage)
@@ -676,18 +700,18 @@
 /mob/living/simple_animal/proc/SA_attackable(target_mob)
 	if (isliving(target_mob))
 		var/mob/living/L = target_mob
-		if (!L.stat)
-			return (0)
-	return TRUE
+		if (L.stat != DEAD)
+			return TRUE
+	return FALSE
 
-/mob/living/simple_animal/say(var/message)
+/mob/living/simple_animal/say(var/message, var/datum/language/language = null)
 	var/verb = "says"
 	if (speak_emote.len)
 		verb = pick(speak_emote)
 
 	message = sanitize(message)
 
-	..(message, null, verb)
+	..(message, language, verb)
 
 /mob/living/simple_animal/get_speech_ending(verb, var/ending)
 	return verb
@@ -747,7 +771,7 @@
 				eat()
 				return
 			for(var/turf/floor/grass/GT in range(6,src))
-				walk_towards(src, GT, turns_per_move)
+				walk_towards(src, GT, move_to_delay)
 				return
 		else
 			return
@@ -763,7 +787,7 @@
 				eat()
 				return
 			for(var/obj/structure/farming/plant/PL in range(8,src))
-				walk_towards(src, PL, turns_per_move)
+				walk_towards(src, PL, move_to_delay)
 				return
 
 	if (carnivore)
@@ -774,7 +798,7 @@
 				return
 			for(var/mob/living/ML in range(9,src))
 				if (ML.stat == DEAD)
-					walk_towards(src, ML, turns_per_move)
+					walk_towards(src, ML, move_to_delay)
 					return
 
 	if (predatory_carnivore)
@@ -786,7 +810,7 @@
 					return
 			for(var/mob/living/ML in range(9,src))
 				if (((ML.mob_size <= mob_size && istype(ML, /mob/living/simple_animal/hostile)) || !istype(ML, /mob/living/simple_animal/hostile)) && !istype(ML, type) && !istype(src, ML.type))
-					walk_towards(src, ML, turns_per_move)
+					walk_towards(src, ML, move_to_delay)
 					return
 
 	if (scavenger)
@@ -798,7 +822,7 @@
 					return
 			for(var/obj/item/weapon/reagent_containers/food/snacks/FD in range(8,src))
 				if(!istype(FD, /obj/item/weapon/reagent_containers/food/snacks/poo))
-					walk_towards(src, FD, turns_per_move)
+					walk_towards(src, FD, move_to_delay)
 					return
 
 /mob/living/simple_animal/proc/eat()

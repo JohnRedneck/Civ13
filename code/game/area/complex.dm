@@ -20,6 +20,38 @@
 	icon_state = "blue1"
 	location = AREA_INSIDE
 
+/area/complex/roofed/tundra
+	climate = "tundra"
+	base_turf = /turf/floor/dirt/winter
+
+/area/complex/roofed/taiga
+	climate = "taiga"
+	base_turf = /turf/floor/dirt/winter
+
+/area/complex/roofed/temperate
+	climate = "temperate"
+	base_turf = /turf/floor/dirt
+
+/area/complex/roofed/sea
+	climate = "sea"
+	base_turf = /turf/floor/dirt
+
+/area/complex/roofed/desert
+	climate = "desert"
+	base_turf = /turf/floor/beach/sand/desert
+
+/area/complex/roofed/semiarid
+	climate = "semiarid"
+	base_turf = /turf/floor/dirt/dust
+
+/area/complex/roofed/savanna
+	climate = "savanna"
+	base_turf = /turf/floor/dirt/jungledirt
+
+/area/complex/roofed/jungle
+	climate = "jungle"
+	base_turf = /turf/floor/dirt/jungledirt
+
 /area/complex/treasury
 	name = "Colony Treasury"
 	base_turf = /turf/floor/dirt

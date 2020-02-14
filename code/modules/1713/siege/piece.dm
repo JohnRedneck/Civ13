@@ -43,6 +43,24 @@
 	maxrange = 80
 	w_class = 35
 
+/obj/structure/cannon/modern/naval
+	name = "naval cannon"
+	desc = "A giant artillery cannon usually mounted on a ship."
+	icon = 'icons/obj/ship_cannon.dmi'
+	icon_state = "naval_cannon"
+	ammotype = /obj/item/cannon_ball/shell/tank
+	spritemod = FALSE
+	firedelay = 5
+	maxsway = 40
+	firedelay = 30
+	maxrange = 180
+	anchored = TRUE
+	density = TRUE
+	bound_height = 96
+	bound_width = 64
+	caliber = 204
+	can_assemble = FALSE
+
 /obj/structure/cannon/modern/tank
 	name = "tank cannon"
 	desc = "a barebones cannon made to be carried by vehicles."
@@ -525,6 +543,8 @@
 							if (explosion)
 								if (istype(src,/obj/structure/cannon/mortar))
 									explosion(target, 1, 2, 2, 3)
+								else if (istype(src,/obj/structure/cannon/modern/naval))
+									explosion(target, 2, 3, 4, 5)
 								else
 									explosion(target, 1, 2, 3, 4)
 							if (nuclear)

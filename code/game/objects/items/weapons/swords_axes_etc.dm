@@ -27,6 +27,17 @@
 	weakens = 5
 	flammable = TRUE
 
+/obj/item/weapon/melee/nightbaton
+	name = "police baton"
+	desc = "A stick used by police officers."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "nightbaton"
+	item_state = "nightbaton"
+	slot_flags = SLOT_BELT
+	force = WEAPON_FORCE_WEAK+2
+	weakens = 6
+	flammable = TRUE
+
 /obj/item/weapon/melee/classic_baton/club
 	name = "wood club"
 	desc = "One of the oldest weapons in the world. Good for when you need to knock people down."
@@ -112,6 +123,20 @@
 
 	force = initial(force)
 
+/obj/item/weapon/macuahuitl
+	name = "macuahuitl"
+	desc = "A Mesoamerican wooden club with obsidian blades."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "macuahuitl"
+	item_state = "macuahuitl"
+	attack_verb = list("smacked", "hit", "bludgeoned")
+	slot_flags = SLOT_BACK
+	force = WEAPON_FORCE_ROBUST
+	sharp = 1
+	edge = 1
+	sharpness = 15
+	w_class = 3.0
+	flammable = FALSE
 
 ////////////////GARROTE/////////////////////
 /obj/item/garrote
@@ -138,7 +163,7 @@
 	return ..()
 
 /obj/item/garrote/update_icon()
-    icon_state = "garrote[garroting ? "_w" : ""]"
+	icon_state = "garrote[garroting ? "_w" : ""]"
 
 /obj/item/garrote/attack(mob/living/carbon/human/target as mob, mob/living/carbon/human/user as mob)
 	if (garroting)
