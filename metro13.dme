@@ -623,7 +623,7 @@
 #include "code\modules\metro\roles\clothing_hanza.dm"
 #include "code\modules\metro\roles\clothing_redline.dm"
 #include "code\modules\metro\roles\clothing_reich.dm"
-#include "code\modules\metro\roles\clothing_vdnkh.dm"
+#include "code\modules\metro\roles\clothing_VDNKh.dm"
 #include "code\modules\metro\roles\clothing_wormcult.dm"
 #include "code\modules\metro\roles\redline.dm"
 #include "code\modules\metro\roles\reich.dm"
@@ -925,5 +925,5 @@
 #include "code\processes\zoom\zoom_scopes.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
-#include "maps\metro13\Bridge.dmm"
+#include "maps\metro13\Metro-2.dmm"
 // END_INCLUDE
