@@ -2,7 +2,7 @@
 	ID = MAP_IWO_JIMA
 	title = "Iwo Jima (150x280x2)"
 	lobby_icon_state = "ww2"
-	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
+	caribbean_blocking_area_types = list(/area/complex/no_mans_land/invisible_wall/)
 	respawn_delay = 1200
 	squad_spawn_locations = FALSE
 	faction_organization = list(
@@ -11,8 +11,8 @@
 	available_subfactions = list(
 		)
 	roundend_condition_sides = list(
-		list(AMERICAN) = /area/caribbean/british,
-		list(JAPANESE) = /area/caribbean/japanese/land/inside/command,
+		list(AMERICAN) = /area/complex/british,
+		list(JAPANESE) = /area/complex/japanese/land/inside/command,
 		)
 	age = "1945"
 	ordinal_age = 6

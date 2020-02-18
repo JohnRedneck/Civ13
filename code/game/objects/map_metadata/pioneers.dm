@@ -95,7 +95,7 @@
 			change_weather(WEATHER_WET)
 		spawn(15000)
 			change_weather(WEATHER_WET)
-			for (var/turf/floor/dirt/D in get_area_turfs(/area/caribbean/nomads/forest))
+			for (var/turf/floor/dirt/D in get_area_turfs(/area/complex/nomads/forest))
 				var/area/A = get_area(D)
 				if (A.location == AREA_OUTSIDE && prob(40) && !istype(D, /turf/floor/dirt/underground) && !istype(D, /turf/floor/dirt/dust))
 					D.ChangeTurf(/turf/floor/dirt/winter)

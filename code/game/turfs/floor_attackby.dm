@@ -992,7 +992,7 @@
 	else if(prob(20) && (area_above && area_above.climate == "jungle") && map.ordinal_age >=1 && map.ordinal_age <= 3)
 		var/obj/item/stack/ore/obsidian/mineral = new/obj/item/stack/ore/obsidian(src)
 		mineral.amount = rand(8,12)
-		if (istype(get_area(src), /area/caribbean/void/caves/special))
+		if (istype(get_area(src), /area/complex/void/caves/special))
 			mineral.amount *= 2
 		H << "<span class='danger'>You found some <font color=#060606><b>obsidian</font> rocks</b>!</span>"
 	else if(istype(T, /turf/floor/dirt/underground/icy) || (area_above && area_above.climate == "tundra"))

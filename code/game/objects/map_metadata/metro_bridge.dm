@@ -32,7 +32,7 @@
 	mission_start_message = "<big>The Battle for the Bridge has begun!</big><br><b>Wiki: https://metro13.fandom.com/wiki/Metro_13_Wiki</b>"
 	faction1 = REDLINE
 	faction2 = REICH
-	valid_weather_types = list(WEATHER_NONE, WEATHER_RAIN)
+	valid_weather_types = list(WEATHER_NONE, WEATHER_WET)
 	songs = list(
 		"Propaganda Tune (Metro 2033):1" = 'sound/music/PropagandaTune_Metro2033.ogg',)
 	gamemode = "Siege"
@@ -90,7 +90,7 @@ obj/map_metadata/metro_bridge/job_enabled_specialcheck(var/datum/job/J)
 /obj/map_metadata/metro_bridge/reverse_cross_message(faction)
 	return "<span class = 'userdanger'>The invisible wall may no longer be crossed!</span>"
 
-var/no_loop_r = FALSE
+var/no_loop_reee = FALSE
 
 /*
 /obj/map_metadata/metro_bridge/update_win_condition()
@@ -105,13 +105,13 @@ var/no_loop_r = FALSE
 		show_global_battle_report(null)
 		win_condition_spam_check = TRUE
 		return FALSE
-	if ((current_winner && current_loser && world.time > next_win) && no_loop_r == FALSE)
+	if ((current_winner && current_loser && world.time > next_win) && no_loop_reee == FALSE)
 		ticker.finished = TRUE
 		var/message = "The <b>Soviets</b> have captured the Reichstag! The battle for Berlin is over!"
 		world << "<font size = 4><span class = 'notice'>[message]</span></font>"
 		show_global_battle_report(null)
 		win_condition_spam_check = TRUE
-		no_loop_r = TRUE
+		no_loop_reee = TRUE
 		return FALSE
 	// German major
 	else if (win_condition.check(typesof(roundend_condition_sides[roundend_condition_sides[2]]), roundend_condition_sides[1], roundend_condition_sides[2], 1.33, TRUE))
