@@ -151,7 +151,9 @@
 		var/obj/O = AM
 		var/dtype = O.damtype
 		var/throw_damage = O.throwforce*(speed/THROWFORCE_SPEED_DIVISOR)
-		var/mob/living/carbon/human/M = O.thrower
+		var/mob/living/carbon/human/M = null
+		if (ishuman(O.thrower))
+			M = O.thrower
 		var/miss_chance = 15
 		if (M)
 			miss_chance = 15 - M.getStat("throwing")/100
@@ -172,7 +174,7 @@
 
 		O.throwing = FALSE		//it hit, so stop moving
 
-		if (ismob(O.thrower))
+		if (ismob(O.thrower) && M && M.client)
 			var/client/assailant = M.client
 			if (assailant)
 				attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been hit with a [O], thrown by [M.name] ([assailant.ckey])</font>")
@@ -267,7 +269,7 @@
 	return
 
 /mob/living/proc/adjust_fire_stacks(add_fire_stacks) //Adjusting the amount of fire_stacks we have on person
-    fire_stacks = Clamp(fire_stacks + add_fire_stacks, FIRE_MIN_STACKS, FIRE_MAX_STACKS)
+	fire_stacks = Clamp(fire_stacks + add_fire_stacks, FIRE_MIN_STACKS, FIRE_MAX_STACKS)
 
 var/obj/generic_living_fire_overlay = null
 var/obj/human_fire_overlay = null

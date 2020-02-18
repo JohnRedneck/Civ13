@@ -8,7 +8,16 @@
 
 	var/atom/T = null
 	stop_automated_movement = FALSE
-	for (var/atom/A in ListTargets(7))
+	var/list/the_targets = ListTargets(7)
+	if (behaviour == "hostile")
+		for(var/mob/living/ML in the_targets)
+			if (ishuman(ML))
+				var/mob/living/carbon/human/H = ML
+				if (H.faction_text == src.faction)
+					the_targets -= ML
+			if (istype(ML, /mob/living/simple_animal/hostile/human) && ML.faction == src.faction)
+				the_targets -= ML
+	for (var/atom/A in the_targets)
 
 		if (A == src)
 			continue
@@ -46,7 +55,13 @@
 						T = L
 						break
 	if (T)
-		custom_emote(1,"stares alertly at [T].")
+		if (!istype(src,/mob/living/simple_animal/hostile/human))
+			custom_emote(1,"stares alertly at [T].")
+		else
+			var/mob/living/simple_animal/hostile/human/HM = src
+			if (HM.messages["enemy_sighted"] && prob(25))
+				HM.say(HM.messages["enemy_sighted"],HM.language)
+
 		stance = HOSTILE_STANCE_ALERT
 	return T
 
@@ -55,14 +70,16 @@
 	return
 
 /mob/living/simple_animal/proc/MoveToTarget()
-	if (!target_mob || SA_attackable(target_mob))
+	if (!target_mob || !SA_attackable(target_mob))
 		stance = HOSTILE_STANCE_IDLE
 	if (target_mob in ListTargets(7))
 		stance = HOSTILE_STANCE_ATTACKING
 		walk_to(src, target_mob, TRUE, move_to_delay)
+	else if (target_mob in ListTargets(10))
+		walk_to(src, target_mob, TRUE, move_to_delay)
 
 /mob/living/simple_animal/proc/AttackTarget()
-	if (!target_mob || SA_attackable(target_mob))
+	if (!target_mob || !SA_attackable(target_mob))
 		LoseTarget()
 		return FALSE
 	if (!(target_mob in ListTargets(7)))
