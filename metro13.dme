@@ -624,6 +624,7 @@
 #include "code\modules\metro\reagents.dm"
 #include "code\modules\metro\signs.dm"
 #include "code\modules\metro\vents.dm"
+#include "code\modules\metro\mobs\farm_animals.dm"
 #include "code\modules\metro\mobs\Humans.dm"
 #include "code\modules\metro\mobs\mutants.dm"
 #include "code\modules\metro\roles\clothing_civilian.dm"
