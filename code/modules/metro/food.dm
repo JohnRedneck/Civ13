@@ -21,3 +21,9 @@
 	icon_state = "meatmre"
 	nutriment_desc = list("horrible food" = 1, "meat" = 2)
 	nutriment_amt = 5
+
+/obj/item/weapon/reagent_containers/food/snacks/mousemeat
+	icon_state = "mousemeat"
+	desc = "Meat that came from a rodent.....disgusting."
+	nutriment_desc = list("pugnet and gamey" = 1, "meat" = 2)
+	nutriment_amt = 5

@@ -29,7 +29,7 @@
 
 /mob/living/simple_animal/farm/swine_fat
 	name = "Swine"
-	desc = "A small Mammal, known as a swine. you probably shouldn't try to ride it. This one is small."
+	desc = "A small Mammal, known as a swine. you probably shouldn't try to ride it. This one is fat."
 	icon_state = "pig_fat"
 	icon_living = "pig_fat"
 	icon_dead = "pig_fat_dead"
@@ -58,7 +58,7 @@
 
 /mob/living/simple_animal/farm/swine_obese
 	name = "Swine"
-	desc = "A small Mammal, known as a swine. you probably shouldn't try to ride it. This one is small."
+	desc = "A small Mammal, known as a swine. you probably shouldn't try to ride it. This one is obese."
 	icon_state = "pig_obese"
 	icon_living = "pig_obese"
 	icon_dead = "pig_obese_dead"
