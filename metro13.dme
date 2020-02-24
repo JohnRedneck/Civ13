@@ -938,4 +938,5 @@
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
 #include "maps\metro13\Bridge.dmm"
+#include "maps\metro13\The_Metro.dmm"
 // END_INCLUDE
