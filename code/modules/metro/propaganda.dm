@@ -68,6 +68,11 @@
 	desc = "a banner with a stand dedicated to the Fourth Reich."
 	icon_state = "floorbanner_reich"
 
+/obj/structure/flag/small/reichfloorbanner2
+	name = "Fourth Reich banner"
+	desc = "a banner with a stand dedicated to the Fourth Reich."
+	icon_state = "floorbanner_reich2"
+
 /obj/structure/sign/flag/rippable/reichbanner
 	name = "Fourth Reich wall banner"
 	desc = "a wall mounted banner dedicated to the Fourth Reich."

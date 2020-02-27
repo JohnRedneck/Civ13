@@ -1,8 +1,8 @@
 /mob/living/simple_animal/hostile/human/bandit
 	name = "Bandit"
 	desc = "A bandit! he looks scary!"
-	icon_state = "bandit2"
-	icon_dead = "bandit2_dead"
+	icon_state = "bandit"
+	icon_dead = "bandit_dead"
 	response_help = "pushes"
 	response_disarm = "shoves"
 	response_harm = "hits"

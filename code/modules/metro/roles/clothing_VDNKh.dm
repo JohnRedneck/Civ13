@@ -11,3 +11,10 @@ Under sprites are in
 	icon_state = "vdnkh_fatigues"
 	item_state = "vdnkh_fatigues"
 	worn_state = "vdnkh_fatigues"
+
+/obj/item/clothing/under/vdnkh/stationadmin
+	name = "Administrator's suit"
+	desc = "Camoflauged fatigues worn by VDNKh soldiers."
+	icon_state = "stationadmin"
+	item_state = "stationadmin"
+	worn_state = "stationadmin"
