@@ -85,3 +85,77 @@
 	scavenger = 1 //if it will be attracted to trash, rotting meat, etc (mice, mosquitoes)
 	carnivore = 1 //if it will be attracted to meat and dead bodies. Wont attack living animals by default.
 
+/mob/living/simple_animal/farm/wildman
+	name = "Wild Man"
+	desc = "A human that was broken down into a near animalistic state."
+	icon_state = "wildman"
+	icon_living = "wildman_dead"
+	icon_dead = "wildman_dead"
+	speak = list("Yaghh!","Arghh!")
+	emote_see = list("sighs", "trots around", "grunts")
+	speak_chance = 1
+	move_to_delay = 5
+	see_in_dark = 6
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/human
+	meat_amount = 2
+	response_help  = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm   = "kicks"
+	attacktext = "kicked"
+	health = 120
+	mob_size = MOB_MEDIUM
+	herbivore = 0 //if it eats grass of the floor (i.e. goats, cows)
+	granivore = 1 //if it will be attracted to crops (i.e. rabbits, mice, birds)
+	scavenger = 1 //if it will be attracted to trash, rotting meat, etc (mice, mosquitoes)
+	carnivore = 1 //if it will be attracted to meat and dead bodies. Wont attack living animals by default.
+
+/mob/living/simple_animal/farm/wildman_fat
+	name = "Fat Wild Man"
+	desc = "A human that was broken down into a near animalistic state."
+	icon_state = "wildman_fat"
+	icon_living = "wildman_dead"
+	icon_dead = "wildman_fat_dead"
+	speak = list("Yaghh!","Arghh!")
+	emote_see = list("sighs", "trots around", "grunts")
+	speak_chance = 1
+	move_to_delay = 5
+	see_in_dark = 6
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/human
+	meat_amount = 6
+	response_help  = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm   = "kicks"
+	attacktext = "kicked"
+	health = 120
+	mob_size = MOB_MEDIUM
+	herbivore = 0 //if it eats grass of the floor (i.e. goats, cows)
+	granivore = 1 //if it will be attracted to crops (i.e. rabbits, mice, birds)
+	scavenger = 1 //if it will be attracted to trash, rotting meat, etc (mice, mosquitoes)
+	carnivore = 1 //if it will be attracted to meat and dead bodies. Wont attack living animals by default.
+
+/mob/living/simple_animal/farm/wildman_slim
+	name = "Slim Wild Man"
+	desc = "A human that was broken down into a near animalistic state."
+	icon_state = "wildman_slim"
+	icon_living = "wildman_slim_dead"
+	icon_dead = "wildman_dead"
+	speak = list("Yaghh!","Arghh!")
+	emote_see = list("sighs", "trots around", "grunts")
+	speak_chance = 1
+	move_to_delay = 5
+	see_in_dark = 6
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/human
+	meat_amount = 1
+	response_help  = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm   = "kicks"
+	attacktext = "kicked"
+	health = 120
+	mob_size = MOB_MEDIUM
+	herbivore = 0 //if it eats grass of the floor (i.e. goats, cows)
+	granivore = 1 //if it will be attracted to crops (i.e. rabbits, mice, birds)
+	scavenger = 1 //if it will be attracted to trash, rotting meat, etc (mice, mosquitoes)
+	carnivore = 1 //if it will be attracted to meat and dead bodies. Wont attack living animals by default.
+
+
+
