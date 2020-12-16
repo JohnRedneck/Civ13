@@ -938,15 +938,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 		W.germ_level = FALSE
 	return rval
 
-/obj/item/organ/external/proc/clamp()
-	var/rval = FALSE
-	status &= ~ORGAN_BLEEDING
-	for (var/datum/wound/W in wounds)
-		if (W.internal) continue
-		rval |= !W.clamped
-		W.clamped = TRUE
-	return rval
-
 /obj/item/organ/external/proc/fracture()
 	if ((status & ORGAN_BROKEN) || cannot_break)
 		return
