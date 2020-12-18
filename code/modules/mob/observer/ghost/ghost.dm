@@ -62,7 +62,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 
 		mind = body.mind	//we don't transfer the mind but we keep a reference to it.
 
-	if (!T)	T = pick(latejoin_turfs["Ghost"])			//Safety in case we cannot find the body's position
+	if (!T)	T = get_turf(locate(1,1,world.maxz))			//Safety in case we cannot find the body's position
 	forceMove(T)
 
 	if (!name)							//To prevent nameless ghosts
@@ -118,6 +118,8 @@ Works together with spawning an observer, noted above.
 	src << sound(null, channel = 778)
 	// remove ambient sounds
 	stop_ambience(src)
+	if (map && map.battleroyale)
+		world << "<big><font color='red'><b>[client.ckey]</b> has died at ([x],[y])! <b>[alive_n_of_side(PIRATES)]</b> remaining.</font></big>"
 	if (key)
 		var/mob/observer/ghost/ghost = new(src)	//Transfer safety to observer spawning proc.
 		ghost.can_reenter_corpse = can_reenter_corpse
@@ -141,7 +143,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			client.next_normal_respawn = world.realtime + (map ? map.respawn_delay : 3000)
 			client << RESPAWN_MESSAGE
 		if (ishuman(src))
-			var/mob/living/carbon/human/H = src
+			var/mob/living/human/H = src
 			H.handle_zoom_stuff(TRUE)
 			if (human_clients_mob_list.Find(H))
 				human_clients_mob_list -= H
@@ -154,7 +156,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 				if (!client)
 					return
 				if (ishuman(src))
-					var/mob/living/carbon/human/H = src
+					var/mob/living/human/H = src
 					H.handle_zoom_stuff(TRUE)
 				client.admin_ghost()
 		else
@@ -167,7 +169,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		resting = TRUE
 		var/turf/location = get_turf(src)
 		if (ishuman(src))
-			var/mob/living/carbon/human/H = src
+			var/mob/living/human/H = src
 			H.handle_zoom_stuff(TRUE)
 			if (human_clients_mob_list.Find(H))
 				human_clients_mob_list -= H
@@ -205,14 +207,14 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	mind.current.regenerate_icons()
 
 	// workaround for language bug that happens when you're spawned in
-	var/mob/living/carbon/human/H = mind.current
+	var/mob/living/human/H = mind.current
 	if (istype(H))
 		if (!H.languages.Find(H.default_language))
 			H.languages.Insert(1, H.default_language)
 		human_clients_mob_list |= H
 		if (config.allow_selfheal)
-			H.verbs |= /mob/living/carbon/human/proc/selfheal
-			H.verbs |= /mob/living/carbon/human/proc/selfrevive
+			H.verbs |= /mob/living/human/proc/selfheal
+			H.verbs |= /mob/living/human/proc/selfrevive
 
 	return TRUE
 
@@ -340,6 +342,14 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set desc = "Follow and haunt a living Vietnamese."
 	if (input != "Cancel")
 		var/list/mobs = getfitmobs(VIETNAMESE)
+		if (mobs[input])
+			ManualFollow(mobs[input])
+/mob/observer/ghost/verb/follow_filipino(input in getfitmobs(FILIPINO)+"Cancel")
+	set category = "Ghost"
+	set name = "Follow a Filipino"
+	set desc = "Follow and haunt a living Filipino."
+	if (input != "Cancel")
+		var/list/mobs = getfitmobs(FILIPINO)
 		if (mobs[input])
 			ManualFollow(mobs[input])
 /mob/observer/ghost/verb/follow_arab(input in getfitmobs(ARAB)+"Cancel")

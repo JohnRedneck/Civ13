@@ -127,9 +127,7 @@
 	<br>
 	<html>
 	<head>
-	<style>
 	[common_browser_style]
-	</style>
 	</head>
 	<body><center>
 	<big>PLACEHOLDER</big>
@@ -226,6 +224,6 @@
 	mind.current = src
 
 //HUMAN
-/mob/living/carbon/human/mind_initialize()
+/mob/living/human/mind_initialize()
 	..()
 	if (!mind.assigned_role)	mind.assigned_role = "Sailor"	//defualt

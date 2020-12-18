@@ -1,20 +1,19 @@
 
 /obj/map_metadata/road_to_dak_to
 	ID = MAP_ROAD_TO_DAK_TO
-	title = "Road to Dak To (40x150x2)"
+	title = "Road to Dak To"
 	lobby_icon_state = "coldwar"
-	caribbean_blocking_area_types = list(/area/complex/no_mans_land/invisible_wall/jungle)
+	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/jungle)
 	respawn_delay = 300
-	squad_spawn_locations = FALSE
-//	min_autobalance_players = 90
+
+
 	faction_organization = list(
 		AMERICAN,
 		VIETNAMESE)
-	available_subfactions = list(
-		)
+
 	roundend_condition_sides = list(
-		list(AMERICAN) = /area/complex/british,
-		list(VIETNAMESE) = /area/complex/japanese
+		list(AMERICAN) = /area/caribbean/british,
+		list(VIETNAMESE) = /area/caribbean/japanese
 		)
 	age = "1969"
 	ordinal_age = 7

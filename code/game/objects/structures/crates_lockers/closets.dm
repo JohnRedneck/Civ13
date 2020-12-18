@@ -46,20 +46,29 @@
 
 /obj/structure/closet/examine(mob/user)
 	if (..(user, TRUE) && !opened)
-		var/content_size = FALSE
-		for (var/obj/item/I in contents)
-			if (!I.anchored)
-				content_size += ceil(I.w_class/2)
-		if (!content_size)
-			user << "It is empty."
-		else if (storage_capacity > content_size*4)
-			user << "It is barely filled."
-		else if (storage_capacity > content_size*2)
-			user << "It is less than half full."
-		else if (storage_capacity > content_size)
-			user << "There is still some free space."
+		if(istype(src, /obj/structure/closet/crate/wall_mailbox))
+			var/obj/structure/closet/crate/wall_mailbox/WM = src
+			if (WM.contents_stored == 0)
+				user << "It is empty."
+			else if  (WM.contents_stored <= 4 && WM.contents_stored != 0)
+				user << "There is something inside."
+			else if  (WM.contents_stored == 5)
+				user << "It is full."
 		else
-			user << "It is full."
+			var/content_size = FALSE
+			for (var/obj/item/I in contents)
+				if (!I.anchored)
+					content_size += ceil(I.w_class/2)
+			if (!content_size)
+				user << "It is empty."
+			else if (storage_capacity > content_size*4)
+				user << "It is barely filled."
+			else if (storage_capacity > content_size*2)
+				user << "It is less than half full."
+			else if (storage_capacity > content_size)
+				user << "There is still some free space."
+			else
+				user << "It is full."
 
 /obj/structure/closet/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if (!istype(mover, /obj/item/projectile))
@@ -298,7 +307,7 @@
 	if (istype(O, /obj/structure/closet))
 		return
 	var/area/A = get_area(src)
-	if (istype(A, /area/complex/no_mans_land/invisible_wall) && map && (!map.faction1_can_cross_blocks() || map.faction2_can_cross_blocks()))
+	if (istype(A, /area/caribbean/no_mans_land/invisible_wall) && map && (!map.faction1_can_cross_blocks() || map.faction2_can_cross_blocks()))
 		return
 	step_towards(O, loc)
 	if (user != O)
@@ -417,3 +426,76 @@
 
 /obj/structure/closet/anchored
 	anchored = TRUE
+
+/obj/structure/closet/safe
+	name = "safe"
+	desc = "A sturdy safe, with a keyslot."
+	icon = 'icons/obj/structures.dmi'
+	icon_state = "safe"
+	icon_closed = "safe"
+	icon_opened = "safe-open"
+	not_disassemblable = TRUE
+	not_movable = TRUE
+	anchored = TRUE
+	var/faction = null
+
+/obj/structure/closet/safe/red
+	New()
+		..()
+		custom_code = REDCODE
+		locked = TRUE
+		faction = "Rednikov Industries"
+		new /obj/item/stack/money/dollar/twenty(src)
+/*
+		new /obj/item/weapon/disk/red(src)
+		new /obj/item/weapon/disk/red(src)
+		new /obj/item/weapon/disk/red(src)
+		new /obj/item/weapon/disk/red(src)
+		new /obj/item/weapon/disk/red/fake(src)
+		new /obj/item/weapon/disk/red/fake(src)
+*/
+/obj/structure/closet/safe/blue
+	New()
+		..()
+		custom_code = BLUECODE
+		locked = TRUE
+		faction = "Giovanni Blu Stocks"
+		new /obj/item/stack/money/dollar/twenty(src)
+/*
+		new /obj/item/weapon/disk/blue(src)
+		new /obj/item/weapon/disk/blue(src)
+		new /obj/item/weapon/disk/blue(src)
+		new /obj/item/weapon/disk/blue(src)
+		new /obj/item/weapon/disk/blue/fake(src)
+		new /obj/item/weapon/disk/blue/fake(src)
+*/
+/obj/structure/closet/safe/yellow
+	New()
+		..()
+		custom_code = YELLOWCODE
+		locked = TRUE
+		faction = "Goldstein Solutions"
+		new /obj/item/stack/money/dollar/twenty(src)
+/*
+		new /obj/item/weapon/disk/yellow(src)
+		new /obj/item/weapon/disk/yellow(src)
+		new /obj/item/weapon/disk/yellow(src)
+		new /obj/item/weapon/disk/yellow(src)
+		new /obj/item/weapon/disk/yellow/fake(src)
+		new /obj/item/weapon/disk/yellow/fake(src)
+*/
+/obj/structure/closet/safe/green
+	New()
+		..()
+		custom_code = GREENCODE
+		locked = TRUE
+		faction = "Kogama Kraftsmen"
+		new /obj/item/stack/money/dollar/twenty(src)
+/*
+		new /obj/item/weapon/disk/green(src)
+		new /obj/item/weapon/disk/green(src)
+		new /obj/item/weapon/disk/green(src)
+		new /obj/item/weapon/disk/green(src)
+		new /obj/item/weapon/disk/green/fake(src)
+		new /obj/item/weapon/disk/green/fake(src)
+*/

@@ -1,3 +1,6 @@
+/mob/living/simple_animal/hostile/human
+	move_to_delay = 3
+
 /mob/living/simple_animal/hostile/human/japanese
 	name = "Japanese Soldier"
 	desc = "A japanese soldier."
@@ -12,7 +15,7 @@
 	emote_see = list("stares murderously", "draws metal")
 	speak_chance = TRUE
 	speed = 4
-	move_to_delay = 4
+	move_to_delay = 3
 	stop_automated_movement_when_pulled = 0
 	maxHealth = 100
 	health = 100
@@ -24,7 +27,7 @@
 	mob_size = MOB_MEDIUM
 	language = new/datum/language/japanese
 
-	corpse = /mob/living/carbon/human/corpse/japanese
+	corpse = /mob/living/human/corpse/japanese
 
 	faction = JAPANESE
 
@@ -50,7 +53,7 @@
 	emote_see = list("stares 'omae wa mou shinde iru-ly'", "draws metal")
 	speak_chance = TRUE
 	speed = 6
-	move_to_delay = 4
+	move_to_delay = 3
 	stop_automated_movement_when_pulled = 0
 	maxHealth = 120
 	health = 120
@@ -61,7 +64,7 @@
 	attack_sound = 'sound/weapons/punch3.ogg'
 	mob_size = MOB_MEDIUM
 
-	corpse = /mob/living/carbon/human/corpse/japanesecap
+	corpse = /mob/living/human/corpse/japanesecap
 
 	faction = JAPANESE
 
@@ -102,7 +105,7 @@
 	faction = JAPANESE
 	ranged = 1
 	projectiletype = /obj/item/projectile/bullet/rifle/a77x58
-	corpse = /mob/living/carbon/human/corpse/japanese_ww2
+	corpse = /mob/living/human/corpse/japanese_ww2
 	casingtype = null
 	grenade_type = /obj/item/weapon/grenade/ww2/type97
 	language = new/datum/language/japanese
@@ -139,7 +142,7 @@
 /mob/living/simple_animal/hostile/human/ww2_jap/summer/medic
 	name = "Japanese Medic"
 	icon_state = "ww2_jap_ranged_summer_medic"
-	corpse = /mob/living/carbon/human/corpse/ww2_jap_medic
+	corpse = /mob/living/human/corpse/ww2_jap_medic
 	role = "medic"
 
 	New()
@@ -150,7 +153,7 @@
 /mob/living/simple_animal/hostile/human/ww2_jap/mg
 	name = "Japanese Machinegunner"
 	icon_state = "ww2_jap_ranged_summer_mg"
-	corpse = /mob/living/carbon/human/corpse/ww2_jap_mg
+	corpse = /mob/living/human/corpse/ww2_jap_mg
 	rapid = 2
 	grenades = 0
 	projectiletype = /obj/item/projectile/bullet/rifle/a77x58
@@ -164,7 +167,7 @@
 	name = "Japanese Squad Leader"
 	icon_state = "ww2_jap_ranged_summer_sl"
 	projectiletype = /obj/item/projectile/bullet/pistol/c8mmnambu
-	corpse = /mob/living/carbon/human/corpse/ww2_jap_sl
+	corpse = /mob/living/human/corpse/ww2_jap_sl
 	rapid = 1
 	grenades = 1
 	role = "officer"
@@ -202,7 +205,7 @@
 	faction = AMERICAN
 	ranged = 1
 	projectiletype = /obj/item/projectile/bullet/rifle/a3006
-	corpse = /mob/living/carbon/human/corpse/ww2_american
+	corpse = /mob/living/human/corpse/ww2_american
 	casingtype = null
 	grenade_type = /obj/item/weapon/grenade/ww2/mk2
 
@@ -227,7 +230,7 @@
 /mob/living/simple_animal/hostile/human/ww2_american/medic
 	name = "American Medic"
 	icon_state = "ww2_american_ranged_medic"
-	corpse = /mob/living/carbon/human/corpse/ww2_american_medic
+	corpse = /mob/living/human/corpse/ww2_american_medic
 	role = "medic"
 	grenades = 0
 
@@ -238,7 +241,7 @@
 /mob/living/simple_animal/hostile/human/ww2_american/mg
 	name = "American Machinegunner"
 	icon_state = "ww2_american_ranged_mg"
-	corpse = /mob/living/carbon/human/corpse/ww2_american_mg
+	corpse = /mob/living/human/corpse/ww2_american_mg
 	rapid = 2
 	grenades = 0
 	projectiletype = /obj/item/projectile/bullet/rifle/a762x54/weak
@@ -251,7 +254,7 @@
 /mob/living/simple_animal/hostile/human/ww2_american/squad_leader
 	name = "American Squad Leader"
 	icon_state = "ww2_american_ranged_sl"
-	corpse = /mob/living/carbon/human/corpse/ww2_american_sl
+	corpse = /mob/living/human/corpse/ww2_american_sl
 	rapid = 1
 	grenades = 1
 	role = "officer"

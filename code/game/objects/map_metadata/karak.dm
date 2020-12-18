@@ -1,21 +1,20 @@
 
 /obj/map_metadata/karak
 	ID = MAP_KARAK
-	title = "Karak (80x80x1)"
+	title = "Karak"
 	lobby_icon_state = "medieval"
 	no_winner ="The fighting is still going on."
-	caribbean_blocking_area_types = list(/area/complex/no_mans_land/invisible_wall/)
+	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
 	respawn_delay = 300
-	squad_spawn_locations = FALSE
-//	min_autobalance_players = 90
+
+
 	faction_organization = list(
 		ARAB,
 		FRENCH)
-	available_subfactions = list(
-		)
+
 	roundend_condition_sides = list(
-		list(ARAB) = /area/complex/colonies,
-		list(FRENCH) = /area/complex/crusader,
+		list(ARAB) = /area/caribbean/colonies,
+		list(FRENCH) = /area/caribbean/crusader,
 		)
 	age = "1013"
 	ordinal_age = 3

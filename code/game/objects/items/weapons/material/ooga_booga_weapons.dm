@@ -18,7 +18,7 @@
 	icon_state = "cleared_stick"
 	leaves = FALSE
 
-/obj/structure/branch/attack_hand(mob/living/carbon/human/H)
+/obj/structure/branch/attack_hand(mob/living/human/H)
 	if (H.a_intent == I_GRAB && leaves)
 		H << "You start picking the leaves from the branch..."
 		if (do_after(H, 60, src))
@@ -65,7 +65,7 @@
 
 	var/ants = FALSE
 
-/obj/item/weapon/branch/attack_self(mob/living/carbon/human/user as mob)
+/obj/item/weapon/branch/attack_self(mob/living/human/user as mob)
 	if (ants)
 		user << "You start licking some ants off the stick..."
 		if (do_after(user, 50, src))
@@ -75,7 +75,9 @@
 				ants = FALSE
 				if (user.gorillaman)
 					user.mood += 10
-				else
+				else if (user.ant)
+					user.mood -= 20
+				else if (!user.orc && !user.crab)
 					user.mood -= 10
 				user.nutrition += 80
 				return

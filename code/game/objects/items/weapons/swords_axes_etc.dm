@@ -5,8 +5,32 @@
 	var/weakens = 0
 
 /obj/item/weapon/melee/mace
-	name = "mace"
+	name = "iron mace"
 	desc = "A iron mace, good for breaking bones and armor."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "mace"
+	item_state = "mace"
+	slot_flags = SLOT_BACK
+	force = WEAPON_FORCE_WEAK+2
+	weakens = 1
+	w_class = 2.0
+	flammable = FALSE
+
+/obj/item/weapon/melee/mace/kanabo
+	name = "iron kanabo"
+	desc = "A iron kanabo, this large blunt weapon of japanese origin pulps its victims under its weight & form."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "kanabo"
+	item_state = "kanabo"
+	slot_flags = SLOT_BACK
+	force = WEAPON_FORCE_WEAK+3
+	weakens = 1
+	w_class = 3.0
+	flammable = FALSE
+
+/obj/item/weapon/melee/mace/mauler
+	name = "heavy mauler"
+	desc = "A intimidatingly large morningstar, could easily pulverize any person; let alone one head to toe in armor."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "maul"
 	item_state = "mauler1"
@@ -24,7 +48,7 @@
 	item_state = "classic_baton"
 	slot_flags = SLOT_BELT
 	force = WEAPON_FORCE_WEAK+1
-	weakens = 5
+	weakens = 3
 	flammable = TRUE
 
 /obj/item/weapon/melee/nightbaton
@@ -37,6 +61,28 @@
 	force = WEAPON_FORCE_WEAK+2
 	weakens = 6
 	flammable = TRUE
+
+/obj/item/weapon/melee/nightbaton/sandman
+    name = "Heavy duty"
+    desc = "A baton held by the camp commander nicknamed the sandman by prisoners because of how hard it hits."
+    icon = 'icons/obj/weapons.dmi'
+    icon_state = "kombaton"
+    item_state = "nightbaton"
+    slot_flags = SLOT_BELT
+    force = WEAPON_FORCE_WEAK+2
+    weakens = 0
+    flammable = TRUE
+    var/cooldown = FALSE
+
+/obj/item/weapon/melee/nightbaton/sandman/attack(mob/M as mob, mob/living/user as mob)
+    if(!cooldown)
+        M.SetWeakened(50)
+        src.cooldown = TRUE
+        spawn(100)
+            src.cooldown = FALSE
+    else
+        user << "<span class='notice'>You have used this batton not long ago. Chill out!</span>"
+    ..()
 
 /obj/item/weapon/melee/classic_baton/club
 	name = "wood club"
@@ -52,6 +98,7 @@
 	name = "whip"
 	desc = "A leather whip. To keep your slaves in order."
 	icon = 'icons/obj/items.dmi'
+	hitsound = 'sound/weapons/whipcrack.ogg'
 	icon_state = "whip"
 	item_state = "whip"
 	slot_flags = SLOT_BELT
@@ -165,14 +212,14 @@
 /obj/item/garrote/update_icon()
 	icon_state = "garrote[garroting ? "_w" : ""]"
 
-/obj/item/garrote/attack(mob/living/carbon/human/target as mob, mob/living/carbon/human/user as mob)
+/obj/item/garrote/attack(mob/living/human/target as mob, mob/living/human/user as mob)
 	if (garroting)
 		stop_garroting(user,target)
 		return
 	else
 		start_garroting(user,target)
 		return
-/obj/item/garrote/proc/start_garroting(mob/living/carbon/human/user,mob/living/carbon/human/target)
+/obj/item/garrote/proc/start_garroting(mob/living/human/user,mob/living/human/target)
 	if (!user.has_empty_hand())
 		user << "<span class='notice'>You need a free hand to use the garrote!</span>"
 		return
@@ -192,18 +239,18 @@
 			"<span class='danger'>You grab \the [target] with \the [src]!</span>",\
 			"You hear some struggling and muffled cries of surprise")
 		return
-/obj/item/garrote/proc/stop_garroting(mob/living/carbon/human/user,mob/living/carbon/human/target)
+/obj/item/garrote/proc/stop_garroting(mob/living/human/user,mob/living/human/target)
 	garroting = FALSE
 	user << "<span class='notice'>You release the garrote on your victim.</span>" //Not the grab, though. Only the garrote.
 	update_icon()
 	return
-/obj/item/garrote/attack_self(mob/living/carbon/human/user)
+/obj/item/garrote/attack_self(mob/living/human/user)
 	if(world.time <= next_garrote) 	return
 	if(garroting)
 		stop_garroting(user)
 		return
 
-/obj/item/garrote/proc/garroting_process(mob/living/carbon/human/user,mob/living/carbon/human/target,obj/item/weapon/grab/GB)
+/obj/item/garrote/proc/garroting_process(mob/living/human/user,mob/living/human/target,obj/item/weapon/grab/GB)
 	if (!ishuman(user) || !ishuman(target) || !GB)
 		return FALSE
 	if(ishuman(user))
@@ -228,7 +275,7 @@
 				target.forcesay(list("-hrk!", "-hrgh!", "-urgh!", "-kh!", "-hrnk!"))
 
 		if (garroting) //Only do oxyloss if in agreesive grab to prevent passive grab choking or something.
-			target.adjustOxyLoss(3) //Stack the chokes with additional oxyloss for quicker death
+			target.adjustOxyLoss(6) //Stack the chokes with additional oxyloss for quicker death
 			if(prob(40))
 				target.stuttering = max(target.stuttering, 3) //It will hamper your voice, being choked and all.
 				target.losebreath = max(target.losebreath, 3)

@@ -10,7 +10,9 @@
 		..()
 		hold.can_hold = list(/obj/item/weapon/material/sword/smallsword,
 		/obj/item/weapon/material/sword/gladius,
-		/obj/item/weapon/material/sword/xiphos)
+		/obj/item/weapon/material/sword/xiphos,
+		/obj/item/weapon/material/sword/gaelic,
+		/obj/item/weapon/material/sword/khopesh)
 
 /obj/item/clothing/accessory/storage/sheath/on_attached(obj/item/clothing/under/S, mob/user as mob)
 	..()
@@ -83,6 +85,11 @@
 		hold.can_hold = list(/obj/item/weapon/material/sword/katana,
 		/obj/item/weapon/material/sword/wakazashi)
 
+/obj/item/clothing/accessory/storage/sheath/katana/full
+/obj/item/clothing/accessory/storage/sheath/katana/full/New()
+	..()
+	new/obj/item/weapon/material/sword/katana(src)
+
 /obj/item/clothing/accessory/storage/sheath/daisho
 	name = "daisho sheath"
 	desc = "A sheath for a daisho."
@@ -110,7 +117,13 @@
 		/obj/item/weapon/material/sword/saif,
 		/obj/item/weapon/material/sword/sabre,
 		/obj/item/weapon/material/sword/rapier,
-		/obj/item/weapon/material/sword/armingsword)
+		/obj/item/weapon/material/sword/armingsword,
+		/obj/item/weapon/material/sword/urukhaiscimitar,
+		/obj/item/weapon/material/sword/longquan,
+		/obj/item/weapon/material/sword/arabsword,
+		/obj/item/weapon/material/sword/arabsword2,
+		/obj/item/weapon/material/sword/bolo,
+		/obj/item/weapon/material/sword/kukri)
 
 /obj/item/clothing/accessory/storage/sheath/knife
 	name = "knife sheath"
@@ -122,4 +135,10 @@
 	New()
 		..()
 		hold.can_hold = list(/obj/item/weapon/material/kitchen/utensil/knife/shaggers,
-		/obj/item/weapon/material/kitchen/utensil/knife/meat, /obj/item/weapon/material/kitchen/utensil/knife/fancy, /obj/item/weapon/material/kitchen/utensil/knife/survival, /obj/item/weapon/material/kitchen/utensil/knife/bone)
+		/obj/item/weapon/material/kitchen/utensil/knife/meat,
+		/obj/item/weapon/material/kitchen/utensil/knife/fancy,
+		/obj/item/weapon/material/kitchen/utensil/knife/survival,
+		/obj/item/weapon/material/kitchen/utensil/knife/bone,
+		/obj/item/weapon/material/kitchen/utensil/knife/bowie,
+		/obj/item/weapon/material/kitchen/utensil/knife/trench,
+		/obj/item/weapon/material/kitchen/utensil/knife/military)

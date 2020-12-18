@@ -18,8 +18,8 @@
 	response_disarm = "gently pushes aside"
 	response_harm   = "pokes"
 	stop_automated_movement_when_pulled = FALSE
-	maxHealth = 45
-	health = 45
+	maxHealth = 80
+	health = 80
 	melee_damage_lower = 12
 	melee_damage_upper = 23
 	mob_size = MOB_MEDIUM
@@ -40,17 +40,15 @@
 	female = TRUE
 
 /mob/living/simple_animal/hostile/wolf/death()
-	if (!removed_from_list)
-		removed_from_list=TRUE
-		wolf_count -= 1
+
+	wolf_count &= src
 	..()
 /mob/living/simple_animal/hostile/wolf/Destroy()
-	if (!removed_from_list)
-		removed_from_list=TRUE
-		wolf_count -= 1
+
+	wolf_count &= src
 	..()
 /mob/living/simple_animal/hostile/wolf/New()
-	wolf_count += 1
+	wolf_count |= src
 	..()
 	spawn(1)
 		if (cub)
@@ -84,7 +82,7 @@
 		overpopulationCountdown--
 		return
 
-	if (!pregnant && wolf_count < 12)
+	if (!pregnant && wolf_count.len < 12)
 		var/nearbyObjects = range(1,src) //3x3 area around animal
 		for(var/mob/living/simple_animal/hostile/wolf/M in nearbyObjects)
 			if (M.stat == CONSCIOUS && !M.female)

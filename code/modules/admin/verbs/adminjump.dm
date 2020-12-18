@@ -153,11 +153,11 @@ var/turf/default_adminzone_turf = null
 		default_adminzone_turf = locate(90, 92, 3)
 
 	if (default_adminzone_turf)
-		if (get_area(default_adminzone_turf).type == /area/complex/admin)
+		if (get_area(default_adminzone_turf).type == /area/caribbean/admin)
 			mob.loc = default_adminzone_turf
 			return TRUE
 
-	var/area/complex/admin/admin_zone = locate() in area_list
+	var/area/caribbean/admin/admin_zone = locate() in area_list
 	if (!admin_zone)
 		src << "There is no admin zone in this map!"
 		return FALSE

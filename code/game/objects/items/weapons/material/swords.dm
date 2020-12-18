@@ -21,7 +21,7 @@
 /obj/item/weapon/material/sword/handle_shield(mob/living/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	//Ok this if looks like a bit of a mess, and it is. Basically you need to have the sword in your active hand, and pass the default parry check
 	//and also pass the prob which is your melee skill * the swords block chance. Complicated, I know, but hopefully it'll balance out.
-	var/mob/living/carbon/human/H_user = user
+	var/mob/living/human/H_user = user
 	var/isdefend = 1 //the defend tactic modifier
 	var/modif = 1
 	if (H_user.religion_check() == "Combat")
@@ -30,7 +30,7 @@
 		isdefend = 1.2
 	if(default_parry_check(user, attacker, damage_source) && prob(isdefend*(min(block_chance * (H_user.getStatCoeff("swords")*modif),92))) && (user.get_active_hand() == src))//You gotta be holding onto that sheesh bro.
 		user.visible_message("<font color='#E55300'><big>\The [user] parries [attack_text] with \the [src]!</big></font>")
-		var/mob/living/carbon/human/H = user
+		var/mob/living/human/H = user
 		H.adaptStat("swords", 1*modif)
 		playsound(user.loc, pick('sound/weapons/blade_parry1.ogg', 'sound/weapons/blade_parry2.ogg', 'sound/weapons/blade_parry3.ogg'), 50, 1)
 		if (istype(damage_source, /obj/item/weapon/sledgehammer))
@@ -84,6 +84,53 @@
 		edge = 1
 		sharp = 1
 		return
+
+/obj/item/weapon/material/sword/training
+	name = "training sword"
+	desc = "A wood sword used for nonlethal practice."
+	icon_state = "wood_sword"
+	item_state = "wood_sword"
+	block_chance = 50
+	force_divisor = 1
+	thrown_force_divisor = 1
+	force = 1
+	slot_flags = SLOT_BELT | SLOT_BACK
+	value = 0
+	cooldownw = 8
+	sharpness = 0
+	flammable = TRUE
+	attack_verb = list("thwacked", "hit", "clonked", "batted", "tapped", "smacked", "poked", "slapped")
+	hitsound = 'sound/weapons/kick.ogg'
+	drawsound = 'sound/items/unholster_sword01.ogg'
+	sharp = FALSE
+	edge = FALSE
+	default_material = "wood"
+
+/obj/item/weapon/material/sword/training/bamboo
+	desc = "A bamboo sword used for nonlethal practice."
+	icon_state = "bokken_sword"
+	item_state = "bokken_sword"
+	block_chance = 50
+	force_divisor = 1
+	thrown_force_divisor = 1
+	force = 1
+	slot_flags = SLOT_BELT | SLOT_BACK
+	value = 0
+	cooldownw = 8
+	sharpness = 0
+	flammable = TRUE
+	attack_verb = list("thwacked", "hit", "clonked", "batted", "tapped", "smacked", "poked", "slapped")
+	hitsound = 'sound/weapons/kick.ogg'
+	drawsound = 'sound/items/unholster_sword01.ogg'
+	sharp = FALSE
+	edge = FALSE
+	default_material = "bamboo"
+
+/obj/item/weapon/material/sword/attack_self(mob/user)
+	..()
+	edge = 0
+	sharp = 0
+
 /obj/item/weapon/material/sword/katana
 	name = "katana"
 	desc = "A sword used by the japanese for centuries. Made to slice and slash, not chop or saw."
@@ -125,7 +172,7 @@ obj/item/weapon/material/sword/wakazashi
 	..()
 	if (!ishuman(user))
 		return
-	var/mob/living/carbon/human/M = user
+	var/mob/living/human/M = user
 	suicide = TRUE
 	M.visible_message("<span class = 'red'>[user] sticks [M.gender == FEMALE ? "her" : "his"] [src] in [M.gender == FEMALE ? "her" : "his"] gut.</span>")
 	if (!do_after(user, 60))
@@ -143,9 +190,9 @@ obj/item/weapon/material/sword/wakazashi
 
 /obj/item/weapon/material/knife/tanto/attack(atom/A, mob/living/user, def_zone)
 	..()
-	var/mob/living/carbon/human/H = user
+	var/mob/living/human/H = user
 	if(istype(A, H))
-		if (istype(H) && (H.faction_text == "INDIANS" || H.crab))
+		if (istype(H) && (H.faction_text == "INDIANS"))
 			user << "<span class = 'danger'>You have no idea how to do this.</span>"
 			return
 		if (A == user)
@@ -162,7 +209,7 @@ obj/item/weapon/material/sword/wakazashi
 
 /obj/item/weapon/material/sword/smallsword
 	name = "small sword"
-	desc = "A common european sword, with about one meter in lenght."
+	desc = "A common european sword, with about one meter in length."
 	icon_state = "smallsword"
 	item_state = "smallsword"
 	throw_speed = 2
@@ -256,6 +303,42 @@ obj/item/weapon/material/sword/armingsword/bronze
 	block_chance = 35
 	cooldownw = 7
 
+/obj/item/weapon/material/sword/bolo
+	name = "bolo"
+	desc = "A very common filipino machete like sword."
+	icon_state = "bolo"
+	item_state = "bolo"
+	throw_speed = 3
+	throw_range = 6
+	force_divisor = 0.9 // 48 when wielded with hardnes 60 (steel)
+	thrown_force_divisor = 0.45 // 10 when thrown with weight 20 (steel)
+	slot_flags = SLOT_BELT | SLOT_BACK
+	block_chance = 37
+	cooldownw = 9
+	value = 30
+
+/obj/item/weapon/material/sword/bolo/iron
+	default_material = "iron"
+	value = 25
+
+/obj/item/weapon/material/sword/kukri
+	name = "kukri"
+	desc = "A very distinctly shaped machete originating in the outback for hacking through thick brush."
+	icon_state = "kukri"
+	item_state = "kukri"
+	throw_speed = 3
+	throw_range = 6
+	force_divisor = 0.9 // 48 when wielded with hardnes 60 (steel)
+	thrown_force_divisor = 0.45 // 10 when thrown with weight 20 (steel)
+	slot_flags = SLOT_BELT | SLOT_BACK
+	block_chance = 37
+	cooldownw = 9
+	value = 30
+
+/obj/item/weapon/material/sword/kukri/iron
+	default_material = "iron"
+	value = 25
+
 /obj/item/weapon/material/sword/cutlass
 	name = "cutlass"
 	desc = "A medium-sized, curved sword, preferred by pirates."
@@ -276,8 +359,8 @@ obj/item/weapon/material/sword/cutlass/iron
 /obj/item/weapon/material/sword/scimitar
 	name = "scimitar"
 	desc = "A medium-sized, curved sword, preferred by arabs."
-	icon_state = "cutlass"
-	item_state = "cutlass"
+	icon_state = "scimitar"
+	item_state = "sabre"
 	throw_speed = 2
 	throw_range = 4
 	force_divisor = 0.7 // 42 when wielded with hardnes 60 (steel)
@@ -289,6 +372,24 @@ obj/item/weapon/material/sword/cutlass/iron
 
 obj/item/weapon/material/sword/scimitar/iron
 	default_material = "iron"
+
+/obj/item/weapon/material/sword/longquan
+	name = "longquan"
+	desc = "A medium-sized oriental sword; preferred by chinese warriors & soldiers."
+	icon_state = "longquan"
+	item_state = "longquan"
+	throw_speed = 2
+	throw_range = 4
+	force_divisor = 0.7 // 42 when wielded with hardnes 60 (steel)
+	thrown_force_divisor = 0.7 // 10 when thrown with weight 20 (steel)
+	slot_flags = SLOT_BELT | SLOT_BACK
+	block_chance = 30
+	cooldownw = 8
+	value = 45
+
+/obj/item/weapon/material/sword/longquan/iron
+	default_material = "iron"
+	value = 40
 
 /obj/item/weapon/material/sword/saif
 	name = "saif"
@@ -361,20 +462,6 @@ obj/item/weapon/material/sword/longsword/diamond
 	cooldownw = 30
 	value = 60
 
-/obj/item/weapon/material/sword/urukhaiscimitar
-	name = "uruk-hai scimitar"
-	desc = "A broad sword with a curved tip."
-	icon_state = "urukhaiscimitar"
-	item_state = "urukhaiscimitar"
-	throw_speed = 2
-	throw_range = 2
-	force_divisor = 1 // 60 when wielded with hardness 60 (steel)
-	thrown_force_divisor = 0.6 // 12 when thrown with weight 20 (steel)
-	slot_flags = SLOT_BELT | SLOT_BACK
-	block_chance = 40
-	cooldownw = 15
-	value = 55
-
 /obj/item/weapon/material/sword/rapier
 	name = "rapier"
 	desc = "A light sword with a thin, stright blade. Commonly used by officers and nobility."
@@ -392,36 +479,6 @@ obj/item/weapon/material/sword/longsword/diamond
 obj/item/weapon/material/sword/rapier/iron
 	default_material = "iron"
 
-/obj/item/weapon/material/sword/gladius
-	name = "gladius"
-	desc = "A relatively small sword, used by Roman soldiers."
-	icon_state = "gladius"
-	item_state = "gladius"
-	default_material = "iron"
-	throw_speed = 2
-	throw_range = 6
-	force_divisor = 0.6 // 36 when wielded with hardnes 60 (steel)
-	thrown_force_divisor = 0.8 // 10 when thrown with weight 20 (steel)
-	slot_flags = SLOT_BELT | SLOT_BACK
-	block_chance = 25
-	cooldownw = 6
-	value = 35
-
-/obj/item/weapon/material/sword/xiphos
-	name = "xiphos"
-	desc = "A small sword, used by Hellenic soldiers."
-	icon_state = "xiphos"
-	item_state = "gladius"
-	default_material = "iron"
-	throw_speed = 2
-	throw_range = 4
-	force_divisor = 0.75 // 36 when wielded with hardnes 60 (steel)
-	thrown_force_divisor = 0.7 // 10 when thrown with weight 20 (steel)
-	slot_flags = SLOT_BELT | SLOT_BACK
-	block_chance = 28
-	cooldownw = 7
-	value = 40
-
 /obj/item/weapon/material/sword/broadsword
 	name = "broadsword"
 	desc = "A sword with a long thick blade. Commonly used in the medieval era."
@@ -435,3 +492,86 @@ obj/item/weapon/material/sword/rapier/iron
 	block_chance = 20
 	cooldownw = 15
 	value = 60
+
+/* Ancient Multi Material Swords */
+// Created as per template then subtypes for spawning into TDM & admin debug access.
+
+/obj/item/weapon/material/sword/gladius
+	name = "gladius"
+	desc = "A relatively small sword, used by Roman soldiers."
+	icon_state = "gladius"
+	item_state = "gladius"
+	throw_speed = 2
+	throw_range = 6
+	force_divisor = 0.6 // 36 when wielded with hardnes 60 (steel)
+	thrown_force_divisor = 0.8 // 10 when thrown with weight 20 (steel)
+	slot_flags = SLOT_BELT | SLOT_BACK
+	block_chance = 25
+	cooldownw = 6
+	value = 35
+
+/obj/item/weapon/material/sword/gladius/bronze
+	default_material = "bronze"
+
+/obj/item/weapon/material/sword/gladius/iron
+	default_material = "iron"
+
+/obj/item/weapon/material/sword/gaelic
+	name = "gaelic shortsword"
+	desc = "A relatively small sword with a dramatic hilt, used by Gaelic warriors."
+	icon_state = "gaelic_short"
+	item_state = "gaelic_short"
+	throw_speed = 2
+	throw_range = 6
+	force_divisor = 0.6 // 36 when wielded with hardnes 60 (steel)
+	thrown_force_divisor = 0.8 // 10 when thrown with weight 20 (steel)
+	slot_flags = SLOT_BELT | SLOT_BACK
+	block_chance = 25
+	cooldownw = 6
+	value = 35
+
+/obj/item/weapon/material/sword/gaelic/bronze
+	default_material = "bronze"
+
+/obj/item/weapon/material/sword/gaelic/iron
+	default_material = "iron"
+
+/obj/item/weapon/material/sword/khopesh //template for multi-material crafting
+	name = "khopesh"
+	desc = "A curved sword, used by soldiers of egyptian dynasties & desert warriors."
+	icon_state = "khopesh"
+	item_state = "khopesh"
+	throw_speed = 2
+	throw_range = 4
+	force_divisor = 0.75 // 36 when wielded with hardnes 60 (steel)
+	thrown_force_divisor = 0.7 // 10 when thrown with weight 20 (steel)
+	slot_flags = SLOT_BELT | SLOT_BACK
+	block_chance = 28
+	cooldownw = 7
+	value = 40
+
+/obj/item/weapon/material/sword/khopesh/bronze
+	default_material = "bronze"
+
+/obj/item/weapon/material/sword/khopesh/iron
+	default_material = "iron"
+
+/obj/item/weapon/material/sword/xiphos //template for multi-material crafting
+	name = "xiphos"
+	desc = "A small sword, used by hellenic soldiers."
+	icon_state = "xiphos"
+	item_state = "gladius"
+	throw_speed = 2
+	throw_range = 4
+	force_divisor = 0.75 // 36 when wielded with hardnes 60 (steel)
+	thrown_force_divisor = 0.7 // 10 when thrown with weight 20 (steel)
+	slot_flags = SLOT_BELT | SLOT_BACK
+	block_chance = 28
+	cooldownw = 7
+	value = 40
+
+/obj/item/weapon/material/sword/xiphos/bronze
+	default_material = "bronze"
+
+/obj/item/weapon/material/sword/xiphos/iron
+	default_material = "iron"

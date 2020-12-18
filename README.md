@@ -1,30 +1,31 @@
-# Metro13
+# Civilization 13
 
-## Description
+[![Build Status](https://travis-ci.com/Civ13/Civ13.svg?branch=master)](https://travis-ci.com/Civ13/Civ13)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/civ13/civ13.svg?style=flat)
+![GitHub repo size](https://img.shields.io/github/repo-size/civ13/civ13.svg?style=flat)
 
-Branched from Civilization13, Metro13 takes the postapocalyptic russian metro experience to Space Station 13 with faction based survival gameplay.
+## WHAT IS THIS?
+
+Civ13 (formerly 1713) is a game based on Space Station 13 code, which features several epochs of human history. (hence the name). It features both RP and Combat maps and gamemodes.
 
 <kbd>
- <img src="https://i.imgur.com/LMYske3.png">
+ <img src="https://i.imgur.com/napac0L.png">
 </kbd>
 
-We're currently in the Pre-Alpha stage, but tests are planned in the future, check out our discord below for updates!
 
-## Metro13 Discord
-[Say Hi to the Nazis!](https://discord.gg/hBEtg4x)
+## Civ13 Discord
+[![discord](https://discordapp.com/api/guilds/468979034571931648/widget.png)](https://discord.gg/hBEtg4x)
 
 
-## Our Wiki
-https://metro13.fandom.com/wiki/
+## Official Website
+https://civ13.com/
 
 
 ## Trello
-https://trello.com/b/s3iubf6J/metro-13-roadmap
+https://trello.com/b/DW0RQAEX
 
 
 ## Playing the game
-Tutorial stolen from https://github.com/Civ13-SS13/Civ13/blob/master/README.md
-
 You will need a windows machine or a virtual machine running it from another OS.
 
 1. Download the latest BYOND distribution from http://www.byond.com/download/
@@ -39,24 +40,10 @@ You will need a windows machine or a virtual machine running it from another OS.
 
 
 ## Setting up a Server
-Tutorial stolen from https://github.com/Civ13-SS13/Civ13/blob/master/README.md
-
 1. You will need a linux machine for the automated install, preferably Ubuntu. Open the command line.
  
- 2. Download the INSTALL file. You can use ***wget https://raw.githubusercontent.com/Civ13-SS13/Civ13/master/INSTALL*** for it. If you don't have wget installed, use ***sudo apt install*** wget first.
- 
- 3. Use **sudo bash INSTALL** and it should install everything you need.
- 
- 7. You're all set! Run the **launch.py** file inside the **scripts/** folder. Use ***python3 launch.py***.
- 
- 
- ## For Developers
- Here's how to activate debug mode after having downloaded the repository
- 1. Change the line ``//#define TESTING``to ``#define TESTING`` in the first line of the file global.md which can be found in the ``/code/`` folder.
-2. Rebuild the Server in Dream Maker.
-3. When you enter the game, type ``debugtime`` into the verb bar at the bottom right of the screen.
-4. Receive your inspirational message and get debugging!
+2. Download the INSTALL file. You can use ***wget https://raw.githubusercontent.com/Civ13/Civ13/master/INSTALL*** for it. If you don't have wget installed, use ***sudo apt install wget*** first.
 
-## Resource Credits
-https://github.com/JohnRedneck/Metro-13/blob/master/CREDITS.txt
-Thank you all for your help!
+3. Use **sudo bash INSTALL** and it should install everything you need.
+
+4. You're all set! Run the **launch.py** file inside the **scripts/** folder. Use ***python3 launch.py***.

@@ -103,7 +103,7 @@
 
 	var/override_ambience = FALSE
 
-	for (var/typecheck in list(/area/complex/british, /area/complex/pirates, /area/complex/no_mans_land, /area/complex/forest, /area/complex/void))
+	for (var/typecheck in list(/area/caribbean/british, /area/caribbean/pirates, /area/caribbean/no_mans_land, /area/caribbean/forest, /area/caribbean/void))
 		if (istype(oldarea, typecheck))
 			if (!istype(newarea, typecheck))
 				override_ambience = TRUE
@@ -175,8 +175,8 @@
 		M.update_floating( M.Check_Dense_Object() )
 
 /area/proc/thunk(mob)
-	if (istype(mob,/mob/living/carbon/human/))
-		var/mob/living/carbon/human/H = mob
+	if (istype(mob,/mob/living/human/))
+		var/mob/living/human/H = mob
 		if (istype(H.shoes, /obj/item/clothing/shoes/magboots) && (H.shoes.item_flags & NOSLIP))
 			return
 

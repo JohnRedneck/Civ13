@@ -1,26 +1,25 @@
 
 /obj/map_metadata/nomads_new_world
 	ID = MAP_NOMADS_NEW_WORLD
-	title = "Nomads (New World) (430x200x2)"
+	title = "Nomads (New World)"
 	no_winner ="The round is proceeding normally."
 	lobby_icon_state = "civ13"
-	caribbean_blocking_area_types = list(/area/complex/no_mans_land/invisible_wall/sea)
+	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/sea)
 	respawn_delay = 6000 // 10 minutes!
-	squad_spawn_locations = FALSE
-//	min_autobalance_players = 90
+	has_hunger = TRUE
+
 	faction_organization = list(
 		CIVILIAN,)
-	available_subfactions = list(
-		)
+
 	roundend_condition_sides = list(
-		list(CIVILIAN) = /area/complex/british
+		list(CIVILIAN) = /area/caribbean/british
 		)
 	age = "5000 B.C."
 	civilizations = TRUE
 	var/tribes_nr = 1
 	faction_distribution_coeffs = list(CIVILIAN = 1)
 	battle_name = "the civilizations"
-	mission_start_message = "<big>Human population is expanding fast, and this continent feels small to you - Maybe there is more land to the West? What dangers will it hold? It's up to you to find out, if you dare...</big><br><b>Wiki Guide: http://civ13.com/wiki/index.php/Nomads</b>"
+	mission_start_message = "<big>Human population is expanding fast, and this continent feels small to you - Maybe there is more land to the West? What dangers will it hold? It's up to you to find out, if you dare...</big><br><b>Wiki Guide: https://civ13.github.io/civ13-wiki/Civilizations_and_Nomads</b>"
 	ambience = list('sound/ambience/jungle1.ogg')
 	faction1 = CIVILIAN
 	availablefactions = list("Nomad")
@@ -33,22 +32,7 @@
 	var/list/arealist_g = list()
 /obj/map_metadata/nomads_new_world/New()
 	..()
-	/*
-	var/list/totalturfs = get_area_turfs(/area/complex/nomads/forest/Jungle)
-	totalturfs += get_area_turfs(/area/complex/nomads/forest/savanna)
-	spawn(1200)
-		for (var/i = 1, i <= 100)
-			var/turf/areaspawn = safepick(totalturfs)
-			if (istype(areaspawn,/turf/floor/beach/water/jungle))
-				new/obj/structure/piranha(areaspawn)
-				i++
-	spawn(600)
-		for (var/i = 1, i <= 23)
-			var/turf/areaspawn2 = safepick(totalturfs)
-			if (istype(areaspawn2,/turf/floor/grass) || istype(areaspawn2,/turf/floor/dirt))
-				new/obj/structure/anthill(areaspawn2)
-				i++
-	*/
+
 	spawn(18000)
 		seasons()
 

@@ -1,20 +1,19 @@
 /obj/map_metadata/camp
 	ID = MAP_CAMP
-	title = "Camp (200x45x1)"
+	title = "Camp"
 	lobby_icon_state = "medieval"
-	caribbean_blocking_area_types = list(/area/complex/no_mans_land/invisible_wall/)
+	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
 	respawn_delay = 0
-	squad_spawn_locations = FALSE
+
 	no_winner = "No faction controls the Castle."
-//	min_autobalance_players = 90
+
 	faction_organization = list(
 		BRITISH,
 		FRENCH)
-	available_subfactions = list(
-		)
+
 	roundend_condition_sides = list(
-		list(BRITISH) = /area/complex/island,
-		list(FRENCH) = /area/complex/island
+		list(BRITISH) = /area/caribbean/island,
+		list(FRENCH) = /area/caribbean/island
 		)
 	age = "1013"
 	ordinal_age = 2

@@ -25,12 +25,13 @@
 		/obj/structure/sink,
 		/obj/structure/engine,
 		/obj/item/weapon/storage,
-		/mob/living/simple_animal/cow,
+		/mob/living/simple_animal/cattle/cow,
 		/mob/living/simple_animal/goat/female,
 		/mob/living/simple_animal/sheep/female,
 		/mob/living/simple_animal/pig_gilt,
 		/obj/structure/oil_spring,
 		/obj/structure/refinery,
+		/obj/structure/distillery,
 		/obj/structure/oilwell,
 		/obj/structure/heatsource,
 		/obj/item/flashlight/lantern,
@@ -39,6 +40,7 @@
 		/obj/structure/fuelpump,
 		/obj/item/stack/ore,
 		/turf/floor/dirt/underground,
+		/turf/floor/trench,
 		)
 
 	dropsound = 'sound/effects/drop_glass.ogg'
@@ -73,7 +75,7 @@
 		if (istype(target, /obj/structure/pot))
 			return
 
-		if (istype(target, /obj/item/weapon/sandbag))
+		if (istype(target, /obj/item/weapon/barrier))
 			return
 
 		if (!is_open_container() || !flag)
@@ -172,20 +174,6 @@
 			qdel(W)
 			return
 
-		else if (istype(W, /obj/item/weapon/reagent_containers/food/snacks/grown/mushroom))
-
-			if (!is_open_container())
-				user << "<span class='notice'>\The [src] is closed.</span>"
-				return
-			if (!reagents.get_free_space())
-				user << "<span class='notice'>[src] is full.</span>"
-				return
-
-			user << "You smash the mushrooms, producing mushroom juice."
-			reagents.add_reagent("mushroom", 5)
-			qdel(W)
-			return
-
 		else if (istype(W, /obj/item/weapon/reagent_containers/food/snacks/grown/rice))
 
 			if (!is_open_container())
@@ -250,6 +238,9 @@
 	name = "beaker"
 	desc = "A beaker."
 	icon = 'icons/obj/chemical.dmi'
+
+	unacidable = TRUE
+
 	icon_state = "beaker"
 	item_state = "beaker"
 
@@ -406,6 +397,19 @@
 	on_stove = FALSE
 	flags = OPENCONTAINER
 
+/obj/item/weapon/reagent_containers/glass/small_pot/clay
+	desc = "A primitive clay pot, used for boiling water and cooking."
+	name = "clay cooking pot"
+	icon = 'icons/obj/claystuff.dmi'
+	icon_state = "cookingpot"
+	item_state = "bucket"
+	w_class = 3.0
+	amount_per_transfer_from_this = 10
+	possible_transfer_amounts = list(10,20)
+	volume = 40
+	on_stove = FALSE
+	flags = OPENCONTAINER
+
 /obj/item/weapon/reagent_containers/glass/fermenterbarrel
 	desc = "A fermenter barrel, use it to make alcoholic drinks like ale, beer and cider."
 	name = "fermenter barrel"
@@ -442,7 +446,7 @@
 /obj/item/weapon/reagent_containers/glass/barrel/fueltank
 	name = "large fueltank"
 	desc = "A metalic fueltank. Used to connect to a engine and supply it with fuel."
-	icon = 'icons/obj/vehicleparts.dmi'
+	icon = 'icons/obj/vehicles/vehicleparts.dmi'
 	icon_state = "fueltank_large"
 	amount_per_transfer_from_this = 10
 	volume = 250
@@ -501,6 +505,22 @@
 				var/amount_to_transfer = current.volume * part
 				reagents.remove_reagent(current.id, amount_to_transfer, TRUE)
 
+/obj/item/weapon/reagent_containers/glass/barrel/jerrycan
+	name = "steel jerrycan"
+	desc = "A steel jerrycan. Good for transporting fuel."
+	icon = 'icons/obj/barrel.dmi'
+	icon_state = "jerrycan"
+	amount_per_transfer_from_this = 30
+	volume = 150
+	density = FALSE
+/obj/item/weapon/reagent_containers/glass/barrel/jerrycan/gasoline
+	New()
+		..()
+		reagents.add_reagent("gasoline",150)
+/obj/item/weapon/reagent_containers/glass/barrel/jerrycan/diesel
+	New()
+		..()
+		reagents.add_reagent("diesel",150)
 /obj/item/weapon/reagent_containers/glass/barrel/fueltank/small
 	name = "small fueltank"
 	icon_state = "fueltank_small"
@@ -515,6 +535,11 @@
 	name = "50u motorcycle fueltank"
 	icon_state = "fueltank_bike"
 	volume = 50
+
+/obj/item/weapon/reagent_containers/glass/barrel/fueltank/bike/full
+	New()
+		..()
+		reagents.add_reagent("gasoline",50)
 
 /obj/item/weapon/reagent_containers/glass/barrel/fueltank/bike75
 	name = "75u motorcycle fueltank"
@@ -673,6 +698,19 @@
 	New()
 		..()
 		reagents.add_reagent("petroleum",200)
+
+/obj/item/weapon/reagent_containers/glass/barrel/olive_oil
+	name = "olive oil barrel"
+	desc = "A barrel filled with olive oil."
+	icon = 'icons/obj/barrel.dmi'
+	icon_state = "barrel_wood_drinks"
+	amount_per_transfer_from_this = 10
+	volume = 250
+	density = TRUE
+	New()
+		..()
+		reagents.add_reagent("olive_oil",200)
+
 
 /obj/item/weapon/reagent_containers/glass/barrel/gunpowder
 	name = "gunpowder barrel"

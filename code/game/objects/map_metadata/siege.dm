@@ -1,20 +1,19 @@
 
 /obj/map_metadata/siege
 	ID = MAP_SIEGE
-	title = "Siege (80x80x1)"
+	title = "Siege"
 	lobby_icon_state = "ancient"
-	caribbean_blocking_area_types = list(/area/complex/no_mans_land/invisible_wall/)
+	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
 	respawn_delay = 300
-	squad_spawn_locations = FALSE
-//	min_autobalance_players = 90
+
+
 	faction_organization = list(
 		ROMAN,
 		GREEK)
-	available_subfactions = list(
-		)
+
 	roundend_condition_sides = list(
-		list(ROMAN) = /area/complex/colonies,
-		list(GREEK) = /area/complex/greek
+		list(ROMAN) = /area/caribbean/colonies,
+		list(GREEK) = /area/caribbean/greek
 		)
 	age = "313 B.C."
 	ordinal_age = 1

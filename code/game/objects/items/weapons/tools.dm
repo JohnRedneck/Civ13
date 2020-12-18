@@ -47,7 +47,7 @@
 		..()
 		desc = "A red fire extinguisher filled with foam. Has [cap] units left."
 
-/obj/item/weapon/fire_extinguisher/attack_self(mob/living/carbon/human/user as mob)
+/obj/item/weapon/fire_extinguisher/attack_self(mob/living/human/user as mob)
 	if (!ishuman(user))
 		return
 	if (cap >= 1)
@@ -58,7 +58,7 @@
 		if (dest)
 			for (var/obj/effect/fire/BO in dest)
 				qdel(BO)
-			for (var/mob/living/carbon/human/H in dest)
+			for (var/mob/living/human/H in dest)
 				if (H.fire_stacks > 0)
 					H.fire_stacks = 0
 			new/obj/effect/decal/cleanable/foam(dest)
@@ -72,11 +72,28 @@
  * Screwdriver
  */
 /obj/item/weapon/hammer
-	name = "hammer"
+	name = "ball-peel hammer"
 	desc = "Tear stuff apart with this."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "hammer"
 	item_state = "hammer"
+	flags = CONDUCT
+	slot_flags = SLOT_BELT | SLOT_POCKET
+	force = WEAPON_FORCE_NORMAL + 4
+	w_class = 2.0
+	throwforce = WEAPON_FORCE_NORMAL
+	throw_speed = 5
+	throw_range = 5
+
+	attack_verb = list("bludgeoned", "hit")
+	flammable = TRUE
+
+/obj/item/weapon/tribalhammer
+	name = "primitive wooden mallet"
+	desc = "hit stuff together with this."
+	icon = 'icons/misc/tribal.dmi'
+	icon_state = "tribalhammer"
+	item_state = "tribalhammer"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_POCKET
 	force = WEAPON_FORCE_NORMAL + 4
@@ -95,7 +112,7 @@
 	icon_state = "globe"
 	item_state = "globe"
 	flags = CONDUCT
-	slot_flags = SLOT_BELT | SLOT_POCKET
+	slot_flags = SLOT_BELT
 	force = WEAPON_FORCE_NORMAL + 1
 	w_class = 2.0
 	throwforce = WEAPON_FORCE_NORMAL
@@ -147,7 +164,7 @@
 			item_state = "cutters_yellow"
 	..()
 
-/obj/item/weapon/wirecutters/attack(mob/living/carbon/C as mob, mob/user as mob)
+/obj/item/weapon/wirecutters/attack(mob/living/human/C as mob, mob/user as mob)
 	..()
 
 /*
@@ -302,7 +319,7 @@
 
 /obj/item/weapon/fishing/net
 	name = "fishing net"
-	desc = "A classic fishing net, made of hemp rope."
+	desc = "A classic fishing net, made of fiberous rope."
 	w_class = 2.0
 	icon_state = "fishing_net"
 	force = WEAPON_FORCE_WEAK
@@ -385,3 +402,12 @@
 
 	attack_verb = list("jabbed", "hit", "bashed")
 	flammable = TRUE
+
+/obj/item/weapon/whistle/tin
+	name = "whistle"
+	desc = "A cheap whistle made from tin."
+	icon = 'icons/obj/clothing/masks.dmi'
+	icon_state = "whistle"
+	flags = CONDUCT
+	slot_flags = SLOT_BELT | SLOT_POCKET
+	w_class = 1.0

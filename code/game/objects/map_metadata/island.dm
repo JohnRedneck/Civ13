@@ -1,22 +1,21 @@
 
 /obj/map_metadata/island
 	ID = MAP_ISLAND
-	title = "Skull Island (125x125x2)"
+	title = "Skull Island"
 	lobby_icon_state = "imperial"
-	caribbean_blocking_area_types = list(/area/complex/no_mans_land/invisible_wall/)
+	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
 	respawn_delay = 600
-	squad_spawn_locations = FALSE
+
 	no_winner ="No faction has captured the enemy's base."
 	var/do_once_activations = TRUE
-//	min_autobalance_players = 90
+
 	faction_organization = list(
 		BRITISH,
 		PIRATES)
-	available_subfactions = list(
-		)
+
 	roundend_condition_sides = list(
-		list(BRITISH) = /area/complex/british/ship/,
-		list(PIRATES) = /area/complex/pirates/land/inside
+		list(BRITISH) = /area/caribbean/british/ship/,
+		list(PIRATES) = /area/caribbean/pirates/land/inside
 		)
 	age = "1713"
 	ordinal_age = 3
@@ -43,6 +42,10 @@ obj/map_metadata/island/job_enabled_specialcheck(var/datum/job/J)
 	else if (istype(J, /datum/job/pirates/battleroyale))
 		. = FALSE
 	else if (istype(J, /datum/job/indians/tribes))
+		. = FALSE
+	else if (J.is_prison == TRUE)
+		. = FALSE
+	else if (J.is_ww2 == TRUE)
 		. = FALSE
 	else
 		. = TRUE

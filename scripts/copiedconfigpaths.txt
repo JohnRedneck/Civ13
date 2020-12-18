@@ -1,8 +1,10 @@
 config/tips.txt
 config/motd.txt
 config/admin_ranks.txt
-config/material_recipes.txt
-config/material_recipes_camp.txt
+config/crafting/material_recipes_global.txt
+config/crafting/material_recipes_camp.txt
+config/crafting/material_recipes_kwai.txt
+config/crafting/material_recipes_carib.txt
 config/dictionary.txt
 scripts/copiedconfigpaths.txt
 scripts/copiedfolderpaths.txt
@@ -13,7 +15,6 @@ scripts/mapswap.py
 scripts/restartinactiveserver.py
 scripts/updateserverabspaths.py
 scripts/updateserverabspathsnogitpull.py
-scripts/modtimetest.py
-scripts/restartciv13.py
 scripts/killciv13.py
 scripts/killsudos.py
+scripts/clear_oggs.py

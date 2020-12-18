@@ -26,13 +26,14 @@
 #define TEAM_US 15
 #define TEAM_VI 16
 #define TEAM_CH 17
+#define TEAM_FP 18
 var/global/soldiers[17]
 
 /datum/faction
 	// redefine these since they don't exist in /datum
 	var/icon = 'icons/mob/hud_1713.dmi'
 	var/icon_state = ""
-	var/mob/living/carbon/human/holder = null
+	var/mob/living/human/holder = null
 	var/title = "Something that shouldn't exist"
 	var/list/objectives = list()
 	var/team = null
@@ -42,30 +43,14 @@ var/global/soldiers[17]
 /datum/faction/proc/base_type()
 	return "/datum/faction"
 
-/datum/faction/redline
-	icon_state = "civilian_basic"
-	title = "Red Line"
-	team = TEAM_RU
-
-/datum/faction/redline/base_type()
-	return "/datum/faction/redline"
-
-/datum/faction/reich
-	icon_state = "civilian_basic"
-	title = "Reich"
-	team = TEAM_GE
-
-/datum/faction/reich/base_type()
-	return "/datum/faction/reich"
-
 // you appear to be a civilian to other civilians
 /datum/faction/civilian
 	icon_state = "civilian_basic"
 	title = "Civilian"
 	team = TEAM_CV
 
-/datum/faction/civilian/base_type()
-	return "/datum/faction/civilian"
+/datum/faction/pirates/base_type()
+	return "/datum/faction/pirates"
 
 // you appear to be a pirate to other pirates
 /datum/faction/pirates
@@ -166,6 +151,14 @@ var/global/soldiers[17]
 	title = "Chinese Soldier"
 	team = TEAM_CH
 
+/datum/faction/filipino/base_type()
+	return "/datum/faction/filipino"
+
+/datum/faction/filipino
+	icon_state = ""
+	title = "Filipino Soldier"
+	team = TEAM_FP
+
 /datum/faction/american/base_type()
 	return "/datum/faction/american"
 
@@ -202,20 +195,13 @@ var/global/soldiers[17]
 /datum/faction/arab/base_type()
 	return "/datum/faction/arab"
 // CODE
-/datum/faction/New(var/mob/living/carbon/human/H, var/datum/job/J)
+/datum/faction/New(var/mob/living/human/H, var/datum/job/J)
 
 	if (!H || !istype(H))
 		return
 
 	holder = H
-	if (istype(J, /datum/job/redline))
-		if ("[type]" == "/datum/faction/redline")
-			soldiers[REDLINE]++
-	if (istype(J, /datum/job/reich))
-		if ("[type]" == "/datum/faction/reich")
-			soldiers[REICH]++
-
-	else if (istype(J, /datum/job/pirates))
+	if (istype(J, /datum/job/pirates))
 		if ("[type]" == "/datum/faction/pirates")
 			soldiers[PIRATES]++
 	else if (istype(J, /datum/job/british))

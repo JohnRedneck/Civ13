@@ -1,13 +1,4 @@
-#define BATTLEREPORT_VARIABLE_CHECK(_mob) if (!istype(_mob, /mob/living/carbon/human/corpse) && (!get_area(_mob) || !istype(get_area(_mob), /area/complex/admin)))
-
-var/list/alive_redline = list()
-var/list/alive_reich = list()
-
-var/list/heavily_injured_redline = list()
-var/list/heavily_injured_reich = list()
-
-var/list/dead_redline = list()
-var/list/dead_reich = list()
+#define BATTLEREPORT_VARIABLE_CHECK(_mob) if (!istype(_mob, /mob/living/human/corpse) && (!get_area(_mob) || !istype(get_area(_mob), /area/caribbean/admin)))
 
 var/list/alive_british = list()
 var/list/alive_pirates = list()
@@ -26,6 +17,8 @@ var/list/alive_german = list()
 var/list/alive_american = list()
 var/list/alive_vietnamese = list()
 var/list/alive_chinese = list()
+var/list/alive_filipino = list()
+
 
 var/list/heavily_injured_british = list()
 var/list/heavily_injured_pirates = list()
@@ -44,6 +37,7 @@ var/list/heavily_injured_german = list()
 var/list/heavily_injured_american = list()
 var/list/heavily_injured_vietnamese = list()
 var/list/heavily_injured_chinese = list()
+var/list/heavily_injured_filipino = list()
 
 var/list/dead_british = list()
 var/list/dead_pirates = list()
@@ -62,25 +56,17 @@ var/list/dead_german = list()
 var/list/dead_american = list()
 var/list/dead_vietnamese = list()
 var/list/dead_chinese = list()
+var/list/dead_filipino = list()
 
 var/list/recently_died = list()
 
-/mob/living/carbon/human/proc/get_battle_report_lists()
+/mob/living/human/proc/get_battle_report_lists()
 
 	var/list/alive = list()
 	var/list/injured = list()
 	var/list/dead = list()
 	if (original_job)
 		switch (original_job.base_type_flag())
-			if (REDLINE)
-				dead = dead_redline
-				injured = heavily_injured_redline
-				alive = alive_redline
-			if (REICH)
-				dead = dead_reich
-				injured = heavily_injured_reich
-				alive = alive_reich
-
 			if (BRITISH)
 				dead = dead_british
 				injured = heavily_injured_british
@@ -149,15 +135,19 @@ var/list/recently_died = list()
 				dead = dead_chinese
 				injured = heavily_injured_chinese
 				alive = alive_chinese
+			if (FILIPINO)
+				dead = dead_filipino
+				injured = heavily_injured_filipino
+				alive = alive_filipino
 	return list(alive, dead, injured)
 
-/mob/living/carbon/human/death()
+/mob/living/human/death()
 	if (original_job_title == "Nomad")
 		if (civilization != "none" && map.custom_civs[civilization][4])
 			if (map.custom_civs[civilization][4].real_name == real_name)
 				map.custom_civs[civilization][4] = null
 	BATTLEREPORT_VARIABLE_CHECK(src)
-		if (!istype(src, /mob/living/carbon/human/corpse))
+		if (!istype(src, /mob/living/human/corpse))
 			var/list/lists = get_battle_report_lists()
 			var/list/alive = lists[1]
 			var/list/dead = lists[2]
@@ -178,7 +168,7 @@ var/list/recently_died = list()
 	..()
 
 
-/mob/living/carbon/human/Life()
+/mob/living/human/Life()
 
 	var/list/lists = get_battle_report_lists()
 	var/list/alive = lists[1]
@@ -188,7 +178,7 @@ var/list/recently_died = list()
 	..()
 
 	BATTLEREPORT_VARIABLE_CHECK(src)
-		if (istype(src, /mob/living/carbon/human/corpse))
+		if (istype(src, /mob/living/human/corpse))
 			return
 
 		if (recently_died.Find(getRoundUID()))

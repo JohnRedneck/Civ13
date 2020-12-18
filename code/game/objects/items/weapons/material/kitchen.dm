@@ -14,6 +14,7 @@
 	thrown_force_divisor = 0.25 // 5 when thrown with weight 20 (steel)
 	var/loaded	  //Descriptive string for currently loaded food object.
 	var/scoop_food = TRUE
+	var/shiv = 0
 
 /obj/item/weapon/material/kitchen/utensil/New()
 	..()
@@ -22,7 +23,7 @@
 	create_reagents(5)
 	return
 
-/obj/item/weapon/material/kitchen/utensil/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/weapon/material/kitchen/utensil/attack(mob/living/human/M as mob, mob/living/human/user as mob)
 	if (!istype(M))
 		return ..()
 
@@ -63,6 +64,13 @@
 	desc = "It's a fork. Sure is pointy."
 	icon_state = "fork"
 
+/obj/item/weapon/material/kitchen/utensil/chopsticks
+	name = "chopsticks"
+	desc = "It's pair of chopsticks. Wan' sum rice muhda fukka?"
+	icon_state = "chopsticks"
+	material = "wood"
+	color = null
+
 /obj/item/weapon/material/kitchen/utensil/spoon
 	name = "spoon"
 	desc = "It's a spoon. You can see your own upside-down face in it."
@@ -71,7 +79,6 @@
 	edge = FALSE
 	sharp = FALSE
 	force_divisor = 0 //no dmg. no more memes
-
 /*
  * Knives
  */
@@ -118,7 +125,7 @@
 		sharp = 1
 		return
 
-/obj/item/weapon/material/kitchen/utensil/knife/razorblade/attack(mob/living/carbon/human/M as mob, mob/living/user as mob)
+/obj/item/weapon/material/kitchen/utensil/knife/razorblade/attack(mob/living/human/M as mob, mob/living/user as mob)
 	if (user.a_intent == I_HELP && (M in range(user,1) || M == user) && ishuman(M) && ishuman(user))
 		visible_message("[user] starts cutting [M]'s hair...","You start cutting [M]'s hair...")
 		if (do_after(user, 80, M))
@@ -181,6 +188,9 @@
 	drawsound = 'sound/items/unholster_knife.ogg'
 	force_divisor = 0.6
 
+/obj/item/weapon/material/kitchen/utensil/knife/bowie/iron
+	default_material = "iron"
+
 /obj/item/weapon/material/kitchen/utensil/knife/fancy
 	name = "fancy knife"
 	desc = "A expensive knife."
@@ -202,6 +212,9 @@
 	unbreakable = TRUE
 	drawsound = 'sound/items/unholster_knife.ogg'
 	force_divisor = 0.7
+
+/obj/item/weapon/material/kitchen/utensil/knife/trench/iron
+	default_material = "iron"
 
 /obj/item/weapon/material/kitchen/utensil/knife/meat
 	name = "meat knife"
@@ -269,6 +282,9 @@
 	drawsound = 'sound/items/unholster_knife.ogg'
 	force_divisor = 0.9
 
+/obj/item/weapon/material/kitchen/utensil/knife/military/iron
+	default_material = "iron"
+
 /obj/item/weapon/material/kitchen/utensil/knife/shadowdagger
 	name = "shadow dagger"
 	desc = "A tactical knife."
@@ -314,8 +330,8 @@
 	force_divisor = 0.3
 
 /obj/item/weapon/material/kitchen/utensil/knife/bone
-	name = "bone knife"
-	desc = "A small knife with a bone blade and obsidian handle."
+	name = "tribal bone knife"
+	desc = "A small knife with a bone blade and ridged handle."
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "boneknife"
 	item_state = "knife"
@@ -323,6 +339,7 @@
 	unbreakable = TRUE
 	drawsound = 'sound/items/unholster_knife.ogg'
 	force_divisor = 0.1
+	default_material = "bone"
 
 /obj/item/weapon/material/kitchen/utensil/knife/bone/New()
 	..()
@@ -344,8 +361,8 @@
 	name = "circumcision knife"
 
 /obj/item/weapon/material/kitchen/utensil/knife/circumcision/attack(target as mob, mob/living/user as mob)
-	if (istype(target, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = target
+	if (istype(target, /mob/living/human))
+		var/mob/living/human/H = target
 		if (user.a_intent == I_HELP && H.gender == MALE)
 			if (H.circumcised)
 				user << "<span class = 'notice'>[H] is already circumcised!</span>"

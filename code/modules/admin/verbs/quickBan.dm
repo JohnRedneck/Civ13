@@ -237,7 +237,7 @@ var/datum/quickBan_handler/quickBan_handler = null
 			var/datum/job/J = input("What job?") in possibilities
 			fields["type_specific_info"] = J.title
 		if ("Faction")
-			var/faction = input("What faction?") in list(REDLINE, REICH, BRITISH, PIRATES, CIVILIAN, INDIANS, PORTUGUESE, SPANISH, FRENCH, DUTCH, GREEK, ROMAN, ARAB, JAPANESE, RUSSIAN, GERMAN, AMERICAN, VIETNAMESE, CHINESE)
+			var/faction = input("What faction?") in list(BRITISH, PIRATES, CIVILIAN, INDIANS, PORTUGUESE, SPANISH, FRENCH, DUTCH, GREEK, ROMAN, ARAB, JAPANESE, RUSSIAN, GERMAN, AMERICAN, VIETNAMESE, CHINESE)
 			fields["type_specific_info"] = faction
 
 	reenter_bantime
@@ -423,7 +423,7 @@ var/datum/quickBan_handler/quickBan_handler = null
 		if (islist(admincheck) && !isemptylist(admincheck))
 			for(var/i in admincheck)
 				var/list/admincheck_two = splittext(i, ";")
-				if (admincheck_two[1] == "[_ckey]")
+				if (admincheck_two.len && admincheck_two[1] == "[_ckey]")
 					src << "<span class = 'danger'>You can't ban admins!</span>"
 					return TRUE
 	return FALSE

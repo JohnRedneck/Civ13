@@ -1,20 +1,19 @@
 
 /obj/map_metadata/supply_raid
 	ID = MAP_SUPPLY_RAID
-	title = "Supply Raid (100x75x1)"
+	title = "Supply Raid"
 	lobby_icon_state = "imperial"
-	caribbean_blocking_area_types = list(/area/complex/no_mans_land/invisible_wall/)
+	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
 	respawn_delay = 900
-	squad_spawn_locations = FALSE
-//	min_autobalance_players = 90
+
+
 	faction_organization = list(
 		BRITISH,
 		INDIANS)
-	available_subfactions = list(
-		)
+
 	roundend_condition_sides = list(
-		list(BRITISH) = /area/complex/british/land,
-		list(INDIANS) = /area/complex/pirates/land
+		list(BRITISH) = /area/caribbean/british/land,
+		list(INDIANS) = /area/caribbean/pirates/land
 		)
 	age = "1713"
 	ordinal_age = 3

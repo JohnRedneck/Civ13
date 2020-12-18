@@ -231,6 +231,45 @@ proc/random_arab_name(gender, species = "Human")
 	else
 		return current_species.get_random_arab_name(gender)
 
+proc/random_korean_name(gender, species = "Human")
+	var/datum/species/current_species
+	if (species)
+		current_species = all_species[species]
+
+	if (!current_species || current_species.name_language == null)
+		if (gender==FEMALE)
+			return capitalize(pick(first_names_female_korean)) + " " + capitalize(pick(last_names_korean))
+		else
+			return capitalize(pick(first_names_male_korean)) + " " + capitalize(pick(last_names_korean))
+	else
+		return current_species.get_random_korean_name(gender)
+
+proc/random_egyptian_name(gender, species = "Human")
+	var/datum/species/current_species
+	if (species)
+		current_species = all_species[species]
+
+	if (!current_species || current_species.name_language == null)
+		if (gender==FEMALE)
+			return capitalize(pick(first_names_female_egyptian)) + " " + capitalize(pick(last_names_egyptian))
+		else
+			return capitalize(pick(first_names_male_egyptian)) + " " + capitalize(pick(last_names_egyptian))
+	else
+		return current_species.get_random_egyptian_name(gender)
+
+proc/random_filipino_name(gender, species = "Human")
+	var/datum/species/current_species
+	if (species)
+		current_species = all_species[species]
+
+	if (!current_species || current_species.name_language == null)
+		if (gender==FEMALE)
+			return capitalize(pick(first_names_female_filipino)) + " " + capitalize(pick(last_names_filipino))
+		else
+			return capitalize(pick(first_names_male_filipino)) + " " + capitalize(pick(last_names_filipino))
+	else
+		return current_species.get_random_filipino_name(gender)
+
 proc/random_skin_tone()
 
 	var/skin_tone = "caucasian"
@@ -447,43 +486,9 @@ Proc for attack log creation, because really why not
 
 	return creatures
 
-/proc/getredlinemobs(var/alive = FALSE)
-	var/list/redline = list()
-	for (var/mob/living/carbon/human/H in mob_list)
-		if (!istype(H))
-			continue
-		if (alive && H.stat == DEAD)
-			continue
-		if (!H.loc)
-			continue
-		if (!istype(H.original_job, /datum/job/redline))
-			continue
-		if (istype(H, /mob/living/carbon/human/corpse))
-			continue
-		redline += H
-
-	return redline
-
-/proc/getreichmobs(var/alive = FALSE)
-	var/list/reich = list()
-	for (var/mob/living/carbon/human/H in mob_list)
-		if (!istype(H))
-			continue
-		if (alive && H.stat == DEAD)
-			continue
-		if (!H.loc)
-			continue
-		if (!istype(H.original_job, /datum/job/reich))
-			continue
-		if (istype(H, /mob/living/carbon/human/corpse))
-			continue
-		reich += H
-
-	return reich
-
 /proc/getbritishmobs(var/alive = FALSE)
 	var/list/british = list()
-	for (var/mob/living/carbon/human/H in mob_list)
+	for (var/mob/living/human/H in mob_list)
 		if (!istype(H))
 			continue
 		if (alive && H.stat == DEAD)
@@ -492,7 +497,7 @@ Proc for attack log creation, because really why not
 			continue
 		if (!istype(H.original_job, /datum/job/british))
 			continue
-		if (istype(H, /mob/living/carbon/human/corpse))
+		if (istype(H, /mob/living/human/corpse))
 			continue
 		british += H
 
@@ -500,7 +505,7 @@ Proc for attack log creation, because really why not
 
 /proc/getportuguesemobs(var/alive = FALSE)
 	var/list/portuguese = list()
-	for (var/mob/living/carbon/human/H in mob_list)
+	for (var/mob/living/human/H in mob_list)
 		if (!istype(H))
 			continue
 		if (alive && H.stat == DEAD)
@@ -509,7 +514,7 @@ Proc for attack log creation, because really why not
 			continue
 		if (!istype(H.original_job, /datum/job/portuguese))
 			continue
-		if (istype(H, /mob/living/carbon/human/corpse))
+		if (istype(H, /mob/living/human/corpse))
 			continue
 		portuguese += H
 
@@ -517,7 +522,7 @@ Proc for attack log creation, because really why not
 
 /proc/getspanishmobs(var/alive = FALSE)
 	var/list/spanish = list()
-	for (var/mob/living/carbon/human/H in mob_list)
+	for (var/mob/living/human/H in mob_list)
 		if (!istype(H))
 			continue
 		if (alive && H.stat == DEAD)
@@ -526,7 +531,7 @@ Proc for attack log creation, because really why not
 			continue
 		if (!istype(H.original_job, /datum/job/spanish))
 			continue
-		if (istype(H, /mob/living/carbon/human/corpse))
+		if (istype(H, /mob/living/human/corpse))
 			continue
 		spanish += H
 
@@ -534,7 +539,7 @@ Proc for attack log creation, because really why not
 
 /proc/getdutchmobs(var/alive = FALSE)
 	var/list/dutch = list()
-	for (var/mob/living/carbon/human/H in mob_list)
+	for (var/mob/living/human/H in mob_list)
 		if (!istype(H))
 			continue
 		if (alive && H.stat == DEAD)
@@ -543,7 +548,7 @@ Proc for attack log creation, because really why not
 			continue
 		if (!istype(H.original_job, /datum/job/dutch))
 			continue
-		if (istype(H, /mob/living/carbon/human/corpse))
+		if (istype(H, /mob/living/human/corpse))
 			continue
 		dutch += H
 
@@ -551,7 +556,7 @@ Proc for attack log creation, because really why not
 
 /proc/getjapanesemobs(var/alive = FALSE)
 	var/list/japanese = list()
-	for (var/mob/living/carbon/human/H in mob_list)
+	for (var/mob/living/human/H in mob_list)
 		if (!istype(H))
 			continue
 		if (alive && H.stat == DEAD)
@@ -560,7 +565,7 @@ Proc for attack log creation, because really why not
 			continue
 		if (!istype(H.original_job, /datum/job/japanese))
 			continue
-		if (istype(H, /mob/living/carbon/human/corpse))
+		if (istype(H, /mob/living/human/corpse))
 			continue
 		japanese += H
 
@@ -568,7 +573,7 @@ Proc for attack log creation, because really why not
 
 /proc/getrussianmobs(var/alive = FALSE)
 	var/list/russian = list()
-	for (var/mob/living/carbon/human/H in mob_list)
+	for (var/mob/living/human/H in mob_list)
 		if (!istype(H))
 			continue
 		if (alive && H.stat == DEAD)
@@ -577,7 +582,7 @@ Proc for attack log creation, because really why not
 			continue
 		if (!istype(H.original_job, /datum/job/russian))
 			continue
-		if (istype(H, /mob/living/carbon/human/corpse))
+		if (istype(H, /mob/living/human/corpse))
 			continue
 		russian += H
 
@@ -585,7 +590,7 @@ Proc for attack log creation, because really why not
 
 /proc/getgermanmobs(var/alive = FALSE)
 	var/list/german = list()
-	for (var/mob/living/carbon/human/H in mob_list)
+	for (var/mob/living/human/H in mob_list)
 		if (!istype(H))
 			continue
 		if (alive && H.stat == DEAD)
@@ -594,7 +599,7 @@ Proc for attack log creation, because really why not
 			continue
 		if (!istype(H.original_job, /datum/job/german))
 			continue
-		if (istype(H, /mob/living/carbon/human/corpse))
+		if (istype(H, /mob/living/human/corpse))
 			continue
 		german += H
 
@@ -602,7 +607,7 @@ Proc for attack log creation, because really why not
 
 /proc/getfrenchmobs(var/alive = FALSE)
 	var/list/french = list()
-	for (var/mob/living/carbon/human/H in mob_list)
+	for (var/mob/living/human/H in mob_list)
 		if (!istype(H))
 			continue
 		if (alive && H.stat == DEAD)
@@ -611,7 +616,7 @@ Proc for attack log creation, because really why not
 			continue
 		if (!istype(H.original_job, /datum/job/french))
 			continue
-		if (istype(H, /mob/living/carbon/human/corpse))
+		if (istype(H, /mob/living/human/corpse))
 			continue
 		french += H
 
@@ -619,7 +624,7 @@ Proc for attack log creation, because really why not
 
 /proc/getindiansmobs(var/alive = FALSE)
 	var/list/indians = list()
-	for (var/mob/living/carbon/human/H in mob_list)
+	for (var/mob/living/human/H in mob_list)
 		if (!istype(H))
 			continue
 		if (alive && H.stat == DEAD)
@@ -628,7 +633,7 @@ Proc for attack log creation, because really why not
 			continue
 		if (!istype(H.original_job, /datum/job/indians))
 			continue
-		if (istype(H, /mob/living/carbon/human/corpse))
+		if (istype(H, /mob/living/human/corpse))
 			continue
 		indians += H
 
@@ -636,7 +641,7 @@ Proc for attack log creation, because really why not
 
 /proc/getpiratesmobs(var/alive = FALSE)
 	var/list/pirates = list()
-	for (var/mob/living/carbon/human/H in mob_list)
+	for (var/mob/living/human/H in mob_list)
 		if (!istype(H))
 			continue
 		if (!H.loc) // supply train announcer
@@ -645,7 +650,7 @@ Proc for attack log creation, because really why not
 			continue
 		if (!istype(H.original_job, /datum/job/pirates))
 			continue
-		if (istype(H, /mob/living/carbon/human/corpse))
+		if (istype(H, /mob/living/human/corpse))
 			continue
 		pirates += H
 
@@ -654,31 +659,38 @@ Proc for attack log creation, because really why not
 
 /proc/getcivilians(var/alive = FALSE)
 	var/list/civilians = list()
-	for (var/mob/living/carbon/human/H in mob_list)
+	for (var/mob/living/human/H in mob_list)
 		if (istype(H.original_job, /datum/job/civilian))
 			civilians += H
 	return civilians
 
 /proc/getamericanmobs(var/alive = FALSE)
 	var/list/americans = list()
-	for (var/mob/living/carbon/human/H in mob_list)
+	for (var/mob/living/human/H in mob_list)
 		if (istype(H.original_job, /datum/job/american))
 			americans += H
 	return americans
 
 /proc/getvietnamesemobs(var/alive = FALSE)
 	var/list/vietnamese = list()
-	for (var/mob/living/carbon/human/H in mob_list)
+	for (var/mob/living/human/H in mob_list)
 		if (istype(H.original_job, /datum/job/vietnamese))
 			vietnamese += H
 	return vietnamese
 
 /proc/getchinesemobs(var/alive = FALSE)
 	var/list/chinese = list()
-	for (var/mob/living/carbon/human/H in mob_list)
+	for (var/mob/living/human/H in mob_list)
 		if (istype(H.original_job, /datum/job/chinese))
 			chinese += H
 	return chinese
+
+/proc/getfilipinomobs(var/alive = FALSE)
+	var/list/filipino = list()
+	for (var/mob/living/human/H in mob_list)
+		if (istype(H.original_job, /datum/job/filipino))
+			filipino += H
+	return filipino
 
 /proc/getfitmobs(var/faction)
 
@@ -688,10 +700,6 @@ Proc for attack log creation, because really why not
 	switch (faction)
 		if (null)
 			mobs = mob_list // we want actual mobs, not name = mob
-		if (REDLINE)
-			mobs = getredlinemobs(0)
-		if (REICH)
-			mobs = getreichmobs(0)
 		if (BRITISH)
 			mobs = getbritishmobs(0)
 		if (PIRATES)
@@ -720,6 +728,8 @@ Proc for attack log creation, because really why not
 			mobs = getvietnamesemobs(0)
 		if (CHINESE)
 			mobs = getchinesemobs(0)
+		if (FILIPINO)
+			mobs = getfilipinomobs(0)
 	// sort mobs by stat: alive, unconscious, then dead
 	for (var/v in 0 to 2)
 		for (var/mob/m in mobs)
@@ -746,7 +756,7 @@ Proc for attack log creation, because really why not
 	var/list/sortmob = sortAtom(mob_list)
 	for (var/mob/observer/eye/M in sortmob)
 		moblist.Add(M)
-	for (var/mob/living/carbon/human/M in sortmob)
+	for (var/mob/living/human/M in sortmob)
 		moblist.Add(M)
 	for (var/mob/observer/ghost/M in sortmob)
 		moblist.Add(M)

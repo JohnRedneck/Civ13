@@ -12,6 +12,7 @@
 #define COLOR_BLACK  "#000000"
 #define COLOR_LIGHT_BLUE "#4242F0"
 #define COLOR_SILVER		   "#c0c0c0"
+#define COLOR_GOLD		   "#FFD700"
 #define COLOR_GRAY			 "#808080"
 #define COLOR_RED_LIGHT		"#b00000"
 #define COLOR_MAROON		   "#800000"
@@ -65,14 +66,6 @@
 #define BOMBCAP_HEAVY_RADIUS (max_explosion_range/2)
 #define BOMBCAP_LIGHT_RADIUS max_explosion_range
 #define BOMBCAP_FLASH_RADIUS (max_explosion_range*1.5)
-
-#define WEAPON_FORCE_HARMLESS	3
-#define WEAPON_FORCE_WEAK		7
-#define WEAPON_FORCE_NORMAL	  10
-#define WEAPON_FORCE_PAINFUL	15
-#define WEAPON_FORCE_DANGEROUS   20
-#define WEAPON_FORCE_ROBUST	  26
-#define WEAPON_FORCE_LETHAL	  51
 
 //HUD element hidings flags
 #define F12_FLAG 1 // 0001

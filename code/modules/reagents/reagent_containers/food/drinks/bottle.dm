@@ -222,7 +222,7 @@
 	if (blocked < 2)
 		weaken_duration = shatter_duration + min(0, force - target.getarmor(hit_zone, "melee") + 10)
 
-	var/mob/living/carbon/human/H = target
+	var/mob/living/human/H = target
 	if (istype(H) && H.headcheck(hit_zone))
 		var/obj/item/organ/affecting = H.get_organ(hit_zone) //headcheck should ensure that affecting is not null
 		user.visible_message("<span class='danger'>[user] shatters [src] into [H]'s [affecting.name]!</span>")
@@ -262,7 +262,7 @@
 	dropsound = 'sound/effects/drop_glass.ogg'
 	var/icon/broken_outline = icon('icons/obj/drinks.dmi', "broken")
 	value = 0
-/obj/item/weapon/broken_bottle/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/weapon/broken_bottle/attack(mob/living/human/M as mob, mob/living/human/user as mob)
 	if (M != user || M.a_intent != I_HELP)
 		playsound(loc, 'sound/weapons/bladeslice.ogg', 50, TRUE, -1)
 	return ..()
@@ -642,41 +642,19 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/plastic/attack_self(mob/user as mob)
 	if (uncolored)
-		var/input = input(user, "Logo Symbol - Choose the logo symbol color (hex code without the #):", "Main Color" , "000000")
+		var/input = WWinput(user, "Logo Symbol - Choose the logo symbol color:", "Main Color" , "#000000", "color")
 		if (input == null || input == "")
 			return
 		else
-			input = uppertext(input)
-			if (length(input) != 6)
-				return
-			var/list/listallowed = list("A","B","C","D","E","F","1","2","3","4","5","6","7","8","9","0")
-			for (var/i = 1, i <= 6, i++)
-				var/numtocheck = 0
-				if (i < 6)
-					numtocheck = copytext(input,i,i+1)
-				else
-					numtocheck = copytext(input,i,0)
-				if (!(numtocheck in listallowed))
-					return
-			topcolor = addtext("#",input)
 
-		input = input(user, "Background color - Choose the background color (hex code without the #):", "Background Color" , "FFFFFF")
+			topcolor= input
+
+		input = WWinput(user, "Background color - Choose the background color:", "Background Color" , "#FFFFFF", "color")
 		if (input == null || input == "")
 			return
 		else
-			input = uppertext(input)
-			if (length(input) != 6)
-				return
-			var/list/listallowed = list("A","B","C","D","E","F","1","2","3","4","5","6","7","8","9","0")
-			for (var/i = 1, i <= 6, i++)
-				var/numtocheck = 0
-				if (i < 6)
-					numtocheck = copytext(input,i,i+1)
-				else
-					numtocheck = copytext(input,i,0)
-				if (!(numtocheck in listallowed))
-					return
-			undercolor = addtext("#",input)
+
+			undercolor= input
 		uncolored = FALSE
 		color1.color = topcolor
 		color2.color = undercolor

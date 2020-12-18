@@ -25,6 +25,11 @@ config/host.txt
 .vscode/launch.json
 cfg/admin.txt
 nullobj.txt
-sound/music/*
-code/global.dm
-metro13.dme
+maps/1943/backup/nanjing.dmm
+maps/1943/nanjing.dmm
+maps/1943/nanjing.dmm
+*.code-workspace
+tts/amazontts.py
+tools/imglist.txt
+tools/jslist.txt
+tools/unused.txt

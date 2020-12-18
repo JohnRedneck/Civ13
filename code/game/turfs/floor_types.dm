@@ -231,7 +231,7 @@
 	icon_state = "seashallow"
 	move_delay = 3
 	water_level = 30 // in centimeters
-	var/salty = FALSE
+	salty = FALSE
 	var/sickness = 1 //amount of toxins, from 0 to 3
 	initial_flooring = /decl/flooring/water
 	watertile = TRUE
@@ -406,6 +406,12 @@
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "road_1"
 	interior = FALSE
+
+/turf/floor/plating/road/whiteline
+	icon_state = "road_line"
+
+/turf/floor/plating/road/yellowline
+	icon_state = "road_yellowline"
 
 /turf/floor/plating/concrete/New()
 	..()

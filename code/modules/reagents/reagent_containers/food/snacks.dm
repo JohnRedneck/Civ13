@@ -35,11 +35,11 @@
 	if (!usr)	return
 	if (raw)
 		if (ishuman(M))
-			var/mob/living/carbon/human/H = M
+			var/mob/living/human/H = M
 			if (!H.orc && !H.crab && !H.wolfman && !H.lizard)
 				M.reagents.add_reagent("food_poisoning", 1)
 	if (ishuman(M))
-		var/mob/living/carbon/human/HM = M
+		var/mob/living/human/HM = M
 		if (HM.orc || HM.crab || HM.wolfman)
 			HM.mood += abs(satisfaction)
 		else
@@ -68,13 +68,13 @@
 			qdel(src)
 			return FALSE
 
-	if (istype(M, /mob/living/carbon))
+	if (istype(M, /mob/living/human))
 		//TODO: replace with standard_feed_mob() call.
-		var/mob/living/carbon/C = M
+		var/mob/living/human/C = M
 		var/fullness = C.get_fullness()
 		if (C == user)								//If you're eating it yourself
-			if (istype(C,/mob/living/carbon/human))
-				var/mob/living/carbon/human/H = M
+			if (istype(C,/mob/living/human))
+				var/mob/living/human/H = M
 				if (!H.check_has_mouth())
 					user << "Where do you intend to put \the [src]? You don't have a mouth!"
 					return
@@ -82,11 +82,11 @@
 				if (blocked)
 					user << "<span class='warning'>\The [blocked] is in the way!</span>"
 					return
-				if (H.gorillaman)
+				if (H.gorillaman || H.find_trait("Vegan"))
 					if (non_vegetarian)
-						user << "<span class='warning'>You are an herbivore! You can't eat this!</span>"
+						user << "<span class='warning'>You are a vegan/herbivore! You can't eat this!</span>"
 						return
-				else if (H.wolfman || H.crab)
+				else if (H.wolfman || H.crab || H.find_trait("Carnivore"))
 					if (!non_vegetarian)
 						user << "<span class='warning'>You are a carnivore! You can't eat this!</span>"
 						return
@@ -105,15 +105,15 @@
 		else
 			if (!M.can_force_feed(user, src))
 				return
-			if (istype(M,/mob/living/carbon/human))
-				var/mob/living/carbon/human/H = M
+			if (istype(M,/mob/living/human))
+				var/mob/living/human/H = M
 				if (H.gorillaman)
 					if (non_vegetarian)
 						user << "<span class='warning'>[H] is an herbivore! They can't eat this!</span>"
 						return
 				else if (H.wolfman || H.crab)
 					if (!non_vegetarian)
-						user << "<span class='warning'>You are a carnivore! You can't eat this!</span>"
+						user << "<span class='warning'>[H] is a carnivore! They can't eat this!</span>"
 						return
 			if (fullness <= 580)
 				user.visible_message("<span class='danger'>[user] attempts to feed [M] [src].</span>")
@@ -190,37 +190,8 @@
 			return
 
 	else if (is_sliceable() && !istype(W, /obj/item/weapon/reagent_containers/food/drinks) && !istype(W, /obj/item/weapon/reagent_containers/glass))
-		//these are used to allow hiding edge items in food that is not on a table/tray
 
-		var/can_slice_here = FALSE
-		if (isturf(loc))
-			if (locate(/obj/structure/table) in loc)
-				can_slice_here = TRUE
-			else if (locate(/obj/structure/optable) in loc)
-				can_slice_here = TRUE
-
-		var/hide_item = (!W.edge || !can_slice_here)
-
-		if (hide_item)
-			if (contents.len)
-				user << "<span class='danger'>There's already something inside \the [src].</span>"
-				return
-			if (W.w_class >= w_class)
-				user << "<span class='warning'>\the [W] is too big to hide inside \the [src].</span>"
-				return
-
-			user << "<span class='warning'>You slip \the [W] inside \the [src].</span>"
-			user.remove_from_mob(W)
-			W.dropped(user)
-			add_fingerprint(user)
-			contents += W
-			return
-
-		else if (W.edge)
-			if (!can_slice_here)
-				user << "<span class='warning'>You cannot slice \the [src] here! You need a table or at least a tray to do it.</span>"
-				return
-
+		if (W.edge)
 			var/slices_lost = 0
 			if (W.w_class > 3)
 				user.visible_message("<span class='notice'>\The [user] crudely slices \the [src] with [W]!</span>", "<span class='notice'>You crudely slice \the [src] with your [W]!</span>")
@@ -576,21 +547,6 @@
 	else
 		..()
 
-
-/obj/item/weapon/reagent_containers/food/snacks/meatball
-	name = "meatball"
-	desc = "A great meal all round."
-	icon_state = "meatball"
-	filling_color = "#DB0000"
-	center_of_mass = list("x"=16, "y"=16)
-	decay = 12*600
-	satisfaction = 8
-	non_vegetarian = TRUE
-	New()
-		..()
-		reagents.add_reagent("protein", 3)
-		bitesize = 2
-
 /obj/item/weapon/reagent_containers/food/snacks/sausage
 	name = "Sausage"
 	desc = "A piece of mixed, long meat."
@@ -714,7 +670,7 @@
 	filling_color = "#dcdcdc"
 	nutriment_desc = list("rice" = TRUE)
 	nutriment_amt = 2
-	decay = 60*600
+	decay = 600*600
 	satisfaction = 3
 	New()
 		..()
@@ -733,7 +689,26 @@
 	New()
 		..()
 		bitesize = 1
+/obj/item/weapon/reagent_containers/food/snacks/spaghetti/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if (W.sharp || W.edge)
+		user << "You make some noodles from the long spaghetti."
+		for (var/v in 1 to pick(1,2))
+			new /obj/item/weapon/reagent_containers/food/snacks/noodles(get_turf(src))
+		qdel(src)
 
+/obj/item/weapon/reagent_containers/food/snacks/noodles
+	name = "Noodles"
+	desc = "A bundle of raw noodles."
+	icon_state = "noodles"
+	filling_color = "#EDDD00"
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_desc = list("noodles" = 2)
+	nutriment_amt = 1
+	decay = 60*600
+	satisfaction = 3
+	New()
+		..()
+		bitesize = 1
 /obj/item/weapon/reagent_containers/food/snacks/badrecipe
 	name = "Burned mess"
 	desc = "Someone should be demoted from chef for this."
@@ -963,7 +938,7 @@
 	satisfaction = 5
 	New()
 		..()
-		bitesize = 2
+		bitesize = 4
 
 /obj/item/weapon/reagent_containers/food/snacks/boiledspagetti/attackby(obj/item/I as obj, mob/user as mob)
 	if (istype(I, /obj/item/weapon/reagent_containers/food/snacks/meatball))
@@ -971,6 +946,24 @@
 		qdel(I)
 		new/obj/item/weapon/reagent_containers/food/snacks/meatballspagetti(get_turf(src))
 		qdel(src)
+
+/obj/item/weapon/reagent_containers/food/snacks/ramen
+	name = "Ramen"
+	desc = "A combination of meat, noodles, and egg all in a savoury broth!"
+	icon_state = "ramen"
+	trash = null
+	filling_color = "#DE4545"
+	center_of_mass = list("x"=16, "y"=10)
+	nutriment_desc = list("noodles" = 4, "meat" = 2, "egg" = 1)
+	satisfaction = 12
+	nutriment_amt = 6
+	decay = 11*600
+	New()
+		..()
+		reagents.add_reagent("protein", 4)
+		reagents.add_reagent("water", 30)
+		satisfaction = 6
+		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/boiledrice
 	name = "boiled rice"
@@ -1695,20 +1688,6 @@
 		..()
 		reagents.add_reagent("protein", 2)
 
-/obj/item/weapon/reagent_containers/food/snacks/rawmeatball
-	name = "raw meatball"
-	desc = "A raw meatball."
-	icon = 'icons/obj/food/food_ingredients.dmi'
-	icon_state = "rawmeatball"
-	satisfaction = -2
-	bitesize = 2
-	center_of_mass = list("x"=16, "y"=15)
-	decay = 17*600
-	non_vegetarian = TRUE
-	New()
-		..()
-		reagents.add_reagent("protein", 2)
-
 /obj/item/weapon/reagent_containers/food/snacks/hotdog
 	name = "hotdog"
 	desc = "Unrelated to dogs, maybe."
@@ -1810,7 +1789,7 @@
 			food_decay()
 			return
 
-/obj/item/weapon/leaves/attack(mob/living/carbon/human/M as mob, mob/living/carbon/human/user as mob)
+/obj/item/weapon/leaves/attack(mob/living/human/M as mob, mob/living/human/user as mob)
 	if (!M || !ishuman(M) || !M.gorillaman)
 		return
 	playsound(M.loc,'sound/items/eatfood.ogg', rand(10,50), TRUE)

@@ -1,26 +1,25 @@
 
 /obj/map_metadata/nomads_ice_age
 	ID = MAP_NOMADS_ICE_AGE
-	title = "Nomads (Ice Age) (275x275x2)"
+	title = "Nomads (Ice Age)"
 	lobby_icon_state = "civ13"
 	no_winner ="The round is proceeding normally."
-	caribbean_blocking_area_types = list(/area/complex/no_mans_land/invisible_wall/)
+	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
 	respawn_delay = 6000 // 10 minutes!
-	squad_spawn_locations = FALSE
-//	min_autobalance_players = 90
+	has_hunger = TRUE
+
 	faction_organization = list(
 		CIVILIAN,)
-	available_subfactions = list(
-		)
+
 	roundend_condition_sides = list(
-		list(CIVILIAN) = /area/complex/british
+		list(CIVILIAN) = /area/caribbean/british
 		)
 	age = "5000 B.C."
 	civilizations = TRUE
 	var/tribes_nr = 1
 	faction_distribution_coeffs = list(CIVILIAN = 1)
 	battle_name = "the civilizations"
-	mission_start_message = "<big>After ages as hunter-gatherers, people are starting to form groups and settling down. Will they be able to work together?</big><br><b>Wiki Guide: http://civ13.com/wiki/index.php/Nomads</b>"
+	mission_start_message = "<big>After ages as hunter-gatherers, people are starting to form groups and settling down. Will they be able to work together?</big><br><b>Wiki Guide: https://civ13.github.io/civ13-wiki/Civilizations_and_Nomads</b>"
 	ambience = list('sound/ambience/desert.ogg')
 	faction1 = CIVILIAN
 	availablefactions = list("Nomad")

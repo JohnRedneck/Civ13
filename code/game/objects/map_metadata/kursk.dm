@@ -1,19 +1,18 @@
 
 /obj/map_metadata/kursk
 	ID = MAP_KURSK
-	title = "Kursk (100x150x1)"
+	title = "Kursk"
 	lobby_icon_state = "ww2"
-	caribbean_blocking_area_types = list(/area/complex/no_mans_land/invisible_wall/temperate)
+	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/temperate)
 	respawn_delay = 1200
-	squad_spawn_locations = FALSE
+
 	faction_organization = list(
 		GERMAN,
 		RUSSIAN)
-	available_subfactions = list(
-		)
+
 	roundend_condition_sides = list(
-		list(RUSSIAN) = /area/complex/russian/,
-		list(GERMAN) = /area/complex/german/,
+		list(RUSSIAN) = /area/caribbean/russian/,
+		list(GERMAN) = /area/caribbean/german/,
 		)
 	age = "1943"
 	ordinal_age = 6
@@ -29,6 +28,8 @@
 /obj/map_metadata/kursk/job_enabled_specialcheck(var/datum/job/J)
 	..()
 	if (J.is_ww2 == TRUE && J.is_tanker == TRUE)
+		. = TRUE
+	else if (J.is_ss_panzer == TRUE)
 		. = TRUE
 	else if (istype(J, /datum/job/german/mediziner) || istype(J, /datum/job/russian/doctor_soviet))
 		. = TRUE

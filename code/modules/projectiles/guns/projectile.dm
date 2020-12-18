@@ -3,7 +3,6 @@
 	desc = "A gun that fires bullets."
 	icon_state = "musket"
 	w_class = 3
-	recoil = 1
 
 	var/caliber = "musketball"		//determines which casings will fit
 	var/handle_casings = EJECT_CASINGS	//determines how spent casings should be handled
@@ -33,16 +32,17 @@
 	//var/list/icon_keys = list()		//keys
 	//var/list/ammo_states = list()	//values
 	var/magazine_based = TRUE
-	attachment_slots = ATTACH_IRONSIGHTS
+	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS
 
 	var/load_shell_sound = 'sound/weapons/empty.ogg'
-	var/load_magazine_sound = 'sound/weapons/flipblade.ogg'
 
 	var/executing = FALSE
 
 	var/infinite_ammo = FALSE
 
+	var/serial = ""
 /obj/item/weapon/gun/projectile/New()
+	serial = "[pick(alphabet_uppercase)][pick(alphabet_uppercase)][rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)][rand(0,9)]"
 	..()
 	if (map && map.civilizations)
 		loaded = list()
@@ -121,7 +121,7 @@
 
 	// Aurora forensics port, gunpowder residue.
 	if (chambered.leaves_residue)
-		var/mob/living/carbon/human/H = loc
+		var/mob/living/human/H = loc
 		if (istype(H))
 			if (!H.gloves)
 				H.gunshot_residue = chambered.caliber
@@ -277,10 +277,12 @@
 		..()
 	else
 		unload_ammo(user)
+		update_icon()
 
 /obj/item/weapon/gun/projectile/attack_hand(mob/user as mob)
 	if (user.get_inactive_hand() == src)
 		unload_ammo(user, allow_dump=0)
+		update_icon()
 	else
 		return ..()
 
@@ -304,8 +306,11 @@
 		user << "<span class='notice'>It has \a [ammo_magazine] loaded.</span>"
 	if (!magazine_based)
 		user << "<span class='notice'>[inexactAmmo()]</span>"
-	return
-
+	if (!(istype(src, /obj/item/weapon/gun/projectile/bow)))
+		if (serial == "")
+			user << "<span class='warning'><b>The serial number has been filed out.</b></span>"
+		else
+			user << "<i>Serial no. <b>[serial]</b></i>"
 /obj/item/weapon/gun/projectile/proc/getAmmo()
 	var/bullets = FALSE
 	if (loaded)

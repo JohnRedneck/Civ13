@@ -20,7 +20,7 @@
 	var/onfire = FALSE
 //	invisibility = 101
 	flammable = TRUE
-	var/current_area_type = /area/complex
+	var/current_area_type = /area/caribbean
 	var/image/roof_overlay
 
 /obj/roof/attackby(obj/item/weapon/W as obj, mob/user as mob)
@@ -51,8 +51,15 @@
 		return
 	..()
 
+/obj/roof/canopy
+	name = ""
+	icon_state = ""
+	overlay_state = ""
+
 /obj/roof/wood
 	name = "wood roof"
+	icon_state = "wood_dm"
+	overlay_state = "wood"
 
 /obj/roof/clay
 	name = "clay roof"
@@ -60,6 +67,27 @@
 	flammable = FALSE
 	overlay_state = "clay"
 	icon_state = "clay_dm"
+
+/obj/roof/clay/blue
+	name = "clay roof"
+	desc = "A black clay tile roof."
+	flammable = FALSE
+	overlay_state = "blueclay"
+	icon_state = "blueclay_dm"
+
+/obj/roof/clay/black
+	name = "black clay roof"
+	desc = "A black clay tile roof."
+	flammable = FALSE
+	overlay_state = "blackclay"
+	icon_state = "blackclay_dm"
+
+/obj/roof/clay/kerawa
+	name = "kerawa roof"
+	desc = "A clay tile roof."
+	flammable = FALSE
+	overlay_state = "black_slateroof"
+	icon_state = "black_slateroof_dm"
 
 /obj/roof/concrete
 	name = "concrete roof"
@@ -79,6 +107,20 @@
 	desc = "a roof made of layered palm leaves."
 	overlay_state = "palm"
 	icon_state = "palm_dm"
+
+/obj/roof/sandstone
+	name = "sandstone roof"
+	desc = "An egyptian-style sandstone roof."
+	overlay_state = "sandstone"
+	flammable = FALSE
+	icon_state = "sandstone_dm"
+
+/obj/roof/mayan
+	name = "mayan roof"
+	desc = "A mayan-style stone roof."
+	overlay_state = "mayan"
+	flammable = FALSE
+	icon_state = "mayan_dm"
 
 /obj/roof/proc/update_transparency(var/on = TRUE) //to see through windows and stuff
 	roof_overlay.alpha = 255
@@ -121,28 +163,28 @@
 	icon_state = "roof"
 	roof_overlay = image(icon='icons/turf/roofs.dmi', loc = src, icon_state=overlay_state,layer=11.1)
 	recalculate_borders(TRUE)
-	var/area/complex/CURRENTAREA = get_area(src)
+	var/area/caribbean/CURRENTAREA = get_area(src)
 	var/oldclimate = CURRENTAREA.climate
 
-	if (CURRENTAREA.location == AREA_OUTSIDE)
+	if (CURRENTAREA.type)
 		current_area_type = CURRENTAREA.type
 		switch(oldclimate)
 			if ("tundra")
-				new/area/complex/roofed/tundra(get_turf(src))
+				new/area/caribbean/roofed/tundra(get_turf(src))
 			if ("taiga")
-				new/area/complex/roofed/taiga(get_turf(src))
+				new/area/caribbean/roofed/taiga(get_turf(src))
 			if ("temperate")
-				new/area/complex/roofed/temperate(get_turf(src))
+				new/area/caribbean/roofed/temperate(get_turf(src))
 			if ("sea")
-				new/area/complex/roofed/sea(get_turf(src))
+				new/area/caribbean/roofed/sea(get_turf(src))
 			if ("semiarid")
-				new/area/complex/roofed/semiarid(get_turf(src))
+				new/area/caribbean/roofed/semiarid(get_turf(src))
 			if ("desert")
-				new/area/complex/roofed/desert(get_turf(src))
+				new/area/caribbean/roofed/desert(get_turf(src))
 			if ("savanna")
-				new/area/complex/roofed/savanna(get_turf(src))
+				new/area/caribbean/roofed/savanna(get_turf(src))
 			if ("jungle")
-				new/area/complex/roofed/jungle(get_turf(src))
+				new/area/caribbean/roofed/jungle(get_turf(src))
 
 	for (var/atom/movable/lighting_overlay/LO in get_turf(src))
 		LO.update_overlay()
@@ -166,7 +208,7 @@
 					update_transparency(0)
 				else
 					update_transparency(1)
-			else if ((istype(S, /obj/structure/window) && !(istype(S, /obj/structure/window/sandbag) || istype(S, /obj/structure/window/snowwall)))  || istype(S, /obj/structure/window_frame))
+			else if ((istype(S, /obj/structure/window) && !(istype(S, /obj/structure/window/barrier) || istype(S, /obj/structure/window/barrier/snowwall)))  || istype(S, /obj/structure/window_frame))
 				var/found = FALSE
 				for(var/obj/structure/SS in S.loc)
 					if (istype(SS, /obj/structure/simple_door) || istype(SS, /obj/structure/curtain))
@@ -197,6 +239,9 @@
 /obj/roof/proc/collapse_check()
 	spawn(50)
 		var/supportfound = FALSE
+		if (istype(src, /obj/roof/canopy))
+			for (var/obj/structure/tent/TT in loc)
+				supportfound = TRUE
 		for (var/obj/structure/roof_support/RS in range(2, src))
 			supportfound = TRUE
 		for (var/obj/structure/mine_support/stone/SS in range(2, src))
@@ -211,7 +256,7 @@
 	//if no support >> roof falls down
 		if (!supportfound)
 			playsound(src,'sound/effects/rocksfalling.ogg',100,0,6)
-			for (var/mob/living/carbon/human/M in range(1, src))
+			for (var/mob/living/human/M in range(1, src))
 				M.adjustBruteLoss(rand(17,27))
 				M.Weaken(15)
 				M << "The roof collapses!"
@@ -235,6 +280,23 @@
 	flammable = FALSE
 	target_type = /obj/roof/clay
 
+/obj/item/weapon/roofbuilder/clay/blue
+	name = "blue clay roofing"
+	icon_state = "blueclay_roof_builder"
+	target_type = /obj/roof/clay/blue
+
+/obj/item/weapon/roofbuilder/clay/black
+	name = "black clay roofing"
+	icon_state = "blackclay_roof_builder"
+	target_type = /obj/roof/clay/black
+
+/obj/item/weapon/roofbuilder/clay/kerawa
+	name = "black clay roofing"
+	desc = "Use this to build roofs."
+	icon_state = "black_slateroof_builder"
+	flammable = FALSE
+	target_type = /obj/roof/clay/kerawa
+
 /obj/item/weapon/roofbuilder/leaves
 	name = "thatch roofing"
 	desc = "Use this to build roofs."
@@ -256,6 +318,20 @@
 	flammable = FALSE
 	target_type = /obj/roof/concrete
 
+/obj/item/weapon/roofbuilder/sandstone
+	name = "sandstone roofing"
+	desc = "Use this to build roofs."
+	icon_state = "sandstone_roof_builder"
+	flammable = FALSE
+	target_type = /obj/roof/sandstone
+
+/obj/item/weapon/roofbuilder/mayan
+	name = "mayan roofing"
+	desc = "Use this to build roofs."
+	icon_state = "mayan_roof_builder"
+	flammable = FALSE
+	target_type = /obj/roof/mayan
+
 /obj/item/weapon/roofbuilder/attack_self(mob/user)
 	var/your_dir = "NORTH"
 
@@ -272,11 +348,11 @@
 	var/covers_time = 80
 
 	if (ishuman(user))
-		var/mob/living/carbon/human/H = user
+		var/mob/living/human/H = user
 		covers_time /= H.getStatCoeff("strength")
 		covers_time /= (H.getStatCoeff("crafting") * H.getStatCoeff("crafting"))
 	var/area/currentarea = get_area(get_step(user, user.dir))
-	if (istype(currentarea, /area/complex/no_mans_land/invisible_wall))
+	if (istype(currentarea, /area/caribbean/no_mans_land/invisible_wall))
 		user << "You cannot build a roof here."
 		return
 	for (var/obj/roof/RF in get_step(user, user.dir))
@@ -303,7 +379,7 @@
 			new target_type(get_step(user, user.dir), user)
 			visible_message("<span class='danger'>[user] finishes building the roof.</span>")
 			if (ishuman(user))
-				var/mob/living/carbon/human/H = user
+				var/mob/living/human/H = user
 				H.adaptStat("crafting", 1)
 			qdel(src)
 		return
@@ -341,6 +417,11 @@
 	desc = "A thick wood beam, in nordic style. Used to support roofs in large buildings."
 	icon_state = "nordic_pillar"
 
+/obj/structure/roof_support/bamboo
+	name = "bamboo pillar"
+	desc = "A thick bamboo beam, in nordic style. Used to support roofs in large buildings."
+	icon_state = "bamboo_support"
+
 /obj/structure/mine_support
 	name = "mine support"
 	desc = "A set of wood beams placed to support the mine shaft. Prevents cave-ins."
@@ -377,25 +458,113 @@
 	not_movable = TRUE
 	not_disassemblable = TRUE
 
+/* Stone Pillar Subtypes*/
+
+/obj/structure/mine_support/stone/marble
+	name = "marble pillar"
+	desc = "A marble pillar that can support roofs and mine shafts."
+	icon_state = "marble_support_st1"
+
+/obj/structure/mine_support/stone/sandstone
+	name = "sandstone pillar"
+	desc = "A sandstone pillar that can support roofs and mine shafts."
+	icon_state = "sandstone_support_st1"
+
+/obj/structure/mine_support/stone/obsidian
+	name = "obsidian pillar"
+	desc = "A obsidian pillar that can support roofs and mine shafts."
+	icon_state = "obsidian_support_st1"
+
+/* Ionic Pillars*/
+
 /obj/structure/mine_support/stone/ionic
-	name = "Ionic column"
-	desc = "A Ionic-style column that can support roofs and mine shafts."
+	name = "ionic column"
+	desc = "An marble ionic-style column that can support roofs and mine shafts."
 	icon_state = "column_ionic"
 
+/obj/structure/mine_support/stone/ionic/rock
+	name = "stone ionic column"
+	desc = "An stone ionic-style column that can support roofs and mine shafts."
+	icon_state = "stone_column_ionic"
+
+/obj/structure/mine_support/stone/ionic/sandstone
+	name = "sandstone ionic column"
+	desc = "An sandstone ionic-style column that can support roofs and mine shafts."
+	icon_state = "sandstone_column_ionic"
+
+/obj/structure/mine_support/stone/ionic/obsidian
+	name = "obsidian ionic column"
+	desc = "An obsidian ionic-style column that can support roofs and mine shafts."
+	icon_state = "obsidian_column_ionic"
+
+/* Solomonic Pillars*/
+
 /obj/structure/mine_support/stone/solomonic
-	name = "Solomonic column"
-	desc = "A Solomonic-style column that can support roofs and mine shafts."
+	name = "solomonic column"
+	desc = "An solomonic-style column that can support roofs and mine shafts."
 	icon_state = "column_solomonic1"
 
+/obj/structure/mine_support/stone/solomonic/rock
+	name = "stone solomonic column"
+	desc = "An stone solomonic-style column that can support roofs and mine shafts."
+	icon_state = "stone_column_solomonic1"
+
+/obj/structure/mine_support/stone/solomonic/sandstone
+	name = "sandstone solomonic column"
+	desc = "An sandstone solomonic-style column that can support roofs and mine shafts."
+	icon_state = "sandstone_column_solomonic1"
+
+/obj/structure/mine_support/stone/solomonic/obsidian
+	name = "obsidian solomonic column"
+	desc = "An obsidian solomonic-style column that can support roofs and mine shafts."
+	icon_state = "obsidian_column_solomonic1"
+
 /obj/structure/mine_support/stone/solomonic/thick
-	name = "Solomonic column"
-	desc = "A Solomonic-style column that can support roofs and mine shafts."
+	name = "solomonic column"
+	desc = "An solomonic-style column that can support roofs and mine shafts."
 	icon_state = "column_solomonic2"
 
+/obj/structure/mine_support/stone/solomonic/thick/rock
+	name = "stone solomonic column"
+	desc = "An stone solomonic-style column that can support roofs and mine shafts."
+	icon_state = "stone_column_solomonic2"
+
+/obj/structure/mine_support/stone/solomonic/thick/sandstone
+	name = "sandstone solomonic column"
+	desc = "An sandstone solomonic-style column that can support roofs and mine shafts."
+	icon_state = "sandstone_column_solomonic2"
+
+/obj/structure/mine_support/stone/solomonic/thick/obsidian
+	name = "obsidian solomonic column"
+	desc = "An obsidian solomonic-style column that can support roofs and mine shafts."
+	icon_state = "obsidian_column_solomonic2"
+
+/* Cultural Pillars*/
+
 /obj/structure/mine_support/stone/aztec
-	name = "Aztec column"
-	desc = "An Aztec-style column that can support roofs and mine shafts."
+	name = "aztec column"
+	desc = "An aztec-style column that can support roofs and mine shafts."
 	icon_state = "aztec_pillar"
+
+/obj/structure/mine_support/stone/aztec/marble
+	name = "marble aztec column"
+	desc = "An marble aztec-style column that can support roofs and mine shafts."
+	icon_state = "marble_aztec_pillar"
+
+/obj/structure/mine_support/stone/aztec/sandstone
+	name = "sandstone aztec column"
+	desc = "An sandstone aztec-style column that can support roofs and mine shafts."
+	icon_state = "sandstone_aztec_pillar"
+
+/obj/structure/mine_support/stone/aztec/obsidian
+	name = "obsidian aztec column"
+	desc = "An obsidian aztec-style column that can support roofs and mine shafts."
+	icon_state = "obsidian_aztec_pillar"
+
+/obj/structure/mine_support/stone/egyptian
+	name = "egyptian column"
+	desc = "An egyptian-style column that can support roofs and mine shafts."
+	icon_state = "egyptian_pillar"
 
 /obj/structure/mine_support/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/weapon))

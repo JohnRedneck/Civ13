@@ -1,26 +1,25 @@
 
 /obj/map_metadata/nomads_continental
 	ID = MAP_NOMADS_CONTINENTAL
-	title = "Nomads (Continents) (200x400x2)"
+	title = "Nomads (Continents)"
 	lobby_icon_state = "civ13"
-	caribbean_blocking_area_types = list(/area/complex/no_mans_land/invisible_wall/)
+	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
 	respawn_delay = 6000 // 10 minutes!
-	squad_spawn_locations = FALSE
+	has_hunger = TRUE
 	no_winner = "The round is proceeding normally."
-//	min_autobalance_players = 90
+
 	faction_organization = list(
 		CIVILIAN,)
-	available_subfactions = list(
-		)
+
 	roundend_condition_sides = list(
-		list(CIVILIAN) = /area/complex/british
+		list(CIVILIAN) = /area/caribbean/british
 		)
 	age = "5000 B.C."
 	civilizations = TRUE
 	var/tribes_nr = 1
 	faction_distribution_coeffs = list(CIVILIAN = 1)
 	battle_name = "the civilizations"
-	mission_start_message = "<big>After ages as hunter-gatherers, people are starting to form groups and settling down. Will they be able to work together?</big><br><b>Wiki Guide: http://civ13.com/wiki/index.php/Nomads</b>"
+	mission_start_message = "<big>After ages as hunter-gatherers, people are starting to form groups and settling down. Will they be able to work together?</big><br><b>Wiki Guide: https://civ13.github.io/civ13-wiki/Civilizations_and_Nomads</b>"
 	ambience = list('sound/ambience/jungle1.ogg')
 	faction1 = CIVILIAN
 	availablefactions = list("Nomad")
@@ -35,23 +34,25 @@
 	..()
 	spawn(2500)
 		for (var/i = 1, i <= 65, i++)
-			var/turf/areaspawn = safepick(get_area_turfs(/area/complex/sea/sea))
+			var/turf/areaspawn = safepick(get_area_turfs(/area/caribbean/sea/sea))
 			new/obj/structure/fish(areaspawn)
 	spawn(2500)
 		for (var/i = 1, i <= 30, i++)
-			var/turf/areaspawn = safepick(get_area_turfs(/area/complex/nomads/forest/Jungle/river))
+			var/turf/areaspawn = safepick(get_area_turfs(/area/caribbean/nomads/forest/Jungle/river))
 			new/obj/structure/piranha(areaspawn)
 	spawn(18000)
 		seasons()
 
 /obj/map_metadata/nomads_continental/faction2_can_cross_blocks()
-	return (processes.ticker.playtime_elapsed >= 0 || admin_ended_all_grace_periods)
+	return (ordinal_age >= 2)
 
 /obj/map_metadata/nomads_continental/faction1_can_cross_blocks()
-	return (processes.ticker.playtime_elapsed >= 0 || admin_ended_all_grace_periods)
+	return (ordinal_age >= 2)
 
 /obj/map_metadata/nomads_continental/cross_message(faction)
-	return ""
+	if (faction == CIVILIAN)
+		return "<big><b>As the world technological level advances, new shipbuilding techniques make us at last be able to navigate the oceans...</b></big>"
+
 
 /obj/map_metadata/nomads_continental/job_enabled_specialcheck(var/datum/job/J)
 	if (J.is_nomad == TRUE)

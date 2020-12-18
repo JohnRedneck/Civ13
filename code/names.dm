@@ -104,6 +104,11 @@ var/list/first_names_male_gaelic = file2list("config/names/first_male_gaelic.txt
 var/list/first_names_female_gaelic  = file2list("config/names/first_female_gaelic.txt")
 var/list/last_names_gaelic  = file2list("config/names/last_gaelic.txt")
 
+var/list/first_names_male_italian = file2list("config/names/first_male_italian.txt")
+var/list/first_names_female_italian = file2list("config/names/first_female_italian.txt")
+var/list/last_names_italian  = file2list("config/names/last_italian.txt")
+
+
 var/list/first_names_male_oldnorse = file2list("config/names/first_male_oldnorse.txt")
 var/list/first_names_female_oldnorse  = file2list("config/names/first_female_oldnorse.txt")
 var/list/last_names_oldnorse  = file2list("config/names/last_oldnorse.txt")
@@ -125,6 +130,10 @@ var/list/last_names_korean  = file2list("config/names/last_korean.txt")
 var/list/first_names_male_iroquois = file2list("config/names/first_male_iroquois.txt")
 var/list/first_names_female_iroquois  = file2list("config/names/first_female_iroquois.txt")
 var/list/last_names_iroquois  = file2list("config/names/last_iroquois.txt")
+
+var/list/first_names_male_filipino = file2list("config/names/first_male_filipino.txt")
+var/list/first_names_female_filipino  = file2list("config/names/first_female_filipino.txt")
+var/list/last_names_filipino  = file2list("config/names/last_filipino.txt")
 /* NOT USED FOR NOW!
 var/list/country_names = file2list("config/names/countries.txt")
 var/civname_a = pick(country_names)

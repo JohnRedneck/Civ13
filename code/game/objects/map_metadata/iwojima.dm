@@ -1,18 +1,17 @@
 /obj/map_metadata/iwojima
 	ID = MAP_IWO_JIMA
-	title = "Iwo Jima (150x280x2)"
+	title = "Iwo Jima"
 	lobby_icon_state = "ww2"
-	caribbean_blocking_area_types = list(/area/complex/no_mans_land/invisible_wall/)
+	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
 	respawn_delay = 1200
-	squad_spawn_locations = FALSE
+
 	faction_organization = list(
 		JAPANESE,
 		AMERICAN)
-	available_subfactions = list(
-		)
+
 	roundend_condition_sides = list(
-		list(AMERICAN) = /area/complex/british,
-		list(JAPANESE) = /area/complex/japanese/land/inside/command,
+		list(AMERICAN) = /area/caribbean/british,
+		list(JAPANESE) = /area/caribbean/japanese/land/inside/command,
 		)
 	age = "1945"
 	ordinal_age = 6
@@ -27,12 +26,12 @@
 	gamemode = "Siege"
 /obj/map_metadata/iwojima/job_enabled_specialcheck(var/datum/job/J)
 	..()
-	if (J.is_ww2 == TRUE && J.is_tanker == FALSE)
+	if (J.is_ww2 == TRUE || J.is_navy == TRUE)
 		. = TRUE
+	else if (J.is_tanker == TRUE || J.is_prison == TRUE || J.is_yakuza || istype(J, /datum/job/japanese/ija_sergeant_tanker) || istype(J, /datum/job/japanese/ija_ww2_tanker) || istype(J, /datum/job/american/soldier_ww2_filipino) || J.is_samurai == TRUE)
+		. = FALSE
 	else
 		. = FALSE
-	if (J.is_navy == TRUE)
-		. = TRUE
 
 /obj/map_metadata/iwojima/faction1_can_cross_blocks()
 	return (processes.ticker.playtime_elapsed >= 4800 || admin_ended_all_grace_periods)

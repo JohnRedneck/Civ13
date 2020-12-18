@@ -112,6 +112,14 @@
 					name = "flour sack"
 					desc = "A sack of wheat flour."
 					center_of_mass = list("x"=16, "y"=6)
+				if ("barleyflour")
+					name = "barley flour sack"
+					desc = "A sack of barley flour."
+					center_of_mass = list("x"=16, "y"=6)
+				if ("oatflour")
+					name = "oat flour sack"
+					desc = "A sack of oat flour."
+					center_of_mass = list("x"=16, "y"=6)
 				else
 					name = "Misc Condiment Bottle"
 					if (reagents.reagent_list.len==1)
@@ -187,18 +195,29 @@
 		reagents.add_reagent("blackpepper", 20)
 
 /obj/item/weapon/reagent_containers/food/condiment/flour
-	name = "flour sack"
+	name = "small flour sack"
 	desc = "A bag of flour. Good for baking!"
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "flour"
 	item_state = "flour"
-	decay = 45*600
+	decay = 100*600
 	satisfaction = -3
+	volume = 10
 	New()
 		..()
-		reagents.add_reagent("flour", 30)
+		if (istype(src, /obj/item/weapon/reagent_containers/food/condiment/flour/oatflour))
+			reagents.add_reagent("oatflour", 10)
+		else if (istype(src, /obj/item/weapon/reagent_containers/food/condiment/flour/barleyflour))
+			reagents.add_reagent("barleyflour", 10)
+		else
+			reagents.add_reagent("flour", 10)
 		pixel_x = rand(-10.0, 10)
 		pixel_y = rand(-10.0, 10)
+
+/obj/item/weapon/reagent_containers/food/condiment/flour/barleyflour
+	name = "small barley flour sack"
+/obj/item/weapon/reagent_containers/food/condiment/flour/oatflour
+	name = "small oat flour sack"
 /obj/item/weapon/reagent_containers/food/condiment/flour/attack_self(mob/user)
 	var/obj/item/weapon/reagent_containers/glass/WW
 	if (!istype(user.l_hand, /obj/item/weapon/reagent_containers/glass))
@@ -213,6 +232,16 @@
 		if (src.reagents.has_reagent("flour", 5))
 			WW.reagents.remove_reagent("water", 5)
 			src.reagents.remove_reagent("flour", 5)
+			new/obj/item/weapon/reagent_containers/food/snacks/dough(user.loc)
+			return
+		else if (src.reagents.has_reagent("barleyflour", 5))
+			WW.reagents.remove_reagent("water", 5)
+			src.reagents.remove_reagent("barleyflour", 5)
+			new/obj/item/weapon/reagent_containers/food/snacks/dough(user.loc)
+			return
+		else if (src.reagents.has_reagent("oatflour", 5))
+			WW.reagents.remove_reagent("water", 5)
+			src.reagents.remove_reagent("oatflour", 5)
 			new/obj/item/weapon/reagent_containers/food/snacks/dough(user.loc)
 			return
 		else

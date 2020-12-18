@@ -1,8 +1,8 @@
 /mob/living/simple_animal/hostile/human/bandit
 	name = "Bandit"
 	desc = "A bandit! he looks scary!"
-	icon_state = "bandit"
-	icon_dead = "bandit_dead"
+	icon_state = "bandit2"
+	icon_dead = "bandit2_dead"
 	response_help = "pushes"
 	response_disarm = "shoves"
 	response_harm = "hits"
@@ -28,8 +28,8 @@
 	faction = PIRATES
 	ranged = TRUE
 	rapid = TRUE
-	projectiletype = /obj/item/projectile/bullet/pistol/pistol9
-	corpse = /mob/living/carbon/human/corpse/bandit
+	projectiletype = /obj/item/projectile/bullet/pistol/a9x19
+	corpse = /mob/living/human/corpse/bandit
 	casingtype = null
 
 
@@ -42,7 +42,7 @@
 		if (prob(65))
 			gun = new/obj/item/weapon/gun/projectile/pistol/glock17/standardized(src)
 		else
-			gun = new/obj/item/weapon/gun/projectile/revolver/coltnewpolice/standardized(src)
+			gun = new/obj/item/weapon/gun/projectile/revolver/coltpolicepositive/standardized(src)
 
 /mob/living/simple_animal/hostile/human/bandit/death()
 	..()

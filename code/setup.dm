@@ -56,18 +56,25 @@
 
 	admin_notice("<span class='danger'>Initializing crafting recipes...</span>", R_DEBUG)
 	sleep(-1)
-	var/F3 = file("config/material_recipes.txt")
-	if (fexists(F3))
-		var/list/craftlist_temp = file2list(F3,"\n")
-		for (var/i in craftlist_temp)
-			if (findtext(i, ",") && findtext(i,"RECIPE: "))
-				var/tmpi = replacetext(i, "RECIPE: ", "")
-				var/list/current = splittext(tmpi, ",")
-				craftlist_list += list(current)
-				if (current.len != 13)
-					world.log << "Error! Recipe [current[2]] has a length of [current.len] (should be 13)."
-	else
-		admin_notice("<span class='danger'>Failed to load crafting recipes!</span>", R_DEBUG)
+
+	var/all_craft_lists = flist("config/crafting/")
+
+	for (var/i in all_craft_lists)
+		var/current_list = "global"
+		var/F3 = file("config/crafting/[i]")
+		current_list = replacetext(i,"material_recipes_","")
+		current_list = replacetext(current_list,".txt","")
+		if (fexists(F3) && findtext(i,"material_recipes"))
+			var/list/craftlist_temp = file2list(F3,"\n")
+			for (var/j in craftlist_temp)
+				if (findtext(j, ",") && findtext(j,"RECIPE: "))
+					var/tmpj = replacetext(j, "RECIPE: ", "")
+					var/list/current = splittext(tmpj, ",")
+					craftlist_lists[current_list] += list(current)
+					if (current.len != 13)
+						world.log << "Error! Recipe [current[2]] has a length of [current.len] (should be 13)."
+		else
+			admin_notice("<span class='danger'>Failed to load crafting recipes!</span>", R_DEBUG)
 
 	admin_notice("<span class='danger'>Initializing dictionary...</span>", R_DEBUG)
 	sleep(-1)
@@ -83,8 +90,16 @@
 	else
 		admin_notice("<span class='danger'>Failed to load the dictionary!</span>", R_DEBUG)
 	sleep(-1)
+	var/F5 = file("scripts/clear_oggs.py")
+	if (fexists(F5) && world.system_type == UNIX)
+		shell("sudo python3 scripts/clear_oggs.py")
+//	else if (fexists(F5) && world.system_type != UNIX)
+//		shell("python3 scripts/windows/clear_oggs.py")
+	else
+		admin_notice("<span class='danger'>Failed to find the ogg cleaner script!</span>", R_DEBUG)
+	sleep(-1)
 /////////////////PERSISTENCE STUFF/////////////////////
-	var/Fp = file("set_persistent.py")
+/*	var/Fp = file("set_persistent.py")
 	if (fexists(Fp))
 		shell("sudo python3 /home/1713/rescue.py &")
 		log_debug("Executing python3 command 'rescue.py'")
@@ -103,6 +118,21 @@
 			map.gamemode = "Persistent (Auto-Research)"
 			config.allow_vote_restart = FALSE
 			world << "<big><b>The current round has been set as a Persistent Round.</b></big>"
+*/
+	if (config.allowedgamemodes == "PERSISTENCE")
+		map.persistence = TRUE
+		map.research_active = FALSE
+		if (!map.autoresearch)
+			map.autoresearch = TRUE
+			spawn(100)
+				map.autoresearch_proc()
+		map.autoresearch_mult = 0.006
+		if (map.default_research < 19)
+			map.default_research = 19
+		map.gamemode = "Persistent (Auto-Research)"
+		config.allow_vote_restart = FALSE
+		world << "<big><b>The current round has been set as a Persistent Round.</b></big>"
+
 	//////////////////////////////////////////////////////
 	admin_notice("<span class='danger'>Initializations complete.</span>", R_DEBUG)
 	sleep(-1)

@@ -12,7 +12,7 @@
 var/global/datum/global_init/init = new ()
 var/global/list/approved_list = list()
 var/global/list/whitelist_list = list()
-var/global/list/craftlist_list = list()
+var/global/list/craftlist_lists = list("global" = list())
 var/global/list/dictionary_list = list()
 /*
 	Pre-map initialization stuff should go here.
@@ -55,7 +55,7 @@ var/world_is_open = TRUE
 /world
 	mob = /mob/new_player
 	turf = /turf/floor/dirt
-	area = /area/complex
+	area = /area/caribbean
 	view = 7
 	cache_lifespan = FALSE	//stops player uploaded stuff from being kept in the rsc past the current session
 
@@ -68,7 +68,7 @@ var/world_is_open = TRUE
 		// dumb and hardcoded but I don't care~
 		config.server_name += " #[(world.port % 1000) / 100]"
 
-	world.SetConfig("APP/admin", ckey("John Redcena"), "role=root")
+	world.SetConfig("APP/admin", ckey("Taislin"), "role=root")
 
 	callHook("startup")
 	//Emergency Fix
@@ -81,7 +81,6 @@ var/world_is_open = TRUE
 
 	// This is kinda important. Set up details of what the hell things are made of.
 	populate_material_list()
-
 	processScheduler = new
 //	master_controller = new /datum/controller/game_controller()
 
@@ -185,6 +184,9 @@ var/world_topic_spam_protect_time = world.timeofday
 		s["stationtime"] = stationtime2text()
 		s["roundduration"] = roundduration2text()
 
+		s["map"] = "unknown"
+		s["age"] = "unknown"
+
 		if (input["status"] == "2")
 			var/list/players = list()
 			var/list/admins = list()
@@ -200,6 +202,10 @@ var/world_topic_spam_protect_time = world.timeofday
 			s["playerlist"] = list2params(players)
 			s["admins"] = admins.len
 			s["adminlist"] = list2params(admins)
+			if (map)
+				s["map"] = map.title
+				s["age"] = map.age
+			s["season"] = season
 		else
 			var/n = FALSE
 			var/admins = FALSE
@@ -214,7 +220,10 @@ var/world_topic_spam_protect_time = world.timeofday
 
 			s["players"] = n
 			s["admins"] = admins
-
+			if (map)
+				s["map"] = map.title
+				s["age"] = map.age
+			s["season"] = season
 		return list2params(s)
 
 /world/Reboot(var/reason)
@@ -264,13 +273,10 @@ var/world_topic_spam_protect_time = world.timeofday
 
 	// we can't execute code in config settings, so this is a workaround.
 	config.hub_body = replacetext(config.hub_body, "ROUNDTIME", capitalize(lowertext(roundduration2text())))
-	s += "<b>Gamemode:</b> [map.gamemode]"
-//	if (config.hub_body)
-//		s += config.hub_body
-//	if (config.hub_features)
-//		s += "<b>[config.hub_features]</b><br>"
-
-
+	if (map)
+		s += "<b>Gamemode:</b> [map.gamemode]"
+	if (config.hub_body)
+		s += config.hub_body
 
 	status = s
 
@@ -365,6 +371,18 @@ var/world_topic_spam_protect_time = world.timeofday
 						discord_admin_ban(tempmsg[1],temp_ckey,tempmsg[3],tempmsg[4])
 			fdel(I)
 			I << ""
+		var/J = file("SQL/discord2unban.txt")
+		if (fexists(J))
+			var/list/messages_read = splittext(file2text(J), "\n")
+			for(var/msg in messages_read)
+				var/list/tempmsg = splittext(msg, ":::")
+				if (tempmsg.len == 2)
+					var/temp_ckey = lowertext(tempmsg[2])
+					temp_ckey = replacetext(temp_ckey," ", "")
+					temp_ckey = replacetext(temp_ckey,"_", "")
+					discord_admin_unban(tempmsg[1],temp_ckey)
+			fdel(J)
+			J << ""
 		sleep (100)
 
 /proc/start_serverswap_loop()

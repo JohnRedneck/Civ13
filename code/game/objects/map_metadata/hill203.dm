@@ -1,20 +1,18 @@
-
 /obj/map_metadata/hill203
-	ID = MAP_HILL203
-	title = "Hill 203 (100x160x1)"
+	ID = MAP_HILL_203
+	title = "Hill 203"
 	lobby_icon_state = "ww1"
-	caribbean_blocking_area_types = list(/area/complex/no_mans_land/invisible_wall/)
+	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
 	respawn_delay = 0
-	squad_spawn_locations = FALSE
-//	min_autobalance_players = 90
+
+
 	faction_organization = list(
 		JAPANESE,
 		RUSSIAN)
-	available_subfactions = list(
-		)
+
 	roundend_condition_sides = list(
-		list(JAPANESE) = /area/complex/island,
-		list(RUSSIAN) = /area/complex/island,
+		list(JAPANESE) = /area/caribbean/island,
+		list(RUSSIAN) = /area/caribbean/island,
 		)
 	age = "1904"
 	faction_distribution_coeffs = list(JAPANESE = 0.5, RUSSIAN = 0.5)
@@ -35,7 +33,7 @@
 /obj/map_metadata/hill203/job_enabled_specialcheck(var/datum/job/J)
 	..()
 	if (istype(J, /datum/job/japanese))
-		if (J.is_coldwar || J.is_ww2)
+		if (J.is_coldwar || J.is_ww2 || J.is_yakuza || J.is_samurai)
 			. = FALSE
 		else
 			. = TRUE

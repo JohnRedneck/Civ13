@@ -1,24 +1,24 @@
 
 /obj/map_metadata/jungle_colony
 	ID = MAP_JUNGLE_COLONY
-	title = "Jungle Colony (155x225x2)"
+	title = "Jungle Colony"
 	no_winner ="The round is proceeding normally."
 	lobby_icon_state = "imperial"
-	caribbean_blocking_area_types = list(/area/complex/no_mans_land/invisible_wall/)
+	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
 	respawn_delay = 7200 // 12 minutes!
-	squad_spawn_locations = FALSE
+	has_hunger = TRUE
+
 	faction_organization = list(
 		INDIANS,
 		CIVILIAN,
 		PIRATES,
 		SPANISH)
-	available_subfactions = list(
-		)
+
 	roundend_condition_sides = list(
-		list(INDIANS) = /area/complex/british,
-		list(CIVILIAN) = /area/complex/british,
-		list(PIRATES) = /area/complex/british,
-		list(SPANISH) = /area/complex/british,
+		list(INDIANS) = /area/caribbean/british,
+		list(CIVILIAN) = /area/caribbean/british,
+		list(PIRATES) = /area/caribbean/british,
+		list(SPANISH) = /area/caribbean/british,
 		)
 	age = "1713"
 	ordinal_age = 3
@@ -28,6 +28,7 @@
 	ambience = list('sound/ambience/jungle1.ogg')
 	faction1 = INDIANS
 	faction2 = CIVILIAN
+	is_RP = TRUE
 	songs = list(
 		"Nassau Shores:1" = 'sound/music/nassau_shores.ogg',)
 	gamemode = "Colony Building RP"
@@ -37,15 +38,21 @@ obj/map_metadata/jungle_colony/job_enabled_specialcheck(var/datum/job/J)
 		. = TRUE
 		if (J.is_nomad == TRUE)
 			. = FALSE
-		if (J.is_cowboy == TRUE)
+		else if (J.is_cowboy == TRUE)
 			. = FALSE
-		if (J.is_civilizations == TRUE)
+		else if (J.is_civilizations == TRUE)
 			. = FALSE
-		if (J.is_rcw == TRUE)
+		else if (J.is_rcw == TRUE)
 			. = FALSE
-		if (J.is_pioneer == TRUE)
+		else if (J.is_pioneer == TRUE)
 			. = FALSE
-		if (J.is_prison == TRUE)
+		else if (J.is_deal == TRUE)
+			. = FALSE
+		else if (J.is_prison == TRUE)
+			. = FALSE
+		else if (J.is_civil_war == TRUE)
+			. = FALSE
+		else if (J.is_football == TRUE)
 			. = FALSE
 	else if (istype(J, /datum/job/spanish/civilian))
 		. = FALSE
@@ -75,4 +82,18 @@ obj/map_metadata/jungle_colony/job_enabled_specialcheck(var/datum/job/J)
 /obj/map_metadata/jungle_colony/cross_message(faction)
 	return ""
 
-
+/obj/map_metadata/jungle_colony/New()
+	..()
+	spawn(500)
+		if (season == "SPRING") //fixes game setting the season as spring
+			season = "Wet Season"
+	spawn(500)
+		for (var/i = 1, i <= 65, i++)
+			var/turf/areaspawn = safepick(get_area_turfs(/area/caribbean/sea/sea))
+			new/obj/structure/fish(areaspawn)
+	spawn(500)
+		for (var/i = 1, i <= 30, i++)
+			var/turf/areaspawn = safepick(get_area_turfs(/area/caribbean/nomads/forest/Jungle/river))
+			new/obj/structure/piranha(areaspawn)
+	spawn(18000)
+		seasons()

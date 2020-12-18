@@ -102,6 +102,11 @@
 	desc = "To be Robust is not an action or a way of life, but a mental state. Only those with the force of Will strong enough to act during a crisis, saving friend from foe, are truly Robust. Stay Robust my friends."
 	icon_state = "goldenplaque"
 
+/obj/structure/sign/ogoldenplaque
+	name = "Bank"
+	desc = "Deposit valuables within."
+	icon_state = "atmosplaque"
+
 /obj/structure/sign/kiddieplaque
 	name = "\improper AI developers plaque"
 	desc = "Next to the extremely long list of names and job titles, there is a drawing of a little child. The child appears to be retarded. Beneath the image, someone has scratched the word \"PACKETS\""
@@ -134,10 +139,52 @@
 		desc = "Exit to the south."
 
 /obj/structure/sign/custom
-	name = "Sign"
+	name = "sign"
 	desc = "Signs something."
 	icon_state = "woodsign2"
 
+/obj/structure/sign/custom/plaque
+	name = "sign"
+	desc = "Signs something."
+	icon_state = "Colonial_Sign"
+
+/obj/structure/sign/custom/golden
+	name = "sign"
+	desc = "Signs something."
+	icon_state = "customsign2"
+
+/obj/structure/sign/custom/metallic
+	name = "sign"
+	desc = "Signs something."
+	icon_state = "customsign"
+/obj/structure/sign/signpost
+	name = "signpost"
+	desc = "Signs something."
+	icon_state = "signpost_pole"
+
+/obj/structure/sign/signpost/New()
+	..()
+	spawn(1)
+		if (findtext(desc, "<b>West:</b>"))
+			overlays += icon(icon, "signpost_west")
+		if (findtext(desc, "<b>North:</b>"))
+			overlays += icon(icon, "signpost_north")
+		if (findtext(desc, "<b>East:</b>"))
+			overlays += icon(icon, "signpost_east")
+		if (findtext(desc, "<b>South:</b>"))
+			overlays += icon(icon, "signpost_south")
+		update_icon()
+
+/obj/structure/sign/signpost/update_icon()
+	overlays.Cut()
+	if (findtext(desc, "<b>West:</b>"))
+		overlays += icon(icon, "signpost_west")
+	if (findtext(desc, "<b>North:</b>"))
+		overlays += icon(icon, "signpost_north")
+	if (findtext(desc, "<b>East:</b>"))
+		overlays += icon(icon, "signpost_east")
+	if (findtext(desc, "<b>South:</b>"))
+		overlays += icon(icon, "signpost_south")
 //numbers
 /obj/structure/sign/n1
 	desc = "A silver sign which reads 'I'."

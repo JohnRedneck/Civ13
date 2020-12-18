@@ -1,17 +1,16 @@
 /obj/map_metadata/civilizations
 	ID = MAP_CIVILIZATIONS
-	title = "Two Kingdoms (300x100x2)"
+	title = "Two Kingdoms"
 	lobby_icon_state = "civ13"
-	caribbean_blocking_area_types = list(/area/complex/no_mans_land/invisible_wall/)
+	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
 	respawn_delay = 6000 // 10 minutes!
-	squad_spawn_locations = FALSE
-//	min_autobalance_players = 90
+	has_hunger = TRUE
+
+
 	faction_organization = list(
 		CIVILIAN,)
-	available_subfactions = list(
-		)
 	roundend_condition_sides = list(
-		list(CIVILIAN) = /area/complex/british
+		list(CIVILIAN) = /area/caribbean/british
 		)
 	age = "1013"
 	no_winner = "The round is proceeding normally."
@@ -19,7 +18,7 @@
 	var/tribes_nr = 2
 	faction_distribution_coeffs = list(CIVILIAN = 1)
 	battle_name = "the kingdoms"
-	mission_start_message = "<big>Two medieval kingdoms rule this land. They have <b>24 hours</b> to fortify and build a military. Who will win?</big><br><b>Wiki Guide: http://civ13.com/wiki/index.php/Civilizations</b>"
+	mission_start_message = "<big>Two medieval kingdoms rule this land. They have <b>24 hours</b> to fortify and build a military. Who will win?</big><br><b>Wiki Guide: http://civ13.github.io/civ13-wiki/Civilizations_and_Nomads</b>"
 	ambience = list('sound/ambience/jungle1.ogg')
 	faction1 = CIVILIAN
 	availablefactions_run = TRUE

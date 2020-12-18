@@ -1,22 +1,21 @@
 
 /obj/map_metadata/robusta
 	ID = MAP_ROBUSTA
-	title = "Isla Robusta (125x125x1)"
+	title = "Isla Robusta"
 	lobby_icon_state = "imperial"
-	caribbean_blocking_area_types = list(/area/complex/no_mans_land/invisible_wall/)
+	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
 	respawn_delay = 900
-	squad_spawn_locations = FALSE
-//	min_autobalance_players = 90
+
+
 	faction_organization = list(
 		PORTUGUESE,
 		SPANISH,
 		INDIANS)
-	available_subfactions = list(
-		)
+
 	roundend_condition_sides = list(
-		list(PORTUGUESE) = /area/complex/british/land,
-		list(SPANISH) = /area/complex/pirates/land,
-		list(INDIANS) = /area/complex/indians,
+		list(PORTUGUESE) = /area/caribbean/british/land,
+		list(SPANISH) = /area/caribbean/pirates/land,
+		list(INDIANS) = /area/caribbean/indians,
 		)
 	age = "1713"
 	ordinal_age = 3

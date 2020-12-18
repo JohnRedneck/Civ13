@@ -1,24 +1,24 @@
 /obj/map_metadata/four_colonies
 	ID = MAP_FOUR_COLONIES
-	title = "Four Colonies (225x225x2)"
+	title = "Four Colonies"
 	lobby_icon_state = "imperial"
 	no_winner ="The round is proceeding normally."
-	caribbean_blocking_area_types = list(/area/complex/no_mans_land/invisible_wall/)
+	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
 	respawn_delay = 7200 // 12 minutes!
-	squad_spawn_locations = FALSE
+	has_hunger = TRUE
+
 	faction_organization = list(
 		BRITISH,
 		PORTUGUESE,
 		FRENCH,
 		SPANISH)
-	available_subfactions = list(
-		)
+
 	roundend_condition_sides = list(
 	//nonexistent in this map, to prevent win by capture
-		list(SPANISH) = /area/complex/british,
-		list(PORTUGUESE) = /area/complex/british,
-		list(FRENCH) = /area/complex/british,
-		list(SPANISH) = /area/complex/british,
+		list(SPANISH) = /area/caribbean/british,
+		list(PORTUGUESE) = /area/caribbean/british,
+		list(FRENCH) = /area/caribbean/british,
+		list(SPANISH) = /area/caribbean/british,
 		)
 	age = "1713"
 	ordinal_age = 3
@@ -31,6 +31,7 @@
 	songs = list(
 		"Nassau Shores:1" = 'sound/music/nassau_shores.ogg',)
 	gamemode = "Faction-Based RP"
+	is_RP = TRUE
 
 obj/map_metadata/four_colonies/job_enabled_specialcheck(var/datum/job/J)
 	..()
@@ -43,6 +44,10 @@ obj/map_metadata/four_colonies/job_enabled_specialcheck(var/datum/job/J)
 	else if (J.is_medieval == TRUE)
 		. = FALSE
 	else if (J.is_ww1 == TRUE)
+		. = FALSE
+	else if (J.is_civil_war == TRUE)
+		. = FALSE
+	else if (J.is_football == TRUE)
 		. = FALSE
 	else
 		. = TRUE

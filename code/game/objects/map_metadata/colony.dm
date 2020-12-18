@@ -1,24 +1,23 @@
 
 /obj/map_metadata/colony
 	ID = MAP_COLONY
-	title = "Colony (155x225x2)"
+	title = "Colony"
 	lobby_icon_state = "imperial"
 	no_winner ="The round is proceeding normally."
-	caribbean_blocking_area_types = list(/area/complex/no_mans_land/invisible_wall/)
+	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
 	respawn_delay = 7200 // 12 minutes!
-	squad_spawn_locations = FALSE
+	has_hunger = TRUE
+
 	faction_organization = list(
 		INDIANS,
 		CIVILIAN,
 		PIRATES,
 		SPANISH)
-	available_subfactions = list(
-		)
 	roundend_condition_sides = list(
-		list(INDIANS) = /area/complex/british,
-		list(CIVILIAN) = /area/complex/british,
-		list(PIRATES) = /area/complex/british,
-		list(SPANISH) = /area/complex/british,
+		list(INDIANS) = /area/caribbean/british,
+		list(CIVILIAN) = /area/caribbean/british,
+		list(PIRATES) = /area/caribbean/british,
+		list(SPANISH) = /area/caribbean/british,
 		)
 	age = "1713"
 	ordinal_age = 3
@@ -31,6 +30,7 @@
 	songs = list(
 		"Nassau Shores:1" = 'sound/music/nassau_shores.ogg',)
 	gamemode = "Colony Building RP"
+	is_RP = TRUE
 
 /obj/map_metadata/colony/New()
 	..()
@@ -51,7 +51,13 @@ obj/map_metadata/colony/job_enabled_specialcheck(var/datum/job/J)
 			. = FALSE
 		if (J.is_pioneer == TRUE)
 			. = FALSE
+		if (J.is_deal == TRUE)
+			. = FALSE
 		if (J.is_prison == TRUE)
+			. = FALSE
+		if (J.is_civil_war == TRUE)
+			. = FALSE
+		if (J.is_football == TRUE)
 			. = FALSE
 	else if (istype(J, /datum/job/spanish/civilian))
 		. = FALSE

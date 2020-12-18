@@ -7,11 +7,11 @@
 	icon_dead = "samoyed_dead"
 	icon_gib = "samoyed_dead"
 
-	health = 55
-	maxHealth = 55
+	health = 250
+	maxHealth = 250
 
-	melee_damage_lower = 25
-	melee_damage_upper = 35
+	melee_damage_lower = 35
+	melee_damage_upper = 45
 
 
 	response_help = "pets"
@@ -25,7 +25,7 @@
 	if (!.)
 		emote("barks and shows its teeth!")
 
-/mob/living/simple_animal/hostile/commanded/dog/attack_hand(mob/living/carbon/human/M as mob)
+/mob/living/simple_animal/hostile/commanded/dog/attack_hand(mob/living/human/M as mob)
 	..()
 	if (M.a_intent == I_HARM)
 		emote("barks and shows its teeth!")

@@ -1,7 +1,8 @@
 /obj/item/weapon/gun/projectile/shotgun
 	maxhealth = 45
 	gun_type = GUN_TYPE_SHOTGUN
-	fire_sound = 'sound/weapons/guns/fire/shotgun_fire.ogg'
+	fire_sound = 'sound/weapons/guns/fire/shotgun.ogg'
+	icon = 'icons/obj/guns/rifles.dmi'
 	// 15% more accurate than SMGs
 	equiptimer = 17
 	accuracy_list = list(
@@ -54,9 +55,11 @@
 	KD_chance = KD_CHANCE_HIGH
 	stat = "rifle"
 
+	gtype = "shotgun"
+
 /obj/item/weapon/gun/projectile/shotgun/pump
-	name = "pump-action shotgun"
-	desc = "A pump-action shotgun chambered in 12 gauge rounds."
+	name = "Pump-Action Shotgun"
+	desc = "A placeholder shotgun chambered in 12 gauge rounds."
 	icon_state = "shotgun"
 	item_state = "shotgun"
 	max_shells = 6
@@ -84,7 +87,7 @@
 		recentpump = world.time
 
 /obj/item/weapon/gun/projectile/shotgun/pump/proc/pump(mob/M as mob)
-	playsound(M, 'sound/weapons/shotgunpump.ogg', 60, TRUE)
+	playsound(M, 'sound/weapons/guns/interact/shotgun_pump.ogg', 60, TRUE)
 
 	if (chambered)//We have a shell in the chamber
 		chambered.loc = get_turf(src)//Eject casing
@@ -99,8 +102,8 @@
 	update_icon()
 
 /obj/item/weapon/gun/projectile/shotgun/coachgun
-	name = "coach gun"
-	desc = "a double-barreled shotgun, commonly used by messengers and on stagecoaches."
+	name = "Coach Gun"
+	desc = "A double-barreled shotgun, commonly used by messengers and on stagecoaches."
 	icon_state = "doublebarreled"
 	item_state = "shotgun"
 	max_shells = 2
@@ -177,8 +180,8 @@
 
 
 /obj/item/weapon/gun/projectile/shotgun/remington870
-	name = "Remington 870"
-	desc = "A pump-action shotgun chambered in 12 gauge rounds."
+	name = "Remington 870 Express"
+	desc = "A pump-action shotgun with a 3in 12 gauge chamber."
 	icon_state = "remington870"
 	item_state = "shotgun"
 	max_shells = 7
@@ -206,7 +209,7 @@
 		recentpump = world.time
 
 /obj/item/weapon/gun/projectile/shotgun/remington870/proc/pump(mob/M as mob)
-	playsound(M, 'sound/weapons/shotgunpump.ogg', 60, TRUE)
+	playsound(M, 'sound/weapons/guns/interact/shotgun_pump.ogg', 60, TRUE)
 
 	if (chambered)//We have a shell in the chamber
 		chambered.loc = get_turf(src)//Eject casing

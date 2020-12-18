@@ -45,8 +45,8 @@
 	vending_machine = null
 	. = ..()
 
-/datum/data/vending_product/proc/get_product(var/product_location, var/p_amount=1)
-	if (istype(vending_machine, /obj/structure/vending/sales))
+/datum/data/vending_product/proc/get_product(var/product_location, var/p_amount=1, var/mob/user)
+	if (istype(vending_machine, /obj/structure/vending/sales) || istype(vending_machine, /obj/structure/vending/craftable))
 		if (amount <= 0 || amount < p_amount || !product_location)
 			return
 		if (is_stack)
@@ -68,6 +68,10 @@
 					if (product)
 						product.forceMove(product_location)
 						amount--
+						if (istype(vending_machine,/obj/structure/vending/sales/business_weapons) && istype(product, /obj/item/weapon/gun/projectile) && ishuman(user))
+							var/obj/item/weapon/gun/projectile/G = product
+							var/mob/living/human/H = user
+							map.gun_registations += list(list(G.name,G.serial,H.real_name))
 		return TRUE
 	else
 		if (amount <= 0 || amount < p_amount || !product_location)

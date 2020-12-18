@@ -1,19 +1,17 @@
 
 /obj/map_metadata/cursed_island
 	ID = MAP_CURSED_ISLAND
-	title = "Cursed Island (100x100x1)"
-	caribbean_blocking_area_types = list(/area/complex/no_mans_land/invisible_wall,
-		/area/complex/no_mans_land/invisible_wall/inside)
+	title = "Cursed Island"
+	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall,
+		/area/caribbean/no_mans_land/invisible_wall/inside)
 	respawn_delay = 0
-	squad_spawn_locations = FALSE
+
 	no_winner ="The crew is alive."
-//	min_autobalance_players = 90
+
 	faction_organization = list(
 		BRITISH,)
-	available_subfactions = list(
-		)
 	roundend_condition_sides = list(
-		list(BRITISH) = /area/complex/british
+		list(BRITISH) = /area/caribbean/british
 		)
 	age = "1713"
 	ordinal_age = 3
@@ -36,6 +34,8 @@ obj/map_metadata/cursed_island/job_enabled_specialcheck(var/datum/job/J)
 		. = FALSE
 	else if (J.is_ww1 == TRUE)
 		. = FALSE
+	else if (J.is_ww2 == TRUE)
+		. = FALSE
 	else if (istype(J, /datum/job/pirates/battleroyale))
 		. = FALSE
 	else if (istype(J, /datum/job/indians/tribes))
@@ -56,7 +56,7 @@ obj/map_metadata/cursed_island/job_enabled_specialcheck(var/datum/job/J)
 	var/treasure_location = get_area(locate(/obj/item/cursedtreasure))
 	if (win_condition_spam_check)
 		return FALSE
-	if (istype(treasure_location, /area/complex/british/ship))
+	if (istype(treasure_location, /area/caribbean/british/ship))
 		ticker.finished = TRUE
 		var/message = "The treasure was retrieved! The curse is broken!"
 		world << "<font size = 4><span class = 'notice'>[message]</span></font>"

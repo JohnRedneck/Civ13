@@ -4,16 +4,15 @@
 	title = "Kenobi's Test Map"
 	no_winner ="The round is proceeding normally."
 	lobby_icon_state = "ww2"
-	caribbean_blocking_area_types = list(/area/complex/no_mans_land/invisible_wall/)
+	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
 	respawn_delay = 1200 // 10 minutes!
-	squad_spawn_locations = FALSE
-//	min_autobalance_players = 90
+
+
 	faction_organization = list(
 		JAPANESE,)
-	available_subfactions = list(
-		)
+
 	roundend_condition_sides = list(
-		list(JAPANESE) = /area/complex/british
+		list(JAPANESE) = /area/caribbean/british
 		)
 	age = "1943"
 	civilizations = FALSE
@@ -22,8 +21,6 @@
 	mission_start_message = "Kenobi go'na test the fek outta ya"
 	ambience = list('sound/ambience/desert.ogg')
 	faction1 = JAPANESE
-	available_subfactions = list(CHINESE, RUSSIAN, AMERICAN,
-		)
 	songs = list(
 		"Words Through the Sky:1" = 'sound/music/words_through_the_sky.ogg',)
 	research_active = TRUE

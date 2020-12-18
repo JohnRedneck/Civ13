@@ -71,7 +71,7 @@
 		return ..()
 
 /obj/item/weapon/reagent_containers/food/drinks/drinkingglass/attack_self(mob/user as mob)
-	var/mob/living/carbon/human/H = user
+	var/mob/living/human/H = user
 	var/list/actions = list()
 
 	if (cocktail_food)
@@ -112,6 +112,12 @@
 	icon_state = "glass-cocktail"
 	glass_type = "cocktail"
 	volume = 20
+
+/obj/item/weapon/reagent_containers/food/drinks/drinkingglass/beermug
+	name = "beer mug"
+	icon_state = "glass-beermug"
+	glass_type = "beermug"
+	volume = 50
 
 /obj/item/weapon/reagent_containers/food/drinks/drinkingglass/wine
 	name = "wine glass"
@@ -231,41 +237,19 @@
 
 /obj/item/weapon/reagent_containers/food/drinks/drinkingglass/custom/attack_self(mob/user as mob)
 	if (uncolored)
-		var/input = input(user, "Logo Symbol - Choose the logo symbol color (hex code without the #):", "Main Color" , "000000")
+		var/input = WWinput(user, "Logo Symbol - Choose the logo symbol color:", "Main Color" , "#000000", "color")
 		if (input == null || input == "")
 			return
 		else
-			input = uppertext(input)
-			if (length(input) != 6)
-				return
-			var/list/listallowed = list("A","B","C","D","E","F","1","2","3","4","5","6","7","8","9","0")
-			for (var/i = 1, i <= 6, i++)
-				var/numtocheck = 0
-				if (i < 6)
-					numtocheck = copytext(input,i,i+1)
-				else
-					numtocheck = copytext(input,i,0)
-				if (!(numtocheck in listallowed))
-					return
-			topcolor = addtext("#",input)
 
-		input = input(user, "Background color - Choose the background color (hex code without the #):", "Background Color" , "FFFFFF")
+			topcolor= input
+
+		input = WWinput(user, "Background color - Choose the background color:", "Background Color" , "#FFFFFF", "color")
 		if (input == null || input == "")
 			return
 		else
-			input = uppertext(input)
-			if (length(input) != 6)
-				return
-			var/list/listallowed = list("A","B","C","D","E","F","1","2","3","4","5","6","7","8","9","0")
-			for (var/i = 1, i <= 6, i++)
-				var/numtocheck = 0
-				if (i < 6)
-					numtocheck = copytext(input,i,i+1)
-				else
-					numtocheck = copytext(input,i,0)
-				if (!(numtocheck in listallowed))
-					return
-			undercolor = addtext("#",input)
+
+			undercolor= input
 		uncolored = FALSE
 		color1.color = topcolor
 		color2.color = undercolor

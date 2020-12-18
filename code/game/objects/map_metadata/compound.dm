@@ -1,21 +1,20 @@
 
 /obj/map_metadata/compound
 	ID = MAP_COMPOUND
-	title = "Compound (100x100x2)"
+	title = "Compound"
 	lobby_icon_state = "coldwar"
-	caribbean_blocking_area_types = list(/area/complex/no_mans_land/invisible_wall/)
+	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
 	respawn_delay = 300
 	no_winner ="No base has been captured."
-	squad_spawn_locations = FALSE
-//	min_autobalance_players = 90
+
+
 	faction_organization = list(
 		AMERICAN,
 		VIETNAMESE)
-	available_subfactions = list(
-		)
+
 	roundend_condition_sides = list(
-		list(AMERICAN) = /area/complex/british,
-		list(VIETNAMESE) = /area/complex/japanese
+		list(AMERICAN) = /area/caribbean/british,
+		list(VIETNAMESE) = /area/caribbean/japanese
 		)
 	age = "1969"
 	ordinal_age = 7

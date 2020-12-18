@@ -44,7 +44,7 @@
 	else
 		weather = WEATHER_NONE
 
-	for (var/area/complex/A in area_list)
+	for (var/area/caribbean/A in area_list)
 		if (istype(A) && A.location == AREA_OUTSIDE)
 			if (A.climate == "tundra")
 				if (season == "Wet Season" || season == "WINTER" ||  season == "FALL" || season == "SPRING")

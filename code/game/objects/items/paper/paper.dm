@@ -9,6 +9,7 @@
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "paper"
 	item_state = "paper"
+	var/base_icon = "paper"
 	throwforce = FALSE
 	w_class = TRUE
 	throw_range = TRUE
@@ -34,6 +35,28 @@
 	var/const/signfont = "Times New Roman"
 	var/const/crayonfont = "Comic Sans MS"
 
+/obj/item/weapon/paper/official
+	base_icon = "official"
+	name = "official paper"
+	icon_state = "Decree_empty"
+	var/faction = ""
+	var/color1 = "#000000"
+	var/color2 = "#FFFFFF"
+
+/obj/item/weapon/paper/official/New()
+	..()
+	spawn(30)
+		name = "official [faction] paper"
+
+/obj/item/weapon/paper/official/update_icon()
+	..()
+	overlays.Cut()
+	var/image/i1 = image(icon=src.icon, icon_state="Decree_Overlay_1")
+	var/image/i2 = image(icon=src.icon, icon_state="Decree_Overlay_2")
+	i1.color = color1
+	i2.color = color2
+	overlays += i1
+	overlays += i2
 
 //lipstick wiping is in code/game/objects/items/weapons/cosmetics.dm!
 
@@ -47,7 +70,7 @@
 		desc = "This is a paper titled '" + name + "'."
 
 	if (info != initial(info))
-		info = rhtml_encode(info)
+		info = html_encode(info)
 		info = replacetext(info, "\n", "<BR>")
 		info = parsepencode(info)
 
@@ -56,26 +79,49 @@
 		update_space(info)
 		updateinfolinks()
 
-	if (map)
+	if (map && base_icon == "paper")
 		if (map.ordinal_age <= 1)
 			name = "papyrus"
 			icon_state = "scrollpaper"
 			desc = "A blank parchement scroll."
+		else if (map.ordinal_age <= 3)
+			name = "paper"
+			icon_state = "Colonial_Paper_Empty"
+			desc = "A blank paper sheet."
 
+/obj/item/weapon/paper/verb/airplane()
+	set name = "Make Paper Airplane"
+	set category = "Object"
+	set src in usr
+	src.icon_state = "paper_plane"
+	src.throw_range = 14
+	src.name = "airplane- \"[src.name]\""
+	add_fingerprint(usr)
 
 /obj/item/weapon/paper/update_icon()
-	if (map.ordinal_age <= 1)
-		if (info)
-			icon_state = "scrollpaper1"
+	if (base_icon == "paper")
+		if (map && map.ordinal_age <= 1)
+			if (info)
+				icon_state = "scrollpaper1"
+			else
+				icon_state = "scrollpaper0"
+		else if (map && map.ordinal_age <= 3)
+			if (info)
+				icon_state = "Colonial_Paper"
+			else
+				icon_state = "Colonial_Paper_Empty"
 		else
-			icon_state = "scrollpaper0"
-	else
-		if (icon_state == "paper_talisman")
-			return
+			if (icon_state == "paper_talisman")
+				return
+			if (info)
+				icon_state = "paper_words"
+				return
+			icon_state = "paper"
+	else if (base_icon == "official")
 		if (info)
-			icon_state = "paper_words"
-			return
-		icon_state = "paper"
+			icon_state = "Decree"
+		else
+			icon_state = "Decree_empty"
 
 /obj/item/weapon/paper/proc/update_space(var/new_text)
 	if (!new_text)
@@ -92,7 +138,7 @@
 	return
 
 /obj/item/weapon/paper/proc/show_content(var/mob/user, var/forceshow=0)
-	if (!(istype(user, /mob/living/carbon/human) || isghost(user) && !forceshow))
+	if (!(istype(user, /mob/living/human) || isghost(user) && !forceshow))
 		user << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[stars(info)][stamps]</BODY></HTML>", "window=[name]")
 		onclose(user, "[name]")
 	else
@@ -136,7 +182,7 @@
 	return
 
 
-/obj/item/weapon/paper/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/weapon/paper/attack(mob/living/human/M as mob, mob/living/human/user as mob)
 	if (user.targeted_organ == "eyes")
 		user.visible_message("<span class='notice'>You show the paper to [M]. </span>", \
 			"<span class='notice'> [user] holds up a paper and shows it to [M]. </span>")
@@ -144,7 +190,7 @@
 
 	else if (user.targeted_organ == "mouth") // lipstick wiping
 		if (ishuman(M))
-			var/mob/living/carbon/human/H = M
+			var/mob/living/human/H = M
 			if (H == user)
 				user << "<span class='notice'>You wipe off the lipstick with [src].</span>"
 				H.lip_style = null
@@ -218,7 +264,6 @@
 	return (user && user.real_name) ? user.real_name : "Anonymous"
 
 /obj/item/weapon/paper/proc/parsepencode(var/t, var/obj/item/weapon/pen/P, mob/user as mob, var/iscrayon = FALSE)
-	t = cp1251_to_utf8(t)
 
 	t = replacetext(t, "\[center\]", "<center>")
 	t = replacetext(t, "\[/center\]", "</center>")
@@ -340,7 +385,7 @@
 
 
 		// if paper is not in usr, then it must be near them, or in a clipboard or folder, which must be in or near usr
-		if (loc != usr && !Adjacent(usr) && (loc.loc == usr || loc.Adjacent(usr)) )
+		if (loc != usr && !Adjacent(usr) && !((istype(loc, /obj/item/weapon/clipboard) || istype(loc, /obj/item/weapon/folder)) && (loc.loc == usr || loc.Adjacent(usr)) ) )
 			return
 /*
 		t = checkhtml(t)
@@ -388,8 +433,8 @@
 		else if (P.name != "paper" && P.name != "photo")
 			B.name = P.name
 		user.drop_from_inventory(P)
-		if (istype(user, /mob/living/carbon/human))
-			var/mob/living/carbon/human/h_user = user
+		if (istype(user, /mob/living/human))
+			var/mob/living/human/h_user = user
 			if (h_user.r_hand == src)
 				h_user.drop_from_inventory(src)
 				h_user.put_in_r_hand(B)
@@ -435,32 +480,23 @@
 		user << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[info_links][stamps]</BODY></HTML>", "window=[name]")
 		return
 
-	else if (istype(P, /obj/item/weapon/stamp))
-		if ((!in_range(src, usr) && loc != user && loc.loc != user && user.get_active_hand() != P))
+	else if ((istype(P, /obj/item/weapon/stamp) && !( istype(P, /obj/item/weapon/stamp/mail))))
+		if ((!in_range(src, usr) && loc != user && !( istype(loc, /obj/item/weapon/clipboard) ) && loc.loc != user && user.get_active_hand() != P))
 			return
 		playsound(src,'sound/effects/Stamp.ogg',40,1)
-		stamps += (stamps=="" ? "<HR>" : "<BR>") + "<i>This paper is marked with the [P.name].</i>"
-
 		var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-		x = rand(-2, 2)
-		y = rand(-3, 2)
-		offset_x += x
-		offset_y += y
-		stampoverlay.pixel_x = x
-		stampoverlay.pixel_y = y
-
-
-		if (!ico)
-			ico = new
-		ico += "paper_[P.icon_state]"
+		stampoverlay.pixel_x = rand(-2, 2)
+		stampoverlay.pixel_y = rand(-3, 2)
 		stampoverlay.icon_state = "paper_[P.icon_state]"
-
-		if (!stamped)
+		var/image/stampoverlay_paper = image('icons/obj/bureaucracy_large.dmi')
+		stampoverlay.icon_state = P.icon_state
+		stamps += "<img src='\ref[stampoverlay_paper.icon]'>"
+		if(!stamped)
 			stamped = new
 		stamped += P.type
 		overlays += stampoverlay
 
-		user << "<span class='notice'>You stamp the paper with your hot wax seal.</span>"
+		user << "<span class='notice'>You stamp the paper with the [P.name].</span>"
 
 	else if (istype(P, /obj/item/weapon/flame))
 		burnpaper(P, user)

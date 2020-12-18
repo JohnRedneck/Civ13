@@ -133,17 +133,25 @@
 		return
 
 	else
-
-		for (var/datum/data/vending_product/R in product_records)
-			if (istype(W, R.product_path))
-				stock(W, R, user)
+		if (istype(src, /obj/structure/vending/craftable))
+			var/obj/structure/vending/craftable/CTB = src
+			if (product_records.len >= CTB.max_products)
+				user << "<span class='notice'>\The [src] is full!</span>"
+				return FALSE
+			else
+				var/datum/data/vending_product/product = new/datum/data/vending_product(src, W.type, W.name, _icon = W.icon, _icon_state = W.icon_state, M = W)
+				product.price = 0
+				stock(W,product,user)
 				return TRUE
+		else
+			for (var/datum/data/vending_product/R in product_records)
+				if (istype(W, R.product_path))
+					stock(W, R, user)
+					return TRUE
 		..()
 
 
 /obj/structure/vending/attack_hand(mob/user as mob)
-	if (stat & BROKEN) //|| user.blacklisted == TRUE
-		return
 
 	ui_interact(user)
 
@@ -186,9 +194,6 @@
 		ui.open()
 
 /obj/structure/vending/Topic(href, href_list)
-	if (stat & BROKEN)
-		return
-
 	if (isliving(usr))
 		if (usr.stat || usr.restrained())
 			return
@@ -224,13 +229,16 @@
 	nanomanager.update_uis(src)
 
 	spawn(vend_delay)
-		R.get_product(get_turf(src))
+		R.get_product(get_turf(src),1,user)
 		playsound(loc, 'sound/machines/vending_drop.ogg', 100, TRUE)
 		status_message = ""
 		status_error = FALSE
 		vend_ready = TRUE
 		currently_vending = null
+		if (istype(src, /obj/structure/vending/craftable))
+			product_records -= R
 		nanomanager.update_uis(src)
+		update_icon()
 
 /**
  * Add item to the machine
@@ -247,10 +255,9 @@
 	qdel(W)
 
 	nanomanager.update_uis(src)
+	update_icon()
 
 /obj/structure/vending/process()
-	if (stat & (BROKEN|NOPOWER))
-		return
 
 	if (!active)
 		return

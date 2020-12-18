@@ -6,3 +6,5 @@
 	caliber = "a762x54_weak"
 	magazine_type = /obj/item/ammo_magazine/pkm
 	ammo_type = /obj/item/ammo_casing/a762x54/weak
+
+	/// This one will need rerouted///

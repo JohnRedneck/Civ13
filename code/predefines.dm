@@ -5,18 +5,12 @@
 #define GAME_STATE_PLAYING		3
 #define GAME_STATE_FINISHED		4
 
-#define CELL_VOLUME		2500 // Liters in a cell.
-#define MOLES_CELLSTANDARD (ONE_ATMOSPHERE*CELL_VOLUME/(T20C*R_IDEAL_GAS_EQUATION)) // Moles in a 2.5 m^3 cell at 101.325 kPa and 20 C.
-
+#define MAX_CHARS_PER_LINE 200
+#define MAX_CHARS_TOTAL 20000
 
 // These are for when a mob breathes poisonous air.
 #define MIN_TOXIN_DAMAGE TRUE
 #define MAX_TOXIN_DAMAGE 10
-
-#define BREATH_VOLUME	   0.5 // Liters in a normal breath.
-#define BREATH_MOLES		(ONE_ATMOSPHERE * BREATH_VOLUME / (T20C * R_IDEAL_GAS_EQUATION)) // Amount of air to take a from a tile
-#define BREATH_PERCENTAGE   (BREATH_VOLUME / CELL_VOLUME)									// Amount of air needed before pass out/suffocation commences.
-#define HUMAN_NEEDED_OXYGEN (MOLES_CELLSTANDARD * BREATH_PERCENTAGE * 0.16)
 
 #define SOUND_MINIMUM_PRESSURE 10
 
@@ -239,38 +233,16 @@
 #define UNCONSCIOUS 1
 #define DEAD		2
 
-// Channel numbers for power.
-#define EQUIP   1
-#define LIGHT   2
-#define ENVIRON 3
-#define TOTAL   4 // For total power used only.
-
-// Bitflags for machine stat variable.
-#define BROKEN   1
-#define NOPOWER  2
-#define POWEROFF 4  // TBD.
-#define MAINT	8  // Under maintenance.
-#define EMPED	16 // Temporary broken by EMP pulse.
-
-// Bitmasks for door switches.
-#define OPEN   1
-#define IDSCAN 2
-#define BOLTS  4
-#define SHOCK  8
-#define SAFE   16
-
-// Metal sheets, glass sheets, and rod stacks.
-#define MAX_STACK_AMOUNT_METAL 50
-#define MAX_STACK_AMOUNT_GLASS 50
-#define MAX_STACK_AMOUNT_RODS  60
+// TDM gamemodes
+#define NORMAL		 0
+#define COMPETITIVE	 1
+#define HARDCORE	 2
 
 #define GAS_O2  (1 << 0)
 #define GAS_N2  (1 << 1)
 #define GAS_PL  (1 << 2)
 #define GAS_CO2 (1 << 3)
 #define GAS_N2O (1 << 4)
-
-#define IS_MODE_COMPILED(MODE) (ispath(text2path("/datum/game_mode/"+(MODE))))
 
 // Damage things. TODO: Merge these down to reduce on defines.
 // Way to waste perfectly good damage-type names (BRUTE) on this... If you were really worried about case sensitivity, you could have just used lowertext(damagetype) in the proc.
@@ -357,8 +329,7 @@
 #define HOSTILE_STANCE_IDLE	  TRUE
 #define HOSTILE_STANCE_ALERT	 2
 #define HOSTILE_STANCE_ATTACK	3
-#define HOSTILE_STANCE_ATTACKING 4
-#define HOSTILE_STANCE_TIRED	 5
+#define HOSTILE_STANCE_TIRED	 4
 
 #define ROUNDSTART_LOGOUT_REPORT_TIME 6000 // Amount of time (in deciseconds) after the rounds starts, that the player disconnect report is issued.
 

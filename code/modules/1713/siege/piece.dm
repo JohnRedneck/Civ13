@@ -64,7 +64,7 @@
 /obj/structure/cannon/modern/tank
 	name = "tank cannon"
 	desc = "a barebones cannon made to be carried by vehicles."
-	icon = 'icons/obj/vehicleparts.dmi'
+	icon = 'icons/obj/vehicles/vehicleparts.dmi'
 	icon_state = "tank_cannon"
 	ammotype = /obj/item/cannon_ball/shell/tank
 	layer = MOB_LAYER + 1 //just above mobs
@@ -90,6 +90,14 @@
 	maxrange = 25
 	caliber = 75
 
+/obj/structure/cannon/modern/tank/american75
+	name = "75 mm M3 gun"
+	desc = "a 75 mm american tank-based cannon."
+	icon_state = "tank_cannon"
+	maxsway = 12
+	maxrange = 25
+	caliber = 75
+
 /obj/structure/cannon/modern/tank/japanese57
 	name = "Type 90 Cannon"
 	desc = "a 57 mm japanese tank-based cannon."
@@ -105,6 +113,20 @@
 	maxsway = 14
 	maxrange = 35
 	caliber = 88
+
+/obj/structure/cannon/modern/tank/german88/field
+	name = "8.8 cm Pak 43 cannon"
+	desc = "a 88 mm german anti-tank cannon."
+	icon_state = "feldkanone18"
+	icon = 'icons/obj/cannon.dmi'
+	maxsway = 18
+	maxrange = 38
+	assembled = FALSE
+	can_assemble = TRUE
+	New()
+		..()
+		loader_chair = new /obj/structure/bed/chair/loader(src)
+		gunner_chair = new /obj/structure/bed/chair/gunner(src)
 
 /obj/structure/cannon/modern/tank/russian76
 	name = "76 mm M1940 F-34"
@@ -271,10 +293,49 @@
 	spritemod = FALSE //if true, uses 32x64
 	explosion = TRUE
 	reagent_payload = "none"
-	maxrange = 23
+	maxrange = 40
 	maxsway = 7
 	firedelay = 12
 	w_class = 8
+/obj/structure/cannon/mortar/type89
+	name = "Type 89 Mortar"
+	icon_state = "type89"
+	anchored = TRUE
+	ammotype = /obj/item/cannon_ball/mortar_shell/type89 || /obj/item/weapon/grenade/ww2/type91
+	explosion = TRUE
+	maxrange = 30
+	maxsway = 15
+	firedelay = 8
+	w_class = 6
+/obj/structure/cannon/mortar/type89/verb/Get()
+	set src in oview(1, usr)
+	set category = null
+	if (usr.l_hand && usr.r_hand)
+		usr << "<span class = 'warning'>You need to have a hand free to do this.</span>"
+		return
+	usr.face_atom(src)
+	visible_message("<span class = 'warning'>[usr] starts to get their type 89 from the ground.</span>")
+	if (do_after(usr, 10, get_turf(usr)))
+		qdel(src)
+		usr.put_in_any_hand_if_possible(new/obj/item/weapon/type89_mortar, prioritize_active_hand = TRUE)
+		visible_message("<span class = 'warning'>[user] gets their type 89 from the ground.</span>")
+/obj/structure/cannon/mortar/type89/attackby(obj/item/W as obj, mob/M as mob)
+	if (istype(W, /obj/item/cannon_ball/mortar_shell/type89 || /obj/item/weapon/grenade/ww2/type91))
+		if (loaded)
+			M << "<span class = 'warning'>There's already a [loaded] loaded.</span>"
+			return
+		// load first and only slot
+		if (do_after(M, 45, src, can_move = TRUE))
+			if (M && (locate(M) in range(1,src)))
+				M.remove_from_mob(W)
+				W.loc = src
+				loaded = W
+				if (M == user)
+					do_html(M)
+	else if (istype(W,/obj/item/weapon/wrench))
+		playsound(loc, 'sound/items/Ratchet.ogg', 100, TRUE)
+		user << (anchored ? "<span class='notice'>You unfasten \the [src] from the floor.</span>" : "<span class='notice'>You secure \the [src] to the floor.</span>")
+		anchored = !anchored
 /obj/structure/cannon/davycrockett
 	name = "M29 Davy Crockett"
 	icon = 'icons/obj/cannon_ball.dmi'
@@ -366,6 +427,9 @@
 	if (!anchored)
 		user << "<span class = 'danger'>You need to fix it to the floor before firing.</span>"
 		user = null
+	else if (!anchored && istype(src, /obj/structure/cannon/mortar/type89))
+		user = m
+		do_html(user)
 	if (user && user != m)
 		if (user.client)
 			return
@@ -385,7 +449,7 @@
 
 	user.face_atom(src)
 	var/istank = istype(src, /obj/structure/cannon/modern/tank)
-	var/mob/living/carbon/human/H = user
+	var/mob/living/human/H = user
 	if (istype(H) && H.faction_text == "INDIANS")
 		user << "<span class = 'danger'>You have no idea how this thing works.</span>"
 		return FALSE
@@ -412,7 +476,7 @@
 
 	if (href_list["load"])
 		var/obj/item/cannon_ball/M = user.get_active_hand()
-		if (M && istype(M) && do_after(user, caliber/2, src, canmove = istank))
+		if (M && istype(M) && do_after(user, caliber/2, src, can_move = istank))
 			user.remove_from_mob(M)
 			M.loc = src
 			loaded = M
@@ -607,9 +671,7 @@
 		<html>
 
 		<head>
-		<style>
 		[common_browser_style]
-		</style>
 		</head>
 
 		<body>

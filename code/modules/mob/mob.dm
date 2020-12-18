@@ -48,19 +48,19 @@
 	if (!client)	return
 
 	if (type)
-		if (type & TRUE && (sdisabilities & BLIND || blinded || paralysis) )//Vision related
+		if (type & TRUE && ((sdisabilities & BLIND) || blinded || find_trait("Blind") || paralysis) )//Vision related
 			if (!( alt ))
 				return
 			else
 				msg = alt
 				type = alt_type
-		if (type & 2 && (sdisabilities & DEAF || ear_deaf))//Hearing related
+		if (type & 2 && ((sdisabilities & DEAF) || ear_deaf || find_trait("Deaf")))//Hearing related
 			if (!( alt ))
 				return
 			else
 				msg = alt
 				type = alt_type
-				if ((type & TRUE && sdisabilities & BLIND))
+				if ((type & TRUE && (sdisabilities & BLIND)) || find_trait("Blind"))
 					return
 	// Added voice muffling for Issue 41.
 	if (stat == UNCONSCIOUS || sleeping > 0)
@@ -240,7 +240,72 @@
 	set name = "Activate Held Object"
 	set category = null
 	set src = usr
-
+	if (ishuman(src))
+		var/mob/living/human/H = src
+		if (H.football && H.shoes && istype(H.shoes, /obj/item/clothing/shoes/football)) //if we have the ball, pass it to nearest friendly player
+			var/mob/living/human/NEAR = null
+			for (var/mob/living/human/PNEAR in range(1,H))
+				if (!NEAR && PNEAR != H && PNEAR.civilization == H.civilization)
+					NEAR = PNEAR
+					break
+			if (!NEAR)
+				for (var/mob/living/human/PNEAR in range(2,H))
+					if (!NEAR && PNEAR != H && PNEAR.civilization == H.civilization)
+						NEAR = PNEAR
+						break
+				if (!NEAR)
+					for (var/mob/living/human/PNEAR in range(3,H))
+						if (!NEAR && PNEAR != H && PNEAR.civilization == H.civilization)
+							NEAR = PNEAR
+							break
+					if (!NEAR)
+						for (var/mob/living/human/PNEAR in range(3,H))
+							if (!NEAR && PNEAR != H && PNEAR.civilization == H.civilization)
+								NEAR = PNEAR
+								break
+			if (NEAR)
+				var/obj/item/football/FB = H.football
+				H.do_attack_animation(H.football)
+				H.football = null
+				FB.owner = null
+				FB.last_owner = H
+				FB.throw_at(NEAR, FB.throw_range, FB.throw_speed, H)
+				H.do_attack_animation(get_step(H,H.dir))
+				playsound(loc, 'sound/effects/football_kick.ogg', 100, 1)
+				visible_message("[H] passes \the [FB] to [NEAR].")
+				return
+		else if (!H.football && H.gloves && istype(H.gloves, /obj/item/clothing/gloves/goalkeeper))
+			var/area/A = get_area(H.loc)
+			if (istype(A, /area/caribbean/football/blue/goalkeeper) || istype(A, /area/caribbean/football/red/goalkeeper))
+				for(var/obj/item/football/FB in range(1,H))
+					if ((!FB.owner || FB.owner == H || H.football == FB) && isturf(FB.loc))
+						H.put_in_active_hand(FB)
+						FB.pickup(H)
+						H.football = null
+						FB.owner = null
+						visible_message("<font color='yellow'>[H] picks up the ball!</font>")
+						return
+		else if (!H.football && H.shoes && istype(H.shoes, /obj/item/clothing/shoes/football) && H.stats["stamina"][1] >= 15) //proceed to tackle whoever is in front
+			H.stats["stamina"][1] = max(H.stats["stamina"][1] - 15, 0)
+			src.do_attack_animation(get_step(src,dir))
+			Weaken(1)
+			for (var/mob/living/human/HM in range(1,H))
+				if (HM.civilization != H.civilization) //no tackling on same team
+					if (prob(60))
+						visible_message("<font color='red'>[src] tackles [HM]!</font>")
+						playsound(loc, 'sound/weapons/punch1.ogg', 50, 1)
+						H.do_attack_animation(get_step(H,H.dir))
+						HM.Weaken(1)
+						if (HM.football)
+							HM.football.last_owner = HM
+							HM.football.owner = null
+							HM.football.throw_at(get_step(HM.loc,HM.dir), 1, 1, HM)
+							HM.football = null
+						return
+					else
+						visible_message("<font color='yellow'>[src] tries to tackle [HM] but fails!</font>")
+						playsound(loc, 'sound/weapons/punchmiss.ogg', 50, 1)
+					return
 	if (hand)
 		var/obj/item/W = l_hand
 		if (W)
@@ -335,7 +400,7 @@
 	set src in usr
 	if (usr != src)
 		usr << "No."
-	var/msg = sanitize(input(usr,"Set the flavor text in your 'examine' verb. Can also be used for OOC notes about your character.","Flavor Text",rhtml_decode(flavor_text)) as message|null, extra = FALSE)
+	var/msg = sanitize(input(usr,"Set the flavor text in your 'examine' verb. Can also be used for OOC notes about your character.","Flavor Text",html_decode(flavor_text)) as message|null, extra = FALSE)
 
 	if (msg != null)
 		flavor_text = msg
@@ -454,7 +519,7 @@
 
 	if (href_list["flavor_more"])
 		if (src in view(usr))
-			usr << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", name, cp1251_to_utf8(replacetext(flavor_text, "\n", "<BR>"))), text("window=[];size=500x200", name))
+			usr << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", name, replacetext(flavor_text, "\n", "<BR>")), text("window=[];size=500x200", name))
 			onclose(usr, "[name]")
 	if (href_list["flavor_change"])
 		update_flavor_text()
@@ -464,7 +529,7 @@
 
 /mob/proc/pull_damage()
 	if (ishuman(src))
-		var/mob/living/carbon/human/H = src
+		var/mob/living/human/H = src
 		if (H.health - H.halloss <= config.health_threshold_softcrit)
 			for (var/name in H.organs_by_name)
 				var/obj/item/organ/external/e = H.organs_by_name[name]
@@ -498,7 +563,7 @@
 	if ( !AM || !usr || src==AM || !isturf(loc) )	//if there's no person pulling OR the person is pulling themself OR the object being pulled is inside something: abort!
 		return
 
-	if (AM.anchored)
+	if (AM.anchored || istype(AM, /obj/item/football))
 		src << "<span class='warning'>It won't budge!</span>"
 		return
 
@@ -521,14 +586,14 @@
 		// kind of mob pull value AT ALL, you will be able to pull
 		// them, so don't bother checking that explicitly.
 
-		if (!iscarbon(src))
+		if (!ishuman(src))
 			M.LAssailant = null
 		else
 			M.LAssailant = usr
 
 	else if (isobj(AM))
 		var/obj/I = AM
-		if (!can_pull_size || can_pull_size < I.w_class)
+		if (!can_pull_size || can_pull_size < I.w_class || istype(I, /obj/item/football))
 			src << "<span class='warning'>It won't budge!</span>"
 			return
 
@@ -546,7 +611,7 @@
 		pullin.icon_state = "pull1"*/
 /*
 	if (ishuman(AM))
-		var/mob/living/carbon/human/H = AM
+		var/mob/living/human/H = AM
 		if (H.pull_damage())
 			src << "\red <b>Pulling \the [H] in their current condition would probably be a bad idea.</b>"
 */
@@ -593,12 +658,12 @@
 			stat(stat_header("Server"))
 			stat("")
 			stat("Players Online (Playing, Observing, Lobby):", "[clients.len] ([human_clients_mob_list.len], [clients.len-human_clients_mob_list.len-new_player_mob_list.len], [new_player_mob_list.len])")
-			stat("Round Duration:", roundduration2text())
+			stat("Round Duration:", roundduration2text_days())
 
 			if (map && !map.civilizations)
 				var/grace_period_string = ""
 				for (var/faction in map.faction_organization)
-					if (!list(REDLINE, REICH, BRITISH, PIRATES, INDIANS, PORTUGUESE, SPANISH, FRENCH, DUTCH, CIVILIAN, ROMAN, GREEK, ARAB, JAPANESE, RUSSIAN, GERMAN, AMERICAN, VIETNAMESE).Find(faction))
+					if (!list(BRITISH, PIRATES, INDIANS, PORTUGUESE, SPANISH, FRENCH, DUTCH, CIVILIAN, ROMAN, GREEK, ARAB, JAPANESE, RUSSIAN, GERMAN, AMERICAN, VIETNAMESE).Find(faction))
 						continue
 					if (grace_period_string)
 						grace_period_string += ", "
@@ -616,9 +681,16 @@
 				stat("Grace Period Status:", grace_period_string)
 				stat("Round End Condition:", map.current_stat_message())
 			if (map)
+				var/gmd = map.gamemode
+				switch(map.gamemode)
+					if ("Normal")
+						gmd = "<font color='green'>Normal</font>"
+					if ("Competitive")
+						gmd = "<font color='yellow'>Competitive</font>"
+					if ("Hardcore")
+						gmd = "<font color='red'>Hardcore</font>"
 				stat("Map:", map.title)
-				if (map.civilizations)
-					stat("Mode:", map.gamemode)
+				stat("Mode:", gmd)
 				stat("Epoch:", map.age)
 				stat("Season:", get_season())
 				stat("Wind:", map.winddesc)
@@ -800,10 +872,6 @@
 /mob/proc/IsAdvancedToolUser()
 	return FALSE
 
-/mob/proc/get_species()
-	return ""
-
-
 /mob/proc/get_visible_implants(var/class = FALSE)
 	var/list/visible_implants = list()
 	for (var/obj/item/O in embedded)
@@ -869,7 +937,7 @@ mob/proc/yank_out_object()
 		verbs -= /mob/proc/yank_out_object
 
 	if (ishuman(src))
-		var/mob/living/carbon/human/H = src
+		var/mob/living/human/H = src
 		var/obj/item/organ/external/affected
 
 		for (var/obj/item/organ/external/organ in H.organs) //Grab the organ holding the implant.
@@ -887,7 +955,7 @@ mob/proc/yank_out_object()
 			H.custom_pain("Something tears wetly in your [affected] as [selection] is pulled free!", 30)
 
 		if (ishuman(U))
-			var/mob/living/carbon/human/human_user = U
+			var/mob/living/human/human_user = U
 			human_user.bloody_hands(H)
 
 	selection.forceMove(get_turf(src))
@@ -921,7 +989,9 @@ mob/proc/yank_out_object()
 	return weakened
 
 /mob/living/proc/handle_stuttering()
-	if (stuttering)
+	if (find_trait("Stutter"))
+		stuttering = 10
+	else if (stuttering)
 		stuttering = max(stuttering-1, 0)
 	return stuttering
 
@@ -965,7 +1035,7 @@ mob/proc/yank_out_object()
 	else
 		usr << "You are now facing [dir2text(facing_dir)]."
 	if (ishuman(src))
-		var/mob/living/carbon/human/H = src
+		var/mob/living/human/H = src
 		if (H.HUDneed.Find("fixeye"))
 			var/obj/screen/tactic/I = H.HUDneed["fixeye"]
 			I.update_icon()

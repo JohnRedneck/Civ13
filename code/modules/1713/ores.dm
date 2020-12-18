@@ -6,6 +6,7 @@
 	w_class = 2
 	amount = 1
 	max_amount = 50
+	can_stack = TRUE
 	value = 1
 	var/radioactive = FALSE
 	var/radioactive_amt = 0
@@ -14,6 +15,7 @@
 	pixel_x = rand(0,16)-8
 	pixel_y = rand(0,8)-8
 	process_radioactivity()
+	..()
 
 /obj/item/stack/ore/proc/process_radioactivity()
 	if (!src || !radioactive || radioactive_amt <= 0)
@@ -27,7 +29,50 @@
 /obj/item/stack/ore/iron
 	name = "iron ore"
 	icon_state = "ore_iron"
-	attackby(var/obj/W as obj, var/mob/living/carbon/human/H as mob)
+	attackby(var/obj/W as obj, var/mob/living/human/H as mob)
+		if (istype(W, /obj/item/weapon/reagent_containers/glass/extraction_kit))
+			var/obj/item/weapon/reagent_containers/glass/extraction_kit/ET = W
+			if (ET.reagents.total_volume > 0)
+				H << "<span class = 'notice'>Empty \the [ET] first.</span>"
+				return
+			if (istype(H))
+				visible_message("<span class = 'notice'>[H] starts to purify \the [src] with \the [W.name]...</span>", "<span class = 'notice'>You start to purify \the [src] with \the [W.name].</span>")
+				playsound(src,'sound/effects/pickaxe.ogg',100,1)
+				var/timera = 110/(H.getStatCoeff("dexterity"))
+				if (do_after(H, timera))
+					if (ET.reagents.total_volume <= 0)
+						ET.reagents.add_reagent("iron",5)
+						ET.update_icon()
+						qdel(src)
+		else
+			..()
+
+/obj/item/stack/ore/iron_sponge //crude refined iron from a bloomery. Use on anvil for wrought iron
+	name = "sponge iron"
+	desc = "Very crude iron, can be further refined into wrought iron in an anvil."
+	icon_state = "ore_sponge_iron"
+	attackby(var/obj/W as obj, var/mob/living/human/H as mob)
+		if (istype(W, /obj/item/weapon/reagent_containers/glass/extraction_kit))
+			var/obj/item/weapon/reagent_containers/glass/extraction_kit/ET = W
+			if (ET.reagents.total_volume > 0)
+				H << "<span class = 'notice'>Empty \the [ET] first.</span>"
+				return
+			if (istype(H))
+				visible_message("<span class = 'notice'>[H] starts to purify \the [src] with \the [W.name]...</span>", "<span class = 'notice'>You start to purify \the [src] with \the [W.name].</span>")
+				playsound(src,'sound/effects/pickaxe.ogg',100,1)
+				var/timera = 110/(H.getStatCoeff("dexterity"))
+				if (do_after(H, timera))
+					if (ET.reagents.total_volume <= 0)
+						ET.reagents.add_reagent("iron",5)
+						ET.update_icon()
+						qdel(src)
+		else
+			..()
+/obj/item/stack/ore/iron_pig //slighly better iron from a blast furnace.
+	name = "pig iron"
+	desc = "A soft iron with a high carbon content. Used to make steel using an anvil."
+	icon_state = "ore_pig_iron"
+	attackby(var/obj/W as obj, var/mob/living/human/H as mob)
 		if (istype(W, /obj/item/weapon/reagent_containers/glass/extraction_kit))
 			var/obj/item/weapon/reagent_containers/glass/extraction_kit/ET = W
 			if (ET.reagents.total_volume > 0)
@@ -53,7 +98,7 @@
 	name = "silver ore"
 	icon_state = "ore_silver"
 	value = 5
-	attackby(var/obj/W as obj, var/mob/living/carbon/human/H as mob)
+	attackby(var/obj/W as obj, var/mob/living/human/H as mob)
 		if (istype(W, /obj/item/weapon/reagent_containers/glass/extraction_kit))
 			var/obj/item/weapon/reagent_containers/glass/extraction_kit/ET = W
 			if (ET.reagents.total_volume > 0)
@@ -74,7 +119,7 @@
 	name = "gold ore"
 	value = 10
 	icon_state = "ore_gold"
-	attackby(var/obj/W as obj, var/mob/living/carbon/human/H as mob)
+	attackby(var/obj/W as obj, var/mob/living/human/H as mob)
 		if (istype(W, /obj/item/weapon/reagent_containers/glass/extraction_kit))
 			var/obj/item/weapon/reagent_containers/glass/extraction_kit/ET = W
 			if (ET.reagents.total_volume > 0)
@@ -94,7 +139,7 @@
 /obj/item/stack/ore/copper
 	name = "copper ore"
 	icon_state = "ore_copper"
-	attackby(var/obj/W as obj, var/mob/living/carbon/human/H as mob)
+	attackby(var/obj/W as obj, var/mob/living/human/H as mob)
 		if (istype(W, /obj/item/weapon/reagent_containers/glass/extraction_kit))
 			var/obj/item/weapon/reagent_containers/glass/extraction_kit/ET = W
 			if (ET.reagents.total_volume > 0)
@@ -114,7 +159,7 @@
 /obj/item/stack/ore/tin
 	name = "tin ore"
 	icon_state = "ore_tin"
-	attackby(var/obj/W as obj, var/mob/living/carbon/human/H as mob)
+	attackby(var/obj/W as obj, var/mob/living/human/H as mob)
 		if (istype(W, /obj/item/weapon/reagent_containers/glass/extraction_kit))
 			var/obj/item/weapon/reagent_containers/glass/extraction_kit/ET = W
 			if (ET.reagents.total_volume > 0)
@@ -142,17 +187,16 @@
 	value = 3
 	attackby(var/obj/W as obj, mob/user as mob)
 		if (istype(W, /obj/item/weapon/chisel))
-			var/mob/living/carbon/human/H = user
+			var/mob/living/human/H = user
 			if (!istype(H.l_hand, /obj/item/weapon/hammer) && !istype(H.r_hand, /obj/item/weapon/hammer))
 				user << "<span class = 'warning'>You need to have a hammer in one of your hands to use a chisel.</span>"
 			else
-				var/obj/item/stack/ore/obsidian/O = src
 				visible_message("<span class='danger'>[user] starts to cut the obsidian!</span>", "<span class='danger'>You start cutting the obsidian.</span>")
-				if (do_after(H, min(O.amount*10, 200), H.loc))
+				if (do_after(H, min(src.amount*10, 200), H.loc))
 					visible_message("<span class='danger'>[user] finishes cutting the obsidian!</span>", "<span class='danger'>You finish cutting the obsidian.</span>")
-					var/obj/item/stack/material/obsidian/cut_obsidian = new/obj/item/stack/material/obsidian(O.loc)
-					cut_obsidian.amount = O.amount
-					qdel(O)
+					var/obj/item/stack/material/obsidian/cut_obsidian = new/obj/item/stack/material/obsidian(src.loc)
+					cut_obsidian.amount = src.amount
+					qdel(src)
 		else
 			..()
 			return
@@ -163,7 +207,7 @@
 	radioactive_amt = 7
 	flammable = FALSE
 	value = 5
-	attackby(var/obj/W as obj, var/mob/living/carbon/human/H as mob)
+	attackby(var/obj/W as obj, var/mob/living/human/H as mob)
 		if (istype(W, /obj/item/weapon/reagent_containers/glass/extraction_kit))
 			var/obj/item/weapon/reagent_containers/glass/extraction_kit/ET = W
 			if (ET.reagents.total_volume > 0)
@@ -186,7 +230,7 @@
 	icon_state = "ore_saltpeter"
 	singular_name = "rock"
 	flammable = TRUE
-	attackby(var/obj/W as obj, var/mob/living/carbon/human/H as mob)
+	attackby(var/obj/W as obj, var/mob/living/human/H as mob)
 		if (istype(W, /obj/item/weapon/reagent_containers/glass/extraction_kit))
 			var/obj/item/weapon/reagent_containers/glass/extraction_kit/ET = W
 			if (ET.reagents.total_volume > 0)
@@ -210,7 +254,7 @@
 	icon_state = "ore_coal"
 	singular_name = "rock"
 	flammable = TRUE
-	attackby(var/obj/W as obj, var/mob/living/carbon/human/H as mob)
+	attackby(var/obj/W as obj, var/mob/living/human/H as mob)
 		if (istype(W, /obj/item/weapon/reagent_containers/glass/extraction_kit))
 			var/obj/item/weapon/reagent_containers/glass/extraction_kit/ET = W
 			if (ET.reagents.total_volume > 0)
@@ -234,7 +278,7 @@
 	icon_state = "ore_charcoal"
 	singular_name = "rock"
 	flammable = FALSE
-	attackby(var/obj/W as obj, var/mob/living/carbon/human/H as mob)
+	attackby(var/obj/W as obj, var/mob/living/human/H as mob)
 		if (istype(W, /obj/item/weapon/reagent_containers/glass/extraction_kit))
 			var/obj/item/weapon/reagent_containers/glass/extraction_kit/ET = W
 			if (ET.reagents.total_volume > 0)
@@ -257,7 +301,7 @@
 	icon_state = "ore_sulphur"
 	singular_name = "rock"
 	flammable = TRUE
-	attackby(var/obj/W as obj, var/mob/living/carbon/human/H as mob)
+	attackby(var/obj/W as obj, var/mob/living/human/H as mob)
 		if (istype(W, /obj/item/weapon/reagent_containers/glass/extraction_kit))
 			var/obj/item/weapon/reagent_containers/glass/extraction_kit/ET = W
 			if (ET.reagents.total_volume > 0)
@@ -280,7 +324,7 @@
 	icon_state = "ore_lead"
 	singular_name = "rock"
 	flammable = FALSE
-	attackby(var/obj/W as obj, var/mob/living/carbon/human/H as mob)
+	attackby(var/obj/W as obj, var/mob/living/human/H as mob)
 		if (istype(W, /obj/item/weapon/reagent_containers/glass/extraction_kit))
 			var/obj/item/weapon/reagent_containers/glass/extraction_kit/ET = W
 			if (ET.reagents.total_volume > 0)
@@ -303,7 +347,7 @@
 	icon_state = "ore_mercury"
 	singular_name = "rock"
 	flammable = FALSE
-	attackby(var/obj/W as obj, var/mob/living/carbon/human/H as mob)
+	attackby(var/obj/W as obj, var/mob/living/human/H as mob)
 		if (istype(W, /obj/item/weapon/reagent_containers/glass/extraction_kit))
 			var/obj/item/weapon/reagent_containers/glass/extraction_kit/ET = W
 			if (ET.reagents.total_volume > 0)

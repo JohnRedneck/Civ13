@@ -78,9 +78,13 @@
 	var/useless = FALSE
 
 	var/can_hit_in_trench = 1
-
+	var/turf/firer_loc = null
 	var/btype = "normal" //normal, AP (armor piercing) and HP (hollow point)
 	var/atype = "normal"
+
+/obj/item/projectile/New()
+	..()
+	damage *=global_damage_modifier
 /obj/item/projectile/proc/checktype()
 	if (btype == "AP")
 		damage *= 0.70
@@ -163,6 +167,7 @@
 		return TRUE
 
 	firer = user
+	firer_loc = get_turf(src)
 	firer_original_dir = firer.dir
 	firedfrom = launcher
 
@@ -195,7 +200,7 @@
 	xo = targloc.x - curloc.x + x_offset
 
 	shot_from = launcher
-	silenced = launcher.silenced
+	silenced = launcher.silencer
 
 	projectile_list += src
 
@@ -215,6 +220,7 @@
 
 	firer = null
 	firedfrom = null
+	firer_loc = get_turf(src)
 	def_zone = "chest"
 
 	if (targloc == curloc) //Shooting something in the same turf
@@ -248,10 +254,14 @@
 	loc = get_turf(user) //move the projectile out into the world
 
 	firer = user
+	firer_loc = get_turf(src)
 	firer_original_dir = firer.dir
 	firedfrom = launcher
 	shot_from = launcher.name
-	silenced = launcher.silenced
+	if (launcher.silencer)
+		silenced = TRUE
+	else
+		silenced = FALSE
 
 	projectile_list += src
 
@@ -264,6 +274,7 @@
 	original = new_target
 	if (new_firer)
 		firer = src
+		firer_loc = get_turf(src)
 		firer_original_dir = firer.dir
 
 	setup_trajectory(starting_loc, new_target)
@@ -286,7 +297,7 @@
 
 		if (ishuman(target_mob))
 
-			var/mob/living/carbon/human/H = target_mob
+			var/mob/living/human/H = target_mob
 			if (hit_zone == "head")
 				if (H.head && istype(H.head, /obj/item/clothing/head/helmet))
 					var/obj/item/clothing/head/helmet/helmet = H.head
@@ -363,7 +374,7 @@
 	// 50-60% chance of less severe damage: either 6, 12, or 18 less damage based on number of redirections
 	var/helmet_protection = 0
 
-	var/mob/living/carbon/human/H = target_mob
+	var/mob/living/human/H = target_mob
 	if (istype(H) && H.head && istype(H.head, /obj/item/clothing/head/helmet))
 		helmet_protection = 15
 
@@ -438,7 +449,7 @@
 
 			admin_attack_log(firer, target_mob, attacker_message, victim_message, admin_message)
 		else
-			if (target_mob.ckey)
+			if (target_mob && target_mob.ckey)
 				target_mob.attack_log += "\[[time_stamp()]\] <b>UNKNOWN SUBJECT (No longer exists)</b> shot <b>[target_mob]/[target_mob.ckey]</b> with <b>\a [src]</b>"
 				msg_admin_attack("UNKNOWN shot [target_mob] ([target_mob.ckey]) with \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target_mob.x];Y=[target_mob.y];Z=[target_mob.z]'>JMP</a>)")
 
@@ -477,10 +488,10 @@
 		if(!istype(T, /turf/floor/trench) || can_hit_in_trench)
 			// needs to be its own loop for reasons
 			for (var/obj/O in T.contents)
-				if (istype(O, /obj/structure/vehicleparts/frame) && ((firer && firer.loc != O.loc) || (!firer && loc != O.loc)))
+				if (istype(O, /obj/structure/vehicleparts/frame) && ((firer_loc && firer_loc != O.loc) || (!firer_loc && loc != O.loc)))
 					var/obj/structure/vehicleparts/frame/NO = O
 					var/obj/structure/vehicleparts/axis/found = null
-					for (var/obj/structure/vehicleparts/frame/FM in firer.loc)
+					for (var/obj/structure/vehicleparts/frame/FM in firer_loc)
 						found = FM.axis
 					if (!found || found != NO.axis)
 						if (found != NO.axis)
@@ -542,7 +553,7 @@
 					var/skip = FALSE
 					if (firer)
 						for (var/obj/structure/vehicleparts/frame/VP1 in L.loc)
-							for (var/obj/structure/vehicleparts/frame/VP2 in firer.loc)
+							for (var/obj/structure/vehicleparts/frame/VP2 in firer_loc)
 								if (VP1.axis == VP2.axis && istype(firedfrom, /obj/item/weapon/gun/projectile/automatic/stationary))
 									skip = TRUE
 					if ((!skip) && (!L.lying || T == get_turf(original) || execution))
@@ -675,7 +686,7 @@
 		var/src_loc = get_turf(src)
 		if (ismob(firer) && (!firer.prone && !firer.lying))
 			if (firstmove)
-				for (var/obj/structure/window/sandbag/S in src_loc)
+				for (var/obj/structure/window/barrier/S in src_loc)
 					_untouchable += S
 			else
 				if (firer)

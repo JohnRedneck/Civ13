@@ -200,7 +200,10 @@
 				if (prob(9))
 					new/obj/structure/wild/jungle(src)
 				else if(prob(2))
-					new/obj/structure/wild/palm(src)
+					if (prob(50))
+						new/obj/structure/wild/bamboo(src)
+					else
+						new/obj/structure/wild/palm(src)
 				else if(prob(3))
 					new/obj/structure/wild/smallbush(src)
 				else if(prob(5))
@@ -289,7 +292,7 @@
 		..()
 
 /turf/floor/dirt/underground/attackby(obj/item/W as obj, mob/user as mob)
-	var/mob/living/carbon/human/H = user
+	var/mob/living/human/H = user
 	if(istype(W, /obj/item/weapon/chisel))
 		var design = "smooth"
 		if (!istype(H.l_hand, /obj/item/weapon/hammer) && !istype(H.r_hand, /obj/item/weapon/hammer))
@@ -381,6 +384,15 @@
 /turf/floor/dirt/underground/empty/New()
 	..()
 	icon_state = "rock_debris[rand(1,2)]"
+
+/turf/floor/dirt/underground/empty/proc/mining_clear_debris()
+	var/area/A = get_area(get_turf(src))
+	if(map.ID == MAP_NOMADS_DESERT)
+		ChangeTurf(/turf/floor/dirt/dust)
+	else if (A.climate == "jungle" || A.climate == "savanna")
+		ChangeTurf(/turf/floor/dirt/jungledirt)
+	else
+		ChangeTurf(/turf/floor/dirt)
 
 /turf/floor/dirt/ploughed
 	name = "ploughed field"

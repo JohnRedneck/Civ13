@@ -7,7 +7,7 @@
 	flash_protection += C.flash_protection; \
 	equipment_tint_total += C.tint;
 
-/mob/living/carbon/human/can_eat(var/food, var/feedback = TRUE)
+/mob/living/human/can_eat(var/food, var/feedback = TRUE)
 	var/list/status = can_eat_status()
 	if (status[1] == HUMAN_EATING_NO_ISSUE)
 		return TRUE
@@ -18,7 +18,7 @@
 			src << "<span class='warning'>\The [status[2]] is in the way!</span>"
 	return FALSE
 
-/mob/living/carbon/human/can_force_feed(var/feeder, var/food, var/feedback = TRUE)
+/mob/living/human/can_force_feed(var/feeder, var/food, var/feedback = TRUE)
 	var/list/status = can_eat_status()
 	if (status[1] == HUMAN_EATING_NO_ISSUE)
 		return TRUE
@@ -29,7 +29,7 @@
 			feeder << "<span class='warning'>\The [status[2]] is in the way!</span>"
 	return FALSE
 
-/mob/living/carbon/human/proc/can_eat_status()
+/mob/living/human/proc/can_eat_status()
 	if (!check_has_mouth())
 		return list(HUMAN_EATING_NO_MOUTH)
 	var/obj/item/blocked = check_mouth_coverage()
@@ -41,7 +41,7 @@
 #undef HUMAN_EATING_NO_MOUTH
 #undef HUMAN_EATING_BLOCKED_MOUTH
 
-/mob/living/carbon/human/proc/update_equipment_vision()
+/mob/living/human/proc/update_equipment_vision()
 	flash_protection = FALSE
 	equipment_tint_total = FALSE
 	equipment_see_invis	= FALSE
@@ -58,7 +58,7 @@
 	if (istype(wear_mask, /obj/item/clothing/mask))
 		add_clothing_protection(wear_mask)
 
-/mob/living/carbon/human/proc/process_glasses(var/obj/item/clothing/glasses/G)
+/mob/living/human/proc/process_glasses(var/obj/item/clothing/glasses/G)
 	if (G && G.active)
 		equipment_darkness_modifier += G.darkness_view
 		equipment_vision_flags |= G.vision_flags
@@ -70,7 +70,7 @@
 				equipment_see_invis = G.see_invisible
 
 
-/mob/living/carbon/human/verb/mob_sleep()
+/mob/living/human/verb/mob_sleep()
 	set name = "Sleep"
 	set category = "IC"
 
@@ -112,7 +112,7 @@
 					sleep_update()
 					usr.forceMove(locate(1,1,1))
 					return
-/mob/living/carbon/human/verb/mob_wakeup()
+/mob/living/human/verb/mob_wakeup()
 	set name = "Wake Up"
 	set category = "IC"
 
@@ -133,7 +133,7 @@
 					B.unbuckle_mob()
 			return
 //to keep the character sleeping
-/mob/living/carbon/human/proc/sleep_update()
+/mob/living/human/proc/sleep_update()
 	if (!inducedSSD)
 		return
 	else
@@ -142,7 +142,7 @@
 			sleep_update()
 			return
 
-/mob/living/carbon/human/handle_mutations_and_radiation()
+/mob/living/human/handle_mutations_and_radiation()
 	get_rads_from_equipment()
 
 	if (world_radiation > 125)
@@ -218,7 +218,7 @@
 		else if (radiation > 750)
 			radiation = 750
 
-/mob/living/carbon/human/proc/get_rads_from_equipment()
+/mob/living/human/proc/get_rads_from_equipment()
 	if (head && head.radiation>0)
 		rad_act(head.radiation/6/1500)
 
@@ -238,13 +238,13 @@
 		rad_act(wear_mask.radiation/10/1500)
 
 
-/mob/living/carbon/human/proc/process_roofs()
+/mob/living/human/proc/process_roofs()
 	if (!client)
 		return
 	var/obj/structure/vehicleparts/frame/found = null
 
 	for (var/image/tmpimg in client.images)
-		if (tmpimg.icon == 'icons/obj/vehicleparts.dmi' || tmpimg.icon == 'icons/obj/vehicles96x96.dmi')
+		if (tmpimg.icon == 'icons/obj/vehicles/vehicleparts.dmi' || tmpimg.icon == 'icons/obj/vehicles/vehicles96x96.dmi')
 			client.images.Remove(tmpimg)
 	for (var/obj/structure/vehicleparts/frame/FRL in loc)
 		found = FRL
@@ -252,22 +252,30 @@
 		if (found)
 			if (FR.axis != found.axis && FR != found)
 				client.images += FR.roof
+				if (FR.roof_turret)
+					client.images += FR.roof_turret
 			else
 				client.images -= FR.roof
+				if (FR.roof_turret)
+					client.images -= FR.roof_turret
 		else
 			if (locate(FR) in view(client))
 				client.images += FR.roof
+				if (FR.roof_turret)
+					client.images += FR.roof_turret
 			else
 				client.images -= FR.roof
+				if (FR.roof_turret)
+					client.images -= FR.roof_turret
 
-/mob/living/carbon/human
+/mob/living/human
 	var/roofs_removed = TRUE
 
-/mob/living/carbon/human/proc/process_static_roofs()
+/mob/living/human/proc/process_static_roofs()
 	if (!client)
 		return
 	var/area/A = get_area(loc)
-	if (A.location == AREA_INSIDE)
+	if (A && A.location == AREA_INSIDE)
 		if (!roofs_removed)
 			client.images = (client.images ^ roofs_list)
 			roofs_removed = TRUE
@@ -276,10 +284,10 @@
 			client.images |= roofs_list
 			roofs_removed = FALSE
 
-/mob/living/carbon/human
+/mob/living/human
 	var/drowning = FALSE
 	var/water_overlay = FALSE
-/mob/living/carbon/human/proc/handle_drowning()
+/mob/living/human/proc/handle_drowning()
 	var/turf/T = get_turf(src)
 	if (!istype(T, /turf/floor/beach/water/deep))
 		drowning = FALSE

@@ -2,7 +2,6 @@
 	//Used to store information about the contents of the object.
 	var/list/matter
 	var/w_class // Size of the object.
-//	var/ //universal "unacidabliness" var, here so you can use it in any obj.
 	animate_movement = 2
 	var/throwforce = TRUE
 	var/sharp = FALSE		// whether this object cuts
@@ -25,6 +24,8 @@
 	var/obj/structure/cable/powersource = null
 	var/powered = FALSE
 	var/quality = 0
+	var/unacidable = FALSE	//For acids interactions, called at Chemistry-Reagents-Compounds.dm
+
 /obj/examine(mob/user,distance=-1)
 	..(user,distance)
 	return distance == -1 || (get_dist(src, user) <= distance)
@@ -96,7 +97,7 @@
 
 		// check for TK users
 
-/*		if (istype(usr, /mob/living/carbon/human))
+/*		if (istype(usr, /mob/living/human))
 			if (istype(usr.l_hand, /obj/item/tk_grab) || istype(usr.r_hand, /obj/item/tk_grab/))
 				if (!(usr in nearby))
 					if (usr.client && usr.using_object==src)
@@ -174,5 +175,5 @@
 		if(damtype == BURN)
 			. |= DAM_LASER
 
-/obj/proc/secondary_attack_self(mob/living/carbon/human/user)
+/obj/proc/secondary_attack_self(mob/living/human/user)
 	return

@@ -2,121 +2,115 @@
 /proc/alive_n_of_side(x)
 	. = 0
 	switch (x)
-		if (REDLINE)
-			for (var/mob/living/carbon/human/H in player_list)
-				if (H.original_job && H.stat != DEAD)
-					if (H.original_job.base_type_flag() == REDLINE)
-						BATTLEREPORT_VARIABLE_CHECK(H)
-							++.
-		if (REICH)
-			for (var/mob/living/carbon/human/H in player_list)
-				if (H.original_job && H.stat != DEAD)
-					if (H.original_job.base_type_flag() == REICH)
-						BATTLEREPORT_VARIABLE_CHECK(H)
-							++.
-
 		if (CIVILIAN)
-			for (var/mob/living/carbon/human/H in player_list)
+			for (var/mob/living/human/H in player_list)
 				if (H.original_job && H.stat != DEAD)
 					if (H.original_job.base_type_flag() == CIVILIAN)
 						BATTLEREPORT_VARIABLE_CHECK(H)
 							++.
 		if (BRITISH)
-			for (var/mob/living/carbon/human/H in player_list)
+			for (var/mob/living/human/H in player_list)
 				if (H.original_job && H.stat != DEAD)
 					if (H.original_job.base_type_flag() == BRITISH)
 						BATTLEREPORT_VARIABLE_CHECK(H)
 							++.
 		if (PIRATES)
-			for (var/mob/living/carbon/human/H in player_list)
+			for (var/mob/living/human/H in player_list)
 				if (H.original_job && H.stat != DEAD)
 					if (H.original_job.base_type_flag() == PIRATES)
 						BATTLEREPORT_VARIABLE_CHECK(H)
 							++.
 		if (SPANISH)
-			for (var/mob/living/carbon/human/H in player_list)
+			for (var/mob/living/human/H in player_list)
 				if (H.original_job && H.stat != DEAD)
 					if (H.original_job.base_type_flag() == SPANISH)
 						BATTLEREPORT_VARIABLE_CHECK(H)
 							++.
 		if (PORTUGUESE)
-			for (var/mob/living/carbon/human/H in player_list)
+			for (var/mob/living/human/H in player_list)
 				if (H.original_job && H.stat != DEAD)
 					if (H.original_job.base_type_flag() == PORTUGUESE)
 						BATTLEREPORT_VARIABLE_CHECK(H)
 							++.
 		if (FRENCH)
-			for (var/mob/living/carbon/human/H in player_list)
+			for (var/mob/living/human/H in player_list)
 				if (H.original_job && H.stat != DEAD)
 					if (H.original_job.base_type_flag() == FRENCH)
 						BATTLEREPORT_VARIABLE_CHECK(H)
 							++.
 		if (INDIANS)
-			for (var/mob/living/carbon/human/H in player_list)
+			for (var/mob/living/human/H in player_list)
 				if (H.original_job && H.stat != DEAD)
 					if (H.original_job.base_type_flag() == INDIANS)
 						BATTLEREPORT_VARIABLE_CHECK(H)
 							++.
 		if (DUTCH)
-			for (var/mob/living/carbon/human/H in player_list)
+			for (var/mob/living/human/H in player_list)
 				if (H.original_job && H.stat != DEAD)
 					if (H.original_job.base_type_flag() == DUTCH)
 						BATTLEREPORT_VARIABLE_CHECK(H)
 							++.
 		if (JAPANESE)
-			for (var/mob/living/carbon/human/H in player_list)
+			for (var/mob/living/human/H in player_list)
 				if (H.original_job && H.stat != DEAD)
 					if (H.original_job.base_type_flag() == JAPANESE)
 						BATTLEREPORT_VARIABLE_CHECK(H)
 							++.
 		if (RUSSIAN)
-			for (var/mob/living/carbon/human/H in player_list)
+			for (var/mob/living/human/H in player_list)
 				if (H.original_job && H.stat != DEAD)
 					if (H.original_job.base_type_flag() == RUSSIAN)
 						BATTLEREPORT_VARIABLE_CHECK(H)
 							++.
 		if (ROMAN)
-			for (var/mob/living/carbon/human/H in player_list)
+			for (var/mob/living/human/H in player_list)
 				if (H.original_job && H.stat != DEAD)
 					if (H.original_job.base_type_flag() == ROMAN)
 						BATTLEREPORT_VARIABLE_CHECK(H)
 							++.
 		if (GREEK)
-			for (var/mob/living/carbon/human/H in player_list)
+			for (var/mob/living/human/H in player_list)
 				if (H.original_job && H.stat != DEAD)
 					if (H.original_job.base_type_flag() == GREEK)
 						BATTLEREPORT_VARIABLE_CHECK(H)
 							++.
 		if (ARAB)
-			for (var/mob/living/carbon/human/H in player_list)
+			for (var/mob/living/human/H in player_list)
 				if (H.original_job && H.stat != DEAD)
 					if (H.original_job.base_type_flag() == ARAB)
 						BATTLEREPORT_VARIABLE_CHECK(H)
 							++.
 		if (GERMAN)
-			for (var/mob/living/carbon/human/H in player_list)
+			for (var/mob/living/human/H in player_list)
 				if (H.original_job && H.stat != DEAD)
 					if (H.original_job.base_type_flag() == GERMAN)
 						BATTLEREPORT_VARIABLE_CHECK(H)
 							++.
 
 		if (AMERICAN)
-			for (var/mob/living/carbon/human/H in player_list)
+			for (var/mob/living/human/H in player_list)
 				if (H.original_job && H.stat != DEAD)
 					if (H.original_job.base_type_flag() == AMERICAN)
 						BATTLEREPORT_VARIABLE_CHECK(H)
 							++.
 		if (VIETNAMESE)
-			for (var/mob/living/carbon/human/H in player_list)
+			for (var/mob/living/human/H in player_list)
 				if (H.original_job && H.stat != DEAD)
 					if (H.original_job.base_type_flag() == VIETNAMESE)
 						BATTLEREPORT_VARIABLE_CHECK(H)
 							++.
 
 		if (CHINESE)
-			for (var/mob/living/carbon/human/H in player_list)
+			for (var/mob/living/human/H in player_list)
 				if (H.original_job && H.stat != DEAD)
 					if (H.original_job.base_type_flag() == CHINESE)
+						BATTLEREPORT_VARIABLE_CHECK(H)
+							++.
+
+		if (FILIPINO)
+			for (var/mob/living/human/H in player_list)
+				if (H.original_job && H.stat != DEAD)
+					if (H.original_job.base_type_flag() == FILIPINO)
 						BATTLEREPORT_VARIABLE_CHECK(H)
 							++.
 // get every single mob of x faction: useful for counting deceased & gibbed mobs. More efficient than n_of_side()
@@ -124,11 +118,6 @@
 /proc/total_n_of_side(x)
 	. = 0
 	switch (x)
-		if (REDLINE)
-			return dead_redline.len + heavily_injured_redline.len + alive_redline.len
-		if (REICH)
-			return dead_reich.len + heavily_injured_reich.len + alive_reich.len
-
 		if (BRITISH)
 			return dead_british.len + heavily_injured_british.len + alive_british.len
 		if (PIRATES)
@@ -163,3 +152,5 @@
 			return dead_vietnamese.len + heavily_injured_vietnamese.len + alive_vietnamese.len
 		if (CHINESE)
 			return dead_chinese.len + heavily_injured_chinese.len + alive_chinese.len
+		if (FILIPINO)
+			return dead_filipino.len + heavily_injured_filipino.len + alive_filipino.len
