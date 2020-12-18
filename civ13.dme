@@ -690,7 +690,6 @@
 #include "code\modules\metro\roles\clothing_reich.dm"
 #include "code\modules\metro\roles\clothing_VDNKh.dm"
 #include "code\modules\metro\roles\clothing_wormcult.dm"
-#include "code\modules\metro\roles\redline.dm"
 #include "code\modules\mob\animations.dm"
 #include "code\modules\mob\bloody_hands.dm"
 #include "code\modules\mob\death.dm"
