@@ -682,6 +682,8 @@
 #include "code\modules\metro\propaganda.dm"
 #include "code\modules\metro\reagent_containers.dm"
 #include "code\modules\metro\reagents.dm"
+#include "code\modules\metro\signs.dm"
+#include "code\modules\metro\vents.dm"
 #include "code\modules\metro\mobs\farm_animals.dm"
 #include "code\modules\metro\mobs\mutants.dm"
 #include "code\modules\metro\roles\clothing_civilian.dm"
@@ -997,5 +999,6 @@
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
 #include "maps\metro13\Bridge.dmm"
+#include "maps\metro13\VDNKh.dmm"
 #include "maps\nomads\nomads_pangea.dmm"
 // END_INCLUDE
