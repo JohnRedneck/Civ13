@@ -88,5 +88,32 @@
 	mob_size = MOB_LARGE
 	faction = "neutral"
 
+/mob/living/simple_animal/hostile/mutants/large/librarian
+	name = "Librarian"
+	desc = "A huge, quasi-intelligent creature so named by the metro-dwellers due to their habitat - the Moscow State Library."
+	icon = 'icons/mob/animal_64.dmi'
+	icon_state = "librarian"
+	icon_living = "librarian"
+	icon_dead = "librarian_dead"
+	icon_gib = "librarian_dead"
+	speak = list("Uhraaah!","Ouuhh!","Oooraahh!")
+	speak_emote = list("roars", "sniffs")
+	emote_hear = list("screams")
+	emote_see = list("stares deeply", "stares into your eyes")
+	speak_chance = TRUE
+	//turns_per_move = 4
+	move_to_delay = 6
+	see_in_dark = 10
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	response_help  = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm   = "pokes"
+	stop_automated_movement_when_pulled = FALSE
+	maxHealth = 2000
+	health = 2000
+	melee_damage_lower = 100
+	melee_damage_upper = 200
+	mob_size = MOB_LARGE
+	faction = "neutral"
 
 
