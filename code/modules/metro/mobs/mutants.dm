@@ -91,7 +91,7 @@
 /mob/living/simple_animal/hostile/mutants/large/librarian
 	name = "Librarian"
 	desc = "A huge, quasi-intelligent creature so named by the metro-dwellers due to their habitat - the Moscow State Library."
-	icon = 'icons/mob/animal_64.dmi'
+	icon = 'icons/mob/animals_32x64.dmi'
 	icon_state = "librarian"
 	icon_living = "librarian"
 	icon_dead = "librarian_dead"
