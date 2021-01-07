@@ -7,7 +7,7 @@
 	on_state = "lantern2_on"
 	off_state = "lantern2"
 	value = 12
-	fuel = 0 //starts empty
+	fuel = 10 //starts empty
 	unlimited = FALSE
 
 /obj/item/flashlight/littlecandle
@@ -19,5 +19,5 @@
 	on_state = "littlecandle_on"
 	off_state = "littlecandle"
 	value = 12
-	fuel = 0 //starts empty
+	fuel = 10 //starts empty
 	unlimited = FALSE

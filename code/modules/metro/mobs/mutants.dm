@@ -119,7 +119,7 @@
 /mob/living/simple_animal/hostile/mutants/large/demon
 	name = "Demon"
 	desc = "A creature with a knobbly spine, short tail, and three pairs of limbs: two prehensile arms, two legs and two large wings."
-	icon = 'icons/mob/animals_64.dmi'
+	icon = 'icons/mob/animal_64.dmi'
 	icon_state = "demon"
 	icon_living = "demon"
 	icon_dead = "demon_dead"
@@ -144,7 +144,7 @@
 	mob_size = MOB_LARGE
 	faction = "neutral"
 
-/mob/living/simple_animal/hostile/mutants/huanimal
+/mob/living/simple_animal/hostile/mutants/humanimal
 	name = "Humanimal"
 	desc = "A bipedal mutant with pale, dirty skin and no body hair..."
 	icon = 'icons/mob/animal.dmi'

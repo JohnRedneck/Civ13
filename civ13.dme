@@ -686,6 +686,7 @@
 #include "code\modules\metro\vents.dm"
 #include "code\modules\metro\mobs\farm_animals.dm"
 #include "code\modules\metro\mobs\mutants.dm"
+#include "code\modules\metro\mobs\spawner.dm"
 #include "code\modules\metro\roles\clothing_civilian.dm"
 #include "code\modules\metro\roles\clothing_hanza.dm"
 #include "code\modules\metro\roles\clothing_redline.dm"
